@@ -1,12 +1,17 @@
 {
-  "name": "demo-app",
-  "version": "0.1.0",
+  "name": "cesar-client",
+  "version": "1.0.0",
   "private": true,
+  "proxy": "http://localhost:5000/",
   "dependencies": {
+    "express": "^4.16.4",
+    "formik": "^1.5.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "storybook": "^1.0.0",
+    "yup": "^0.26.10"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,0 +1,13 @@
+.Login.Title {
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.Login.Form {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  width: 200px;
+  margin: auto;
+  padding: 50px 30px 40px;
+}
