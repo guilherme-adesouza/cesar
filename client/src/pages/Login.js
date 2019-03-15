@@ -3,7 +3,6 @@ import './Login.css';
 import React, {Component} from 'react';
 import * as yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {withRouter} from "react-router-dom";
 
 import {CSField} from '../components/CSField';

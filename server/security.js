@@ -1,7 +1,11 @@
 const bcrypt = require('bcrypt');
 
-function encryptPassword(password) {
-  return bcrypt.hashSync(password, 10);
+function generateToken(user){
+  return encrypt(user.name);
+}
+
+function encrypt(string) {
+  return bcrypt.hashSync(string, 10);
 }
 
 function compareEncryptPassword(password, reqPassword) {
@@ -9,6 +13,7 @@ function compareEncryptPassword(password, reqPassword) {
 }
 
 module.exports = {
-  encryptPassword,
+  generateToken,
+  encrypt,
   compareEncryptPassword
 }

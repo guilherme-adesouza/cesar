@@ -1,4 +1,4 @@
-const utils = require('./utils');
+const security = require('./security');
 
 module.exports = function(app, db){
 
@@ -6,8 +6,9 @@ module.exports = function(app, db){
     const credentials = req.body;
 
     db.getUserByName({name: credentials.username}, (user) => {
-      if(utils.compareEncryptPassword(user.password, credentials.password)) {
-        res.send('login success');
+      if(!!user && security.compareEncryptPassword(user.password, credentials.password)) {
+        res.cookie('cesar_session', security.generateToken(user), { maxAge: 1000 * 12});
+        res.send({message: 'login success'});
       } else {
         res.status(403).send({message: 'NOT OKAY MEN!'});
       }
