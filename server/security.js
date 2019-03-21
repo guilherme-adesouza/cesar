@@ -1,7 +1,16 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-function generateToken(user){
-  return encrypt(user.name);
+const secretKey = 'esquizofrenia_acrombatica';
+const jwt_name = 'cesar_session';
+
+function generateJWT(username){
+  const expires = Date.now() + parseInt(process.env.JWT_EXPIRATION_MS);
+  return jwt.sign(JSON.stringify({username, expires}), secretKey);
+}
+
+function decodeJWT(token){
+  return jwt.verify(token, secretKey)
 }
 
 function encrypt(string) {
@@ -13,7 +22,10 @@ function compareEncryptPassword(password, reqPassword) {
 }
 
 module.exports = {
-  generateToken,
+  secretKey,
+  jwt_name,
+  generateJWT,
+  decodeJWT,
   encrypt,
   compareEncryptPassword
 }

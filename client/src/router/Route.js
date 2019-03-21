@@ -1,22 +1,35 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import {
+  Route,
+  Redirect,
+} from "react-router-dom";
 
-const auth = {
-  isAuthenticated: false,
+export class auth {
+  static isAuthenticated = false;
   authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100)
-  },
+    this.isAuthenticated = true;
+  };
   signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
-}
+    this.isAuthenticated = false;
+  };
+};
 
-export const PrivateRoute = ({ component: Component, ...rest}) => (
-  <Route {...rest} render={(props) => (
-    auth.isAuthenticated === true
-      ? <Component {...props} />
-      : <Redirect to='/login' />
-  )} />
-)
+export function PrivateRoute({ component: Component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        auth.isAuthenticated ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}

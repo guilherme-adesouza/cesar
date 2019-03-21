@@ -18,7 +18,7 @@ const getUserById = (params) => {
   })
 }
 
-const getUserByName = async (params, cb) => {
+const getUserByName = (params, cb) => {
   pool.query('SELECT * FROM player WHERE name = $1', [params.name], (error, results) => {
     if (error) {
       throw error

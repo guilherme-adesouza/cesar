@@ -1,6 +1,5 @@
-.Login.Title {
-  font-family: monospace;
-  text-transform: uppercase;
+.LoginPage {
+  padding: 10vh 0;
 }
 
 .Login.Form {
@@ -10,4 +9,12 @@
   width: 200px;
   margin: auto;
   padding: 50px 30px 40px;
+}
+
+.Dark .Login.Form {
+  border-color: transparent;
+}
+
+.LoginPage .Footer {
+  margin: 10vh;
 }

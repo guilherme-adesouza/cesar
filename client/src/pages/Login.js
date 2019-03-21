@@ -2,10 +2,11 @@ import './Login.css';
 
 import React, {Component} from 'react';
 import * as yup from 'yup';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import {withRouter} from "react-router-dom";
+import { Formik, Form } from 'formik';
+import {Redirect, withRouter} from "react-router-dom";
 
-import {CSField} from '../components/CSField';
+import Field from '../components/form/Field';
+import CSButton from '../components/form/CSButton';
 import UserService from '../service/UserService';
 
 const LoginSchema = yup.object().shape({
@@ -15,45 +16,49 @@ const LoginSchema = yup.object().shape({
 
 class Login extends Component {
 
-  state = {
-    message: '',
-  };
+  state = { redirectToReferrer: false };
 
   attemptLogin = async (values, actions) => {
     try {
       await UserService.login(values);
-      this.props.history.push("/home");
+      this.setState({redirectToReferrer: true});
     } catch(e) {
-      //handle error
       console.error('error trying to login', e);
     }
   }
 
   initProfile = LoginSchema.default();
 
-  render(){
+  render() {
+    let { from } = this.props.location.state || { from: { pathname: "/home" } };
+    let { redirectToReferrer } = this.state;
+
+    if (redirectToReferrer) return <Redirect to={from} />;
+
     return (
       <div className="LoginPage">
-        <h1 className="Login Title">Cesar</h1>
-        <Formik
-          validationSchema={LoginSchema}
-          initialValues={this.initProfile}
-          onSubmit={this.attemptLogin}>
-          <Form>
-            <div className="Login Form">
-              <div>
-                <Field title="Usuário/Email" type="text" name="username" component={CSField}/>
+        <main>
+          <h1 className="Login Title">Cesar</h1>
+          <p>Sistema para controle de conquistas</p>
+          <Formik
+            validationSchema={LoginSchema}
+            initialValues={this.initProfile}
+            onSubmit={this.attemptLogin}>
+            <Form>
+              <div className="Login Form Contrast">
+                <Field title="Usuário/Email" type="text" name="username"/>
+                <Field title="Senha" type="password" name="password"/>
+                <CSButton type="submit" className="Dark">Login</CSButton>
               </div>
-              <div>
-                <Field title="Senha" type="password" name="password" component={CSField} />
-              </div>
-              <button type="submit">Login</button>
-            </div>
-          </Form>
-        </Formik>
+            </Form>
+          </Formik>
+        </main>
+        <footer className="Footer">
+          <p>Criado por <a href="https://github.com/guilherme-adesouza" target="_blank" rel="external nofollow noopener noreferrer">Guilherme Souza</a> e <a href="https://github.com/JuniorLenhart" target="_blank" rel="external nofollow noopener noreferrer">Júnior Lenhart</a></p>
+        </footer>
       </div>
     )
   }
 }
 
-export default withRouter(Login);
+export default Login;

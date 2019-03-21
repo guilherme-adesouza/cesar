@@ -7,6 +7,9 @@ const db = require('./database');
 
 require('dotenv').config();
 
+var DBMigrate = require('db-migrate');
+var dbmigrate = DBMigrate.getInstance(true);
+
 const port = process.env.PORT;
 
 app.use(cookieParser());
@@ -25,6 +28,7 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.listen(port, () => {
+  dbmigrate.up();
   console.log(`Cesar Server started!`)
   console.log(`Listening on port ${port}...`);
 });

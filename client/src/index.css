@@ -9,12 +9,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body.dark {
-  background-color: #343441;
-  color: #fff;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+    color: unset;
+}
+
+/*dark theme*/
+.Dark {
+  background-color: #282c34;
+  color: #fff;
+}
+
+.Contrast {
+  color: #000;
 }
