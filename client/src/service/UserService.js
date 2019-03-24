@@ -1,5 +1,3 @@
-import {auth} from '../router/Route';
-
 class UserService {
   static login = async(data) => {
     return await fetch('/api/login', {
@@ -12,7 +10,6 @@ class UserService {
     .then(async (response) => {
       const json = await response.json();
       if(response.status === 200){
-        auth.authenticate();
         return json;
       } else {
         throw Error(json.message);

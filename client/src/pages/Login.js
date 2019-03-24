@@ -3,7 +3,7 @@ import './Login.css';
 import React, {Component} from 'react';
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
-import {Redirect, withRouter} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 import Field from '../components/form/Field';
 import CSButton from '../components/form/CSButton';
@@ -30,7 +30,7 @@ class Login extends Component {
   initProfile = LoginSchema.default();
 
   render() {
-    let { from } = this.props.location.state || { from: { pathname: "/home" } };
+    let from = this.props.location.state ? this.props.location.state.from || { pathname: "/home" } : { pathname: "/home" };
     let { redirectToReferrer } = this.state;
 
     if (redirectToReferrer) return <Redirect to={from} />;

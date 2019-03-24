@@ -4,32 +4,44 @@ import {
   Redirect,
 } from "react-router-dom";
 
-export class auth {
-  static isAuthenticated = false;
-  authenticate(cb) {
-    this.isAuthenticated = true;
-  };
-  signout(cb) {
-    this.isAuthenticated = false;
-  };
-};
+import UserService from '../service/UserService';
+
+export class PrivateComponent extends React.Component {
+
+  state = {
+    loading: true,
+    isAuthenticated: false,
+  }
+
+  componentDidMount() {
+    this.doAuthenticate();
+  }
+
+  async doAuthenticate(){
+    const isAuthenticated = await UserService.verifyAuth();
+    this.setState({
+      loading: false,
+      isAuthenticated,
+    });
+  }
+
+  render() {
+    const { Component, ...props} = this.props;
+    if (this.state.loading) {
+      return <div>LOADING</div>;
+    } else {
+      return (
+        <div>
+          {!this.state.isAuthenticated && <Redirect to={{ pathname: '/login', state: { from: this.props.location } }} />}
+          <Component {...props} />
+        </div>
+      )
+    }
+  }
+}
 
 export function PrivateRoute({ component: Component, ...rest }) {
   return (
-    <Route
-      {...rest}
-      render={props =>
-        auth.isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  );
+    <Route {...rest} render={props => (<PrivateComponent Component={Component} {...props}/>)}/>
+  )
 }
