@@ -1,4 +1,4 @@
-import './Home.css';
+import './Player.css';
 
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
@@ -6,10 +6,10 @@ import {withRouter} from "react-router-dom";
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 
-class Home extends Component {
+class Player extends Component {
   render(){
     return(
-      <div className="HomePage">
+      <div className="PlayerPage">
         <Sidebar />
         <Header />
       </div>
@@ -17,4 +17,4 @@ class Home extends Component {
   }
 }
 
-export default withRouter(Home);
+export default withRouter(Player);

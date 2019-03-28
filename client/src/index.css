@@ -12,16 +12,43 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  background-color: #6e6e6e;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
 a {
-    color: unset;
+  color: unset;
+}
+
+p {
+  line-height: 1.4;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.Fausto404 {
+  width: 50vw;
+}
+
+.HideLink:not(:hover) {
+  text-decoration: none;
+}
+
+.Hover {
+  transition: background-color 0.3s ease-out;
 }
 
 /*dark theme*/
 .Dark {
   background-color: #282c34;
   color: #fff;
+}
+
+.Dark .Hover:hover {
+  background-color: #62605d;
 }
 
 .Contrast {

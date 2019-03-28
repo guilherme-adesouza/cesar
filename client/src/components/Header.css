@@ -1,0 +1,20 @@
+.Header {
+  width: calc(100% - 20vw - 40px);
+  position: absolute;
+  right: 0;
+  text-align: left;
+  padding: 15px 20px;
+  display: flex;
+}
+
+.Header .BreadcumbTitle {
+  width: 70%;
+}
+
+.Header .Username {
+  width: 20%;
+}
+
+.Header .UserPhoto {
+  width: 10%;
+}

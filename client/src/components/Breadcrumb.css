@@ -1,0 +1,13 @@
+.BreadcumbTitle ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.BreadcumbTitle li {
+  display: block;
+}
+
+.BreadcumbTitle .Separator {
+  padding: 0 5px;
+}

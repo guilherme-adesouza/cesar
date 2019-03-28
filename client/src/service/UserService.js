@@ -1,32 +1,22 @@
+import Service from './Service';
+
 class UserService {
   static login = async(data) => {
-    return await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then(async (response) => {
-      const json = await response.json();
-      if(response.status === 200){
-        return json;
-      } else {
-        throw Error(json.message);
-      }
-    });
+    return await Service.postJSON('/api/login', data);
   }
 
   static verifyAuth = async() => {
-    return await fetch('/api/verify-auth')
-    .then(async (response) => {
-      const json = await response.json();
-      return json.auth;
-    });
+    const json =  await Service.getJSON('/api/verify-auth');
+    return json.auth;
+  }
+
+  static verifyMaster = async() => {
+    const json =  await Service.getJSON('/api/verify-auth?checkMaster=true');
+    return json.auth;
   }
 
   static logout = async(data) => {
-
+    await Service.get('/api/logout');
   }
 }
 

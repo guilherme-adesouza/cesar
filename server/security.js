@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 const secretKey = 'esquizofrenia_acrombatica';
 const jwt_name = 'cesar_session';
 
-function generateJWT(username){
+function generateJWT(user){
   const expires = Date.now() + parseInt(process.env.JWT_EXPIRATION_MS);
-  return jwt.sign(JSON.stringify({username, expires}), secretKey);
+  return jwt.sign(JSON.stringify({user, expires}), secretKey);
 }
 
 function decodeJWT(token){

@@ -7,7 +7,7 @@ module.exports = function(app, db){
 
     db.getUserByName({name: credentials.username}, (user) => {
       if(!!user && security.compareEncryptPassword(user.password, credentials.password)) {
-        res.cookie('cesar_session', security.generateJWT(credentials.username), { httpOnly: true });
+        res.cookie('cesar_session', security.generateJWT(user), { httpOnly: true });
         res.send({message: 'login success'});
       } else {
         res.status(403).send({message: 'NOT OKAY MEN!'});
@@ -23,7 +23,11 @@ module.exports = function(app, db){
     const token = req.cookies.cesar_session;
     const jwt = !!token && security.decodeJWT(token);
     if (jwt && Date.now() < jwt.expires) {
-      res.send({auth: true});
+      if(req.query.checkMaster) {
+        res.send({auth: jwt.user.master});
+      } else {
+        res.send({auth: true});
+      }
     } else {
       res.clearCookie('cesar_session');
       res.send({auth: false});

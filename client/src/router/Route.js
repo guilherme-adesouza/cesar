@@ -4,6 +4,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import LoadingPage from '../pages/Loading';
 import UserService from '../service/UserService';
 
 export class PrivateComponent extends React.Component {
@@ -18,7 +19,7 @@ export class PrivateComponent extends React.Component {
   }
 
   async doAuthenticate(){
-    const isAuthenticated = await UserService.verifyAuth();
+    const isAuthenticated = this.props.masterRoute ? await UserService.verifyMaster() : await UserService.verifyAuth();
     this.setState({
       loading: false,
       isAuthenticated,
@@ -27,14 +28,16 @@ export class PrivateComponent extends React.Component {
 
   render() {
     const { Component, ...props} = this.props;
+    const redirectPath = this.props.masterRoute ? '/403' : '/login';
+
     if (this.state.loading) {
-      return <div>LOADING</div>;
+      return <LoadingPage />;
     } else {
       return (
-        <div>
-          {!this.state.isAuthenticated && <Redirect to={{ pathname: '/login', state: { from: this.props.location } }} />}
+        <React.Fragment>
+          {!this.state.isAuthenticated && <Redirect to={{ pathname: redirectPath, state: { from: this.props.location } }} />}
           <Component {...props} />
-        </div>
+        </React.Fragment>
       )
     }
   }
@@ -43,5 +46,11 @@ export class PrivateComponent extends React.Component {
 export function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route {...rest} render={props => (<PrivateComponent Component={Component} {...props}/>)}/>
+  )
+}
+
+export function MasterRoute({ component: Component, ...rest }) {
+  return (
+    <Route {...rest} render={props => (<PrivateComponent Component={Component} masterRoute={true} {...props}/>)}/>
   )
 }

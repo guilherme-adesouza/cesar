@@ -1,5 +1,6 @@
 .LoginPage {
   padding: 10vh 0;
+  height: calc(100% - 20vh);
 }
 
 .Login.Form {
@@ -16,5 +17,8 @@
 }
 
 .LoginPage .Footer {
-  margin: 10vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 20px;
 }
