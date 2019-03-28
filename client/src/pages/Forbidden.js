@@ -15,4 +15,4 @@ class Forbidden extends Component {
   }
 }
 
-export default NotFound;
+export default Forbidden;
