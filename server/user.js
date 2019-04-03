@@ -1,13 +1,14 @@
 const security = require('./security');
+const UserDAO = require('./dao/userDAO');
 
-module.exports = function(app, db){
+module.exports = function(app){
 
   app.post('/api/login', (req, res) => {
     const credentials = req.body;
 
-    db.getUserByName({name: credentials.username}, (user) => {
+    UserDAO.getUserByName(credentials.username, (user) => {
       if(!!user && security.compareEncryptPassword(user.password, credentials.password)) {
-        res.cookie('cesar_session', security.generateJWT(user), { httpOnly: true });
+        res.cookie(security.jwt_name, security.generateJWT(user), { httpOnly: true });
         res.send({message: 'login success'});
       } else {
         res.status(403).send({message: 'NOT OKAY MEN!'});
@@ -16,19 +17,22 @@ module.exports = function(app, db){
   });
 
   app.get('/api/logout', (req, res) => {
-    res.clearCookie('cesar_session');
+    res.clearCookie(security.jwt_name);
   });
 
   app.get('/api/verify-auth', (req, res) => {
-    const token = req.cookies.cesar_session;
+    const token = req.cookies[security.jwt_name];
     const jwt = !!token && security.decodeJWT(token);
     if (jwt && Date.now() < jwt.expires) {
       if(req.query.checkMaster) {
+        console.info('[AUTH] Master: ', jwt.user.master);
         res.send({auth: jwt.user.master});
       } else {
+        console.info('[AUTH]: OK');
         res.send({auth: true});
       }
     } else {
+      console.info('[AUTH]: FAILED');
       res.clearCookie('cesar_session');
       res.send({auth: false});
     }

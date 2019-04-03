@@ -8,7 +8,8 @@
 }
 
 .Sidebar .Logo {
-  padding: 15px 0;
+  padding: 25px 0;
+  height: 18px;
   border-bottom: 1px solid #484848;
 }
 
@@ -20,6 +21,6 @@
 .Sidebar .NavigationList .NavigationItem {
   display: block;
   text-align: left;
-  padding: 12px 10px 12px 20px;
+  padding: 14px 10px 14px 20px;
   font-size: 13px;
 }

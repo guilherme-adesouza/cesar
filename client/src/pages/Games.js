@@ -6,7 +6,7 @@ class GamesPage extends Component {
 
   render(){
     return (
-      
+        
     )
   }
 

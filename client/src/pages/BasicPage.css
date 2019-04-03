@@ -1,0 +1,12 @@
+.MainContent {
+  position: absolute;
+  right: 0;
+  width: calc(100% - 20vw);
+  height: 100%
+}
+
+.Content {
+  background: #2e384c;
+  height: calc(100% - 69px);
+  width: 100%;
+}

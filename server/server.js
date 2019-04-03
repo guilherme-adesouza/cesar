@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const db = require('./database');
 
 require('dotenv').config();
 
@@ -17,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //user requests
-require('./user')(app, db);
+require('./user')(app);
 
 app.get('/', (req, res) => {
   res.send('Cesar server running here!');
