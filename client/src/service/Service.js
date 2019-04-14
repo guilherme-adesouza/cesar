@@ -20,6 +20,24 @@ class Service {
     });
   }
 
+  static postFormData = async(url, formData) => {
+    return await fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+    .then(async (response) => {
+      const json = await response.json();
+      if(response.status === 200){
+        return json;
+      } else {
+        throw Error(json.message);
+      }
+    })
+    .catch(error => {
+        console.error('error trying to fetch ', url, error);
+    });
+  }
+
   static getJSON = async(url) => {
     return await fetch(url)
     .then(async (response) => {

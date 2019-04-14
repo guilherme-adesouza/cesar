@@ -5,9 +5,9 @@ import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 import {Redirect} from "react-router-dom";
 
-import Field from '../components/form/Field';
-import CSButton from '../components/form/CSButton';
-import UserService from '../service/UserService';
+import Field from '../../components/form/Field';
+import CSButton from '../../components/form/CSButton';
+import UserService from '../../service/UserService';
 
 const LoginSchema = yup.object().shape({
   username: yup.string().required().default(''),

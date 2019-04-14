@@ -4,13 +4,14 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import LoadingPage from '../pages/Loading';
+import LoadingPage from '../pages/helper/Loading';
 import UserService from '../service/UserService';
 
 export class PrivateComponent extends React.Component {
 
   state = {
     loading: true,
+    isLogged: true,
     isAuthenticated: false,
   }
 
@@ -19,16 +20,21 @@ export class PrivateComponent extends React.Component {
   }
 
   async doAuthenticate(){
-    const isAuthenticated = this.props.masterRoute ? await UserService.verifyMaster() : await UserService.verifyAuth();
+    const isLogged = await UserService.verifyAuth();
+    let isAuthenticated = isLogged;
+    if(isLogged && this.props.masterRoute) {
+      isAuthenticated = await UserService.verifyMaster();
+    }
     this.setState({
       loading: false,
+      isLogged,
       isAuthenticated,
     });
   }
 
   render() {
     const { Component, ...props} = this.props;
-    const redirectPath = this.props.masterRoute ? '/403' : '/login';
+    const redirectPath = (this.state.isLogged && this.props.masterRoute) ? '/403' : '/login';
 
     if (this.state.loading) {
       return <LoadingPage />;

@@ -11,12 +11,14 @@ var dbmigrate = DBMigrate.getInstance(true);
 
 const port = process.env.PORT;
 
+app.use(express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //user requests
 require('./user')(app);
+require('./upload')(app);
 
 app.get('/', (req, res) => {
   res.send('Cesar server running here!');

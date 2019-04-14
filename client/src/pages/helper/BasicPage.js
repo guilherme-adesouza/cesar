@@ -2,8 +2,8 @@ import './BasicPage.css';
 
 import React, { Component } from 'react';
 
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
+import Sidebar from '../../components/Sidebar';
+import Header from '../../components/Header';
 
 class BasicPage extends Component {
   render(){

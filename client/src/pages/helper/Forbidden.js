@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Gandalf from '../resources/images/you-shall-not-pass-403.gif';
+import Gandalf from '../../resources/images/you-shall-not-pass-403.gif';
 
 class Forbidden extends Component {
 

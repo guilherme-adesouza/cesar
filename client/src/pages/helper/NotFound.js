@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Fausto from '../resources/images/fausto_404.gif';
+import Fausto from '../../resources/images/fausto_404.gif';
 
 class NotFound extends Component {
 

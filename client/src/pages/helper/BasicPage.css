@@ -1,8 +1,8 @@
 .MainContent {
   position: absolute;
   right: 0;
-  width: calc(100% - 20vw);
-  height: 100%
+  width: calc(100% - 205px);
+  height: 100%;
 }
 
 .Content {

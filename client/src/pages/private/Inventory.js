@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import BasicPage from './BasicPage';
+import BasicPage from '../helper/BasicPage';
 
 class Inventory extends Component {
 

@@ -3,9 +3,7 @@ import './Home.css';
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
 
-import BasicPage from './BasicPage';
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
+import BasicPage from '../helper/BasicPage';
 
 class Home extends Component {
   render(){

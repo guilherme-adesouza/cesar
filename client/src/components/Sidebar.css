@@ -1,10 +1,8 @@
 .Sidebar {
   position: absolute;
-  width: 20vw;
+  width: 205px;
   height: 100%;
   border-right: 1px solid #484848;
-  min-width: 70px;
-  max-width: 250px;
 }
 
 .Sidebar .Logo {
