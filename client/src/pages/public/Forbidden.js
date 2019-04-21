@@ -7,7 +7,7 @@ class Forbidden extends Component {
     const {location} = this.props;
     return (
       <div className="ForbiddenPage">
-        <h1 className="Title">Errou!</h1>
+        <h1 className="Title">Você não tem poder aqui!</h1>
         <img src={Gandalf} alt="gandalf_403" className="404"/>
         <p>Erro 403: Você não tem permissão para acessar <code><span className="nowrap">{location.pathname}</span></code></p>
       </div>

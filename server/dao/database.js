@@ -19,11 +19,6 @@ const executeQuery = (query, cb) => {
   })
 }
 
-const insertQuery = (params, cb) => {
-
-};
-
 module.exports = {
-  executeQuery,
-  insertQuery
+  executeQuery
 }

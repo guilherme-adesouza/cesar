@@ -1,18 +1,22 @@
 const dao = require('./dao');
+const BasicDAO = require('./basicDAO');
 
-const table = 'player';
+class UserDAO extends BasicDAO {
 
-class UserDAO  {
+  constructor(props) {
+    super('player')
+  }
 
-  static getUserById(id, cb) {
-    const params = {id};
-    return dao.selectOne({table, params}, cb);
-  };
-
-  static getUserByName(name, cb) {
+  getByName(name, cb) {
     const params = {name};
-    return dao.selectOne({table, params}, cb);
+    return dao.selectOne({table: this.table, params}, cb);
   };
+
+  getByEmail(email, cb) {
+    const params = {email};
+    return dao.selectOne({table: this.table, params}, cb);
+  };
+
 }
 
 module.exports = UserDAO;

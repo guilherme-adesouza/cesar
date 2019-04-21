@@ -17,8 +17,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //user requests
-require('./user')(app);
-require('./upload')(app);
+require('./controller/user')(app);
+require('./controller/plataform')(app);
+require('./utils/upload')(app);
 
 app.get('/', (req, res) => {
   res.send('Cesar server running here!');

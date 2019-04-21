@@ -4,7 +4,8 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import LoadingPage from '../pages/helper/Loading';
+import BasicPage from '../pages/helper/BasicPage';
+import LoadingPage from '../pages/public/Loading';
 import UserService from '../service/UserService';
 
 export class PrivateComponent extends React.Component {
@@ -42,7 +43,9 @@ export class PrivateComponent extends React.Component {
       return (
         <React.Fragment>
           {!this.state.isAuthenticated && <Redirect to={{ pathname: redirectPath, state: { from: this.props.location } }} />}
-          <Component {...props} />
+          <BasicPage>
+            <Component {...props} />
+          </BasicPage>
         </React.Fragment>
       )
     }
