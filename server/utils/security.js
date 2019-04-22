@@ -5,7 +5,7 @@ const secretKey = 'esquizofrenia_acrombatica';
 const jwt_name = 'cesar_session';
 
 function generateJWT(user){
-  const expires = Date.now() + parseInt(process.env.JWT_EXPIRATION_MS);
+  const expires = Date.now() + (parseInt(process.env.JWT_EXPIRATION_MINUTES) * 1000 * 60);
   return jwt.sign(JSON.stringify({user, expires}), secretKey);
 }
 

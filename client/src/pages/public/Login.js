@@ -45,7 +45,7 @@ class Login extends Component {
             initialValues={this.initProfile}
             onSubmit={this.attemptLogin}>
             <Form>
-              <div className="Login Form Contrast">
+              <div className="Login Form">
                 <Field title="Usuário/Email" type="text" name="username"/>
                 <Field title="Senha" type="password" name="password"/>
                 <CSButton type="submit" className="Dark">Login</CSButton>

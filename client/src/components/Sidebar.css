@@ -2,13 +2,22 @@
   position: absolute;
   width: 205px;
   height: 100%;
-  border-right: 1px solid #484848;
 }
 
 .Sidebar .Logo {
-  padding: 25px 0;
-  height: 18px;
-  border-bottom: 1px solid #484848;
+  padding: 13px 16px 16px;
+  height: 39px;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+.Sidebar .Logo a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.Sidebar .Logo img {
+  padding: 0px 5px;
 }
 
 .Sidebar .NavigationList {
@@ -17,8 +26,13 @@
 }
 
 .Sidebar .NavigationList .NavigationItem {
-  display: block;
+  display: flex;
+  align-items: center;
   text-align: left;
   padding: 14px 10px 14px 20px;
   font-size: 13px;
+}
+
+.Sidebar .NavigationList .NavigationItem > *:not(:last-child) {
+    padding-right: 15px;
 }

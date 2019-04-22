@@ -5,6 +5,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,12 +34,24 @@ p {
   width: 50vw;
 }
 
-.HideLink:not(:hover) {
+.HideLink {
   text-decoration: none;
 }
 
 .Hover {
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+
+.Shadow {
+  box-shadow: 0px 0px 21px #161616
+}
+
+.ThemeBackground {
+  background-color: #401C19;
+}
+
+.ThemeColor {
+  color: #401C19;
 }
 
 /*dark theme*/
@@ -48,7 +61,7 @@ p {
 }
 
 .Dark .Hover:hover {
-  background-color: #62605d;
+  background-color: #5b5c60;
 }
 
 .Contrast {

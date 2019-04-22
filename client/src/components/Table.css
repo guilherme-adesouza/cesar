@@ -1,0 +1,19 @@
+.Table {
+  border-collapse: collapse;
+  margin: auto;
+  width: 100%;
+}
+
+.Table th {
+  text-transform: capitalize;
+}
+
+.Table td,
+.Table th {
+  padding: 8px;
+  text-align: left;
+}
+
+.Table td {
+  border-top: 1px solid #48201d;
+}

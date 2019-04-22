@@ -6,7 +6,15 @@
 }
 
 .Content {
-  background: #2e384c;
+  background: #2f323b;
   height: calc(100% - 69px);
-  width: 100%;
+  width: 80%;
+  padding: 0 10%;
+  box-shadow: inset 0px 0px 15px #161616;
+  overflow-y: auto;
+}
+
+.ContentTitle {
+  padding: 20px 0;
+  text-align: left;
 }

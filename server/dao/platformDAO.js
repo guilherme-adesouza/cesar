@@ -1,12 +1,12 @@
 const dao = require('./dao');
 const BasicDAO = require('./basicDAO');
 
-class PlataformDAO extends BasicDAO {
+class PlatformDAO extends BasicDAO {
 
   constructor(props) {
-    super('plataform')
+    super('platform')
   }
 
 }
 
-module.exports = PlataformDAO;
+module.exports = PlatformDAO;

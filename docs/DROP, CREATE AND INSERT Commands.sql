@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS game_has_type CASCADE;
 DROP TABLE IF EXISTS account_has_game CASCADE;
 DROP TABLE IF EXISTS achievements CASCADE;
 DROP TABLE IF EXISTS player CASCADE;
-DROP TABLE IF EXISTS plataform CASCADE;
+DROP TABLE IF EXISTS platform CASCADE;
 DROP TABLE IF EXISTS status CASCADE;
 DROP TABLE IF EXISTS type CASCADE;
 DROP TABLE IF EXISTS game CASCADE;
@@ -18,9 +18,9 @@ id SERIAL
 , PRIMARY KEY (id)
 );
 
-CREATE TABLE plataform (
+CREATE TABLE platform (
 id SERIAL
-, plataform TEXT NOT NULL
+, platform TEXT NOT NULL
 , img TEXT
 , PRIMARY KEY (id)
 );
@@ -41,14 +41,14 @@ id SERIAL
 CREATE TABLE account (
 id SERIAL
 , player_id INTEGER NOT NULL
-, plataform_id INTEGER NOT NULL
+, platform_id INTEGER NOT NULL
 , account TEXT NOT NULL
 , nickname TEXT NOT NULL
 , link TEXT
 , points INTEGER
 , PRIMARY KEY (id)
 , FOREIGN KEY (player_id) REFERENCES player(id)
-, FOREIGN KEY (plataform_id) REFERENCES plataform(id)
+, FOREIGN KEY (platform_id) REFERENCES platform(id)
 );
 
 CREATE TABLE game (
@@ -95,18 +95,18 @@ id SERIAL
 INSERT INTO player VALUES (default, 'Fernando Augusto Giordani', 'esquizofrenia-acrumbática-maluco...nao-é-brinquedo-não', 'GORDAN', 'fernando.a.giordani@gmail.com', 'link-avatar');
 SELECT * FROM player;
 
-/* -------------------------------- PLATAFORM */
-INSERT INTO plataform VALUES (default, 'Steam (PC)', 'logo-steam');
-INSERT INTO plataform VALUES (default, 'RetroAchievements', 'logo-retroachievements');
-INSERT INTO plataform VALUES (default, 'uPlay (PC)', 'logo-uplay');
-INSERT INTO plataform VALUES (default, 'Origin (PC)', 'logo-origin');
-INSERT INTO plataform VALUES (default, 'Xbox (PC/Xbox/Xbox 360/Xbox One)', 'logo-xbox');
-INSERT INTO plataform VALUES (default, 'PlayStation (PS3/PS4)', 'logo-playstation');
-INSERT INTO plataform VALUES (default, 'Gog.com (PC)', 'logo-gog.com');
-INSERT INTO plataform VALUES (default, 'In-Game', 'logo-ingame');
-INSERT INTO plataform VALUES (default, 'Mídia Física', 'logo-midiafisica');
-INSERT INTO plataform VALUES (default, 'Genérico', 'logo-generico');
-SELECT * FROM plataform;
+/* -------------------------------- platform */
+INSERT INTO platform VALUES (default, 'Steam (PC)', 'logo-steam');
+INSERT INTO platform VALUES (default, 'RetroAchievements', 'logo-retroachievements');
+INSERT INTO platform VALUES (default, 'uPlay (PC)', 'logo-uplay');
+INSERT INTO platform VALUES (default, 'Origin (PC)', 'logo-origin');
+INSERT INTO platform VALUES (default, 'Xbox (PC/Xbox/Xbox 360/Xbox One)', 'logo-xbox');
+INSERT INTO platform VALUES (default, 'PlayStation (PS3/PS4)', 'logo-playstation');
+INSERT INTO platform VALUES (default, 'Gog.com (PC)', 'logo-gog.com');
+INSERT INTO platform VALUES (default, 'In-Game', 'logo-ingame');
+INSERT INTO platform VALUES (default, 'Mídia Física', 'logo-midiafisica');
+INSERT INTO platform VALUES (default, 'Genérico', 'logo-generico');
+SELECT * FROM platform;
 
 /* -------------------------------- TYPE */
 INSERT INTO type VALUES (default, 'Action');
@@ -126,7 +126,7 @@ INSERT INTO type VALUES (default, 'Indie');
 INSERT INTO type VALUES (default, 'Mature');
 INSERT INTO type VALUES (default, 'Multiplayer');
 INSERT INTO type VALUES (default, 'Open World');
-INSERT INTO type VALUES (default, 'Plataform');
+INSERT INTO type VALUES (default, 'platform');
 INSERT INTO type VALUES (default, 'Psychological');
 INSERT INTO type VALUES (default, 'Puzzle');
 INSERT INTO type VALUES (default, 'Racing');
@@ -273,7 +273,7 @@ INSERT INTO game VALUES (default, 'Uncharted 3: Drake''s Deception', 0);
 --INSERT INTO game VALUES (default, 'Assassin''s Creed Brotherhood', 0);
 
 
-/* GAMES - ALL PLATAFORMS - 100% ACHIEVEMENTS */
+/* GAMES - ALL platformS - 100% ACHIEVEMENTS */
 INSERT INTO game VALUES (default, '#Have a Sticker', 0);
 INSERT INTO game VALUES (default, 'Absconding Zatwor', 0);
 INSERT INTO game VALUES (default, 'Ace of Words', 0);
@@ -427,18 +427,18 @@ INSERT INTO account VALUES (default, 1, 9, 'gordan92-media-fisica', 'GORDAN - Me
 INSERT INTO account VALUES (default, 1, 10, 'gordan92-genericos', 'GORDAN - Genéricos', 'link-account', 0);
 SELECT * FROM account;
 
-SELECT 
+SELECT
   a.id
-  , a.plataform_id
-  , p.plataform
+  , a.platform_id
+  , p.platform
   , a.nickname
   , CASE
-	WHEN plataform_id = 5
-	THEN p.plataform||' - ('||a.nickname||') - INSERT INTO account_has_game VALUES (default, '||a.id||', <game_id>, NOW(), TRUE, NULL, NULL);'
-	ELSE p.plataform||' - INSERT INTO account_has_game VALUES (default, '||a.id||', <game_id>, NOW(), TRUE, NULL, NULL);'
+	WHEN platform_id = 5
+	THEN p.platform||' - ('||a.nickname||') - INSERT INTO account_has_game VALUES (default, '||a.id||', <game_id>, NOW(), TRUE, NULL, NULL);'
+	ELSE p.platform||' - INSERT INTO account_has_game VALUES (default, '||a.id||', <game_id>, NOW(), TRUE, NULL, NULL);'
   END AS insert_ahg
-FROM account a 
-INNER JOIN plataform p ON (a.plataform_id = p.id);
+FROM account a
+INNER JOIN platform p ON (a.platform_id = p.id);
 
 INSERT INTO account_has_game VALUES (default, 1, 92, '2018-11-15', FALSE, '2018-11-15', NULL);
 INSERT INTO account_has_game VALUES (default, 7, 85, NOW(), TRUE, NULL, NULL);
@@ -691,4 +691,3 @@ UPDATE game SET name_visualization = 'The Fall' WHERE id IN (133);
 UPDATE game SET name_visualization = 'Lines X Free' WHERE id IN (150);
 UPDATE game SET name_visualization = 'Lines X' WHERE id IN (149);
 UPDATE game SET name_visualization = 'Lines Infinite' WHERE id IN (151);
-

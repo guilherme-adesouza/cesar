@@ -3,16 +3,16 @@
   padding: 10px 20px;
   height: 48px;
   display: flex;
-  border-bottom: 1px solid transparent;
 }
 
 .Header > * {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .Header .BreadcumbTitle,
 .Header .Username {
   line-height: 48px;
+  font-size: 15px;
 }
 
 .Header .BreadcumbTitle {
@@ -20,7 +20,7 @@
 }
 
 .Header .Username {
-  width: 30%;
+  width: calc(40% - 48px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

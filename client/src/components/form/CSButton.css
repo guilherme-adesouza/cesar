@@ -2,4 +2,9 @@
   padding: 7px 15px;
   border: 1px solid transparent;
   border-radius: 2px;
+  cursor: pointer;
+}
+
+.Button:hover {
+  opacity: 0.8;
 }

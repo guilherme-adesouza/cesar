@@ -1,6 +1,6 @@
 import './Breadcrumb.css';
 
-import React from 'react';
+import React, {Component} from 'react';
 import {
   Route,
   Link,
@@ -15,19 +15,23 @@ const Breadcrumbs = (props) => (
     </div>
 )
 
-const BreadcrumbsItem = ({ match, ...rest }) => {
-  const breadcrumbTitle = match.url.split("/");
-  return (
-    <React.Fragment>
-      <li className={match.isExact ? 'breadcrumb-active' : undefined}>
-          <Link to={match.url || ''}>
-                {breadcrumbTitle[breadcrumbTitle.length - 1]}
-          </Link>
-          <span className="Separator">{rest.location.pathname === match.url ? "" : ">" }</span>
-      </li>
-      <Route path={`${match.url}/:path`} component={BreadcrumbsItem}/>
-    </React.Fragment>
-  )
+class BreadcrumbsItem extends Component {
+    render(){
+      const {match, location} = this.props;
+      const breadcrumbTitle = match.url.split("/");
+      console.log(this.props)
+      return (
+        <React.Fragment>
+          <li className={match.isExact ? 'breadcrumb-active' : undefined}>
+              <Link to={match.url || ''}>
+                    {breadcrumbTitle[breadcrumbTitle.length - 1]}
+              </Link>
+              <span className="Separator">{location.pathname === match.url ? "" : ">" }</span>
+          </li>
+          <Route path={`${match.url}/:path`} component={BreadcrumbsItem}/>
+        </React.Fragment>
+      )
+    }
 }
 
 export default Breadcrumbs;

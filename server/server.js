@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //user requests
 require('./controller/user')(app);
-require('./controller/plataform')(app);
+require('./controller/platform')(app);
 require('./utils/upload')(app);
 
 app.get('/', (req, res) => {

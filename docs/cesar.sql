@@ -11,13 +11,13 @@ CREATE TABLE "game" (
 
 
 -- -----------------------------------------------------
--- Table "plataform"
+-- Table "platform"
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS "plataform" CASCADE;
+DROP TABLE IF EXISTS "platform" CASCADE;
 
-CREATE TABLE "plataform" (
+CREATE TABLE "platform" (
   "id" SERIAL NOT NULL ,
-  "plataform" VARCHAR(100) NOT NULL,
+  "platform" VARCHAR(100) NOT NULL,
   "img" TEXT NULL,
   PRIMARY KEY ("id"));
 
@@ -50,16 +50,16 @@ DROP TABLE IF EXISTS "account" CASCADE;
 CREATE TABLE "account" (
   "id" SERIAL NOT NULL ,
   "player_id" INT NOT NULL,
-  "plataform_id" INT NOT NULL,
+  "platform_id" INT NOT NULL,
   "account" VARCHAR(100) NOT NULL,
   "nickname" VARCHAR(200) NOT NULL,
   "link" TEXT NULL,
   "level" TEXT NULL,
   "points" INT NULL,
   PRIMARY KEY ("id"),
-  CONSTRAINT "fk_account_plataform1"
-    FOREIGN KEY ("plataform_id")
-    REFERENCES "plataform" ("id")
+  CONSTRAINT "fk_account_platform1"
+    FOREIGN KEY ("platform_id")
+    REFERENCES "platform" ("id")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT "fk_account_player1"

@@ -1,13 +1,29 @@
 class Service {
+
+  static fetch = async(url, options, cb) => {
+    return await fetch(url, options)
+    .then(async (response) => {
+      if(cb){
+        return await cb(response);
+      } else {
+        return response;
+      }
+    })
+    .catch(error => {
+      console.error('error trying to fetch ', url, error);
+    });
+  }
+
   static postJSON = async(url, data) => {
-    return await fetch(url, {
+    const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    })
-    .then(async (response) => {
+    };
+
+    return await Service.fetch(url, options, async (response) => {
       const json = await response.json();
       if(response.status === 200){
         return json;
@@ -15,48 +31,65 @@ class Service {
         throw Error(json.message);
       }
     })
-    .catch(error => {
-        console.error('error trying to fetch ', url, error);
-    });
   }
 
   static postFormData = async(url, formData) => {
-    return await fetch(url, {
+    const options = {
       method: "POST",
       body: formData,
-    })
-    .then(async (response) => {
+    };
+
+    return await Service.fetch(url, options, async (response) => {
       const json = await response.json();
       if(response.status === 200){
         return json;
       } else {
         throw Error(json.message);
       }
-    })
-    .catch(error => {
-        console.error('error trying to fetch ', url, error);
     });
   }
 
   static getJSON = async(url) => {
-    return await fetch(url)
-    .then(async (response) => {
+    return await Service.fetch(url, null, async (response) => {
       return await response.json();
-    })
-    .catch(error => {
-        console.error('error trying to fetch ', url, error);
     });
   }
 
   static get = async(url) => {
-    return await fetch(url)
-    .then(async (response) => {
-      return response;
-    })
-    .catch(error => {
-        console.error('error trying to fetch ', url, error);
+    return await Service.fetch(url, null, async (response) => {
+      return await response;
     });
   }
+
+  static delete = async(url, data) => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    return await Service.fetch(url, options, async (response) => {
+      return await response;
+    });
+  }
+
+  static put = async(url, data) => {
+    const options = {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    return await Service.fetch(url, options, async (response) => {
+      return await response.json();
+    });
+  }
+
+
 }
 
 export default Service;

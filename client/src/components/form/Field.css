@@ -1,5 +1,5 @@
 .Field {
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 20px;
   text-align: left;
 }
@@ -8,9 +8,11 @@
   width: 100%;
   box-sizing: border-box;
   border-radius: 3px;
-  border: 1px solid #ccc;
-  height: 24px;
+  border: 1px solid transparent;
+  height: 28px;
   padding: 3px;
+  background-color: #494b54;
+  color: #d7d7d6;
 }
 
 .Field .Title {

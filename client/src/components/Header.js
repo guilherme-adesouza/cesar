@@ -8,7 +8,7 @@ import Avatar from './Avatar';
 class Header extends Component {
     render(){
       return (
-        <div className="Header">
+        <div className="Header ThemeBackground">
           <Breadcrumb />
           <Avatar />
         </div>
