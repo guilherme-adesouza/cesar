@@ -1,16 +1,20 @@
+import React, {Component} from 'react';
+
 class Service {
 
   static fetch = async(url, options, cb) => {
     return await fetch(url, options)
     .then(async (response) => {
-      if(cb){
-        return await cb(response);
+      if(!!cb){
+        return cb(response);
       } else {
         return response;
       }
     })
     .catch(error => {
       console.error('error trying to fetch ', url, error);
+
+      return error;
     });
   }
 
@@ -25,7 +29,7 @@ class Service {
 
     return await Service.fetch(url, options, async (response) => {
       const json = await response.json();
-      if(response.status === 200){
+      if(response.status < 300){
         return json;
       } else {
         throw Error(json.message);
@@ -41,7 +45,7 @@ class Service {
 
     return await Service.fetch(url, options, async (response) => {
       const json = await response.json();
-      if(response.status === 200){
+      if(response.status > 300){
         return json;
       } else {
         throw Error(json.message);

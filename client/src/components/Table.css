@@ -1,7 +1,9 @@
 .Table {
-  border-collapse: collapse;
-  margin: auto;
+  border-spacing: 0;
+  margin: 10px auto;
   width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .Table th {
@@ -15,5 +17,5 @@
 }
 
 .Table td {
-  border-top: 1px solid #48201d;
+  border-bottom: 1px solid #48201d;
 }

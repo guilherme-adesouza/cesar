@@ -38,7 +38,10 @@ class Login extends Component {
     return (
       <div className="LoginPage">
         <main>
-          <h1 className="Login Title">Cesar</h1>
+          <div className="Login Title">
+            <img src="caesar-logo-white.png" alt="Cesar Logo" width="54" height="54"/>
+            Cesar
+          </div>
           <p>Sistema para controle de conquistas</p>
           <Formik
             validationSchema={LoginSchema}

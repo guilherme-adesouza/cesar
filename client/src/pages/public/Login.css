@@ -3,11 +3,23 @@
   height: calc(100% - 20vh);
 }
 
+.Login.Title {
+  padding: 20px 0;
+  display: inline-flex;
+  align-items: center;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.Login.Title img {
+  padding: 0 10px;
+}
+
 .Login.Form {
   border: 1px solid #ccc;
   border-radius: 4px;
   background: #353b46;
-  width: 200px;
+  width: 260px;
   margin: auto;
   padding: 50px 30px 40px;
 }

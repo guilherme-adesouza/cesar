@@ -1,23 +1,8 @@
 .Sidebar {
-  position: absolute;
-  width: 205px;
+  width: 250px;
   height: 100%;
-}
-
-.Sidebar .Logo {
-  padding: 13px 16px 16px;
-  height: 39px;
-  font-size: 16px;
-  letter-spacing: 3px;
-}
-
-.Sidebar .Logo a {
-  display: inline-flex;
-  align-items: center;
-}
-
-.Sidebar .Logo img {
-  padding: 0px 5px;
+  box-shadow: 0px 0px 15px 0px #161616;
+  z-index: 0;
 }
 
 .Sidebar .NavigationList {

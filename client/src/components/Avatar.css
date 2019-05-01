@@ -1,0 +1,19 @@
+.Avatar {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.Avatar .Username {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  width: calc(100% - 50px);
+  padding-right: 10px;
+}
+
+.Avatar .UserPhoto {
+  height: 48px;
+  border-radius: 100%;
+}

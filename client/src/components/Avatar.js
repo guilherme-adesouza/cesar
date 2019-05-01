@@ -8,10 +8,10 @@ class Avatar extends Component {
 
   render(){
     return (
-      <React.Fragment>
+      <div className="Avatar">
         <span className="Username">Nome de Usuário</span>
         <img src={EmptyPhoto} alt="user_photo" className="UserPhoto"/>
-      </React.Fragment>
+      </div>
     )
   }
 }

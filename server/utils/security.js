@@ -17,8 +17,8 @@ function encrypt(string) {
   return bcrypt.hashSync(string, 10);
 }
 
-function compareEncryptPassword(password, reqPassword) {
-  return bcrypt.compareSync(reqPassword, password);
+function compareEncryptPassword({encryptPassword, password}) {
+  return bcrypt.compareSync(password, encryptPassword);
 }
 
 module.exports = {

@@ -2,6 +2,7 @@
   "name": "cesar",
   "version": "1.0.0",
   "scripts": {
+    "test": "jest",
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
@@ -22,6 +23,7 @@
     "pg": "^7.8.2"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "jest": "^24.7.1"
   }
 }

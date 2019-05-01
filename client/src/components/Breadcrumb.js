@@ -19,7 +19,6 @@ class BreadcrumbsItem extends Component {
     render(){
       const {match, location} = this.props;
       const breadcrumbTitle = match.url.split("/");
-      console.log(this.props)
       return (
         <React.Fragment>
           <li className={match.isExact ? 'breadcrumb-active' : undefined}>

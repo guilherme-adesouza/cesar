@@ -10,6 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+*:not(img) {
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

@@ -22,12 +22,6 @@ class Sidebar extends Component {
     render(){
       return (
         <div className="Sidebar">
-          <div className="Logo ThemeBackground Shadow">
-            <Link to="/home" className="HideLink">
-              <img src="caesar-logo-white.png" width="42" height="42" alt="Caesar Logo"/>
-              CAESAR
-            </Link>
-          </div>
           <nav className="Navigation">
             <ul className="NavigationList">
               {this.state.navigationList.map((item, idx) =>

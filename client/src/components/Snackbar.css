@@ -1,0 +1,31 @@
+.Snackbars {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.Snackbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 1px #000;
+  color: #fff;
+}
+
+.Snackbar.Error {
+  background-color: #f00;
+}
+
+.Snackbar.Alert {
+  background-color: #f0f;
+}
+
+.Snackbar .material-icons {
+
+}
+
+.SnackbarMessage {
+
+}

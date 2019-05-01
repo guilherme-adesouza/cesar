@@ -1,20 +1,28 @@
-.MainContent {
-  position: absolute;
-  right: 0;
-  width: calc(100% - 205px);
+.Page {
   height: 100%;
 }
 
-.Content {
+.PageWrapper {
+    display: flex;
+    height: calc(100% - 68px);
+}
+
+.MainContent {
   background: #2f323b;
-  height: calc(100% - 69px);
-  width: 80%;
+  height: 100%;
+  width: 100%;
+}
+
+.Content {
   padding: 0 10%;
-  box-shadow: inset 0px 0px 15px #161616;
   overflow-y: auto;
+  height: 100%;
 }
 
 .ContentTitle {
   padding: 20px 0;
-  text-align: left;
+}
+
+.ContentTitle .Title {
+  width: 100%;
 }

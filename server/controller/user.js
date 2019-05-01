@@ -2,7 +2,7 @@ const security = require('../utils/security');
 const UserDAO = require('../dao/userDAO');
 
 function validateLogin(credentials, user, res){
-  if(!!user && security.compareEncryptPassword(user.password, credentials.password)) {
+  if(!!user && security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})) {
     res.cookie(security.jwt_name, security.generateJWT(user), { httpOnly: true });
     res.send({message: 'login success'});
   } else {

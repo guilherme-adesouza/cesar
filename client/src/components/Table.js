@@ -5,7 +5,7 @@ export default function Table({data}) {
     if(!data || data.length === 0) return null;
     return (
         <table className="Table">
-          <thead>
+          <thead className="ThemeBackground">
             <tr>
               {Object.getOwnPropertyNames(data[0]).map((property, idx) => {
                 return (
