@@ -48,7 +48,7 @@ module.exports = function(app){
       const object = req.body;
       try {
         crud.dao.insert(object, (response) => {
-          res.status(200).send({response});
+          res.status(201).send({response});
         })
       } catch(error){
         throw new Error(error);
