@@ -29,11 +29,13 @@ const routes = [
     path: '/',
     name: 'Dashboard',
     component: Home,
+    exact: true
   },
   {
     path: '/home',
     name: 'Dashboard',
     component: Home,
+    exact: true
   },
   {
     path: '/dashboard',

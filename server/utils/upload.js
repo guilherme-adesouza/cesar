@@ -8,11 +8,10 @@ const uploadDir = path.join(os.homedir(), process.env.UPLOAD_DIR);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    console.log('destination');
     cb(null, uploadDir)
   },
   filename: (req, file, cb) => {
-    console.log('fileName', file.originalname);
+    console.info('Uploading file ', file.originalname, ' into \''+uploadDir+'\'...');
     cb(null, file.originalname)
   }
 });
@@ -27,6 +26,7 @@ module.exports = function(app){
               res.status(500).send({message: 'error creating directory: ', err})
             }
         })
+        console.info('Upload successfully!');
         res.status(200).send({message: 'Upload realizado com sucesso!'});
     });
 

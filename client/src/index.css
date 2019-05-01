@@ -68,6 +68,10 @@ p {
   background-color: #5b5c60;
 }
 
+.Dark .Contrast > .Hover:hover {
+  background-color: #ccc;
+}
+
 .Contrast {
   color: #000;
 }

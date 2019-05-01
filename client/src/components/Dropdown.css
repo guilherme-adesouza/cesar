@@ -1,0 +1,20 @@
+.Dropdown {
+  position: absolute;
+  border: 1px solid #ccc;
+  width: 100%;
+  top: 40px;
+  padding: 0;
+  list-style: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #161616;
+}
+
+.Dropdown li {
+  background: #fff;
+}
+
+.Dropdown a {
+  padding: 10px;
+  width: 100%;
+  display: block;
+}

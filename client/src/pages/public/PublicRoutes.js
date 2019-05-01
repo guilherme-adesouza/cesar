@@ -5,12 +5,8 @@ import Forbidden from './Forbidden';
 import {Route} from "react-router-dom";
 
 const routes = [
-  // {
-  //   path: null,
-  //   component: NotFound,
-  // },
   {
-    path: '/403',
+    path: '/404',
     component: NotFound,
   },
   {
@@ -22,9 +18,12 @@ const routes = [
     component: Loading,
   },
   {
-    path: '/404',
+    path: '/403',
     component: Forbidden,
-  }
+  },
+  // {
+  //   component: NotFound,
+  // }
 ];
 
 export default {component: Route, routes};

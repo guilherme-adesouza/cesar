@@ -1,5 +1,3 @@
-import React, {Component} from 'react';
-
 class Service {
 
   static fetch = async(url, options, cb) => {
@@ -45,7 +43,7 @@ class Service {
 
     return await Service.fetch(url, options, async (response) => {
       const json = await response.json();
-      if(response.status > 300){
+      if(response.status < 300){
         return json;
       } else {
         throw Error(json.message);

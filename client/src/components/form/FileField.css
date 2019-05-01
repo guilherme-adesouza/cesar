@@ -1,0 +1,16 @@
+.FileField {
+  display: block;
+}
+
+.FileField .Preview > *,
+.FileField > * {
+  display: block;
+  margin: 10px auto;
+}
+
+.FileField .PreviewUpload {
+  width: 200px;
+  height: 200px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}

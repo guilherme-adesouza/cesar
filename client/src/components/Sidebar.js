@@ -16,6 +16,7 @@ class Sidebar extends Component {
         {link: "/achievements", icon: "star_rate_outline", name: "Conquistas"},
         {link: "/accounts", icon: "account_balance_wallet_outline", name: "Contas"},
         {link: "/platforms", icon: "airplay_outline", name: "Plataformas"},
+        {link: "/player", icon: "person", name: "Players"},
       ]
     }
 
@@ -25,12 +26,12 @@ class Sidebar extends Component {
           <nav className="Navigation">
             <ul className="NavigationList">
               {this.state.navigationList.map((item, idx) =>
-                  <Link key={idx} to={item.link} className="HideLink">
-                    <li className="NavigationItem Hover">
+                <li key={idx} className="NavigationItem Hover">
+                  <Link to={item.link} className="HideLink">
                       <MaterialIcon name={item.icon}/>
                       <span>{item.name}</span>
-                    </li>
                   </Link>
+                </li>
               )}
             </ul>
           </nav>

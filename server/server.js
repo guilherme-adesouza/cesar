@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //user requests
 require('./controller/user')(app);
-require('./controller/platform')(app);
+//basic crud controller
+require('./controller/crudController')(app);
 require('./utils/upload')(app);
 
 app.get('/', (req, res) => {

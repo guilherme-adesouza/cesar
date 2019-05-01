@@ -4,9 +4,7 @@ class FileService {
   static upload = async(data) => {
     let form = new FormData();
     for (var key in data) {
-      if(typeof data[key] === "object"){
-        form.append( key, data[key][0]);
-      }
+      form.append(key, data[key]);
     }
     return await Service.postFormData('/api/upload', form);
   }
