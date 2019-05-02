@@ -1,6 +1,12 @@
 import Service from './Service';
+import BasicService from './BasicService';
 
-class UserService {
+class UserService extends BasicService {
+
+  constructor(){
+    super('player');
+  }
+
   static login = async(data) => {
     return await Service.postJSON('/api/login', data);
   }

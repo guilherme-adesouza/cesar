@@ -1,10 +1,10 @@
 import Service from './Service';
 import BasicService from './BasicService';
 
-class PlatformService extends BasicService {
+class RaceService extends BasicService {
   constructor(){
-    super('platform');
+    super('race');
   }
 }
 
-export default PlatformService;
+export default RaceService;

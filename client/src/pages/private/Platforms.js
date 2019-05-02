@@ -19,7 +19,7 @@ class PlatformForm extends Component {
 
   savePlatform = async (values, actions) => {
     try {
-      await PlatformService.create(values);
+      await new PlatformService().create(values);
       this.props.onSubmit();
     } catch(e) {
       console.error('error trying to create plataform...', e);
@@ -61,7 +61,7 @@ class PlatformsPage extends Component {
   getPlataformList = async () => {
     this.setState({onForm: false, loading: true});
     try {
-      const platforms = await PlatformService.getAll();
+      const platforms = await new PlatformService().getAll();
       this.setState({platforms});
     } catch(e) {
       console.error(e);
