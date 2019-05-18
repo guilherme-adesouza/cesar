@@ -1,10 +1,10 @@
-import Player from './Player';
+import Players from './Players';
 import {MasterRoute} from '../../router/Route';
 
 const routes = [
   {
-    path: '/player',
-    component: Player,
+    path: '/players',
+    component: Players,
   },
 ];
 

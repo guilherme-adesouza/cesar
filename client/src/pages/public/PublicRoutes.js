@@ -21,9 +21,9 @@ const routes = [
     path: '/403',
     component: Forbidden,
   },
-  // {
-  //   component: NotFound,
-  // }
+  {
+    component: NotFound,
+  }
 ];
 
 export default {component: Route, routes};

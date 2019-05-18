@@ -8,9 +8,11 @@
 }
 
 .MainContent {
-  background: #2f323b;
-  height: 100%;
   width: 100%;
+}
+
+.App.Dark .MainContent {
+  background: #2f323b;
 }
 
 .Content {

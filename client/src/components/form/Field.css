@@ -4,6 +4,10 @@
   text-align: left;
 }
 
+.App.Dark .Field input {
+  background-color: #494b54;
+}
+
 .Field input {
   width: 100%;
   box-sizing: border-box;
@@ -11,7 +15,6 @@
   border: 1px solid transparent;
   height: 28px;
   padding: 3px;
-  background-color: #494b54;
   color: #d7d7d6;
 }
 

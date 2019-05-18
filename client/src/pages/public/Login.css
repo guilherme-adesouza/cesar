@@ -15,10 +15,14 @@
   padding: 0 10px;
 }
 
+.App.Dark .Login.Form {
+  background: #353b46;
+
+}
+
 .Login.Form {
   border: 1px solid #ccc;
   border-radius: 4px;
-  background: #353b46;
   width: 260px;
   margin: auto;
   padding: 50px 30px 40px;

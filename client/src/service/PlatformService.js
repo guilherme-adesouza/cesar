@@ -1,4 +1,3 @@
-import Service from './Service';
 import BasicService from './BasicService';
 
 class PlatformService extends BasicService {

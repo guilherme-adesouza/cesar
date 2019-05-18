@@ -6,16 +6,23 @@ import {
   Switch
 } from "react-router-dom";
 
-import Routes from './router/PageRouter';
+import pageRoutes from './pages/PagesRoutes';
 
 export default function App(){
   return (
-    <Router>
-      <div className="App Dark">
+    <div id="caesar-app" className="App Dark">
+      <Router>
         <Switch>
-          <Routes />
+          {pageRoutes.map((pageRouter) => {
+            const Component = pageRouter.component;
+            return (
+              pageRouter.routes.map((route, idx) =>
+                <Component key={idx} {...route}/>
+              )
+            )
+          })}
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import './Player.css';
+import './Players.css';
 
 import React, { Component, Fragment} from 'react';
 import {withRouter} from "react-router-dom";
@@ -23,7 +23,7 @@ class Player extends Component {
   uploadFile = async (values, actions) => {
     try {
       await FileService.upload(values);
-      actions.resetForm({});
+      actions.resetForm(FileSchema.default());
     } catch(e) {
       console.error('error trying to upload', e);
     }

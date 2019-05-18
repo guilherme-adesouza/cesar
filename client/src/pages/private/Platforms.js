@@ -90,7 +90,7 @@ class PlatformsPage extends Component {
             clearForm={clearForm}
             onSubmit={this.getPlataformList}
           />
-          : <Table data={platforms} />
+        : <Table data={platforms} object="plataforma"/>
         }
       </div>
     )

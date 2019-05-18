@@ -34,8 +34,13 @@ p {
   white-space: nowrap;
 }
 
+.CesarLogo {
+  color: transparent;
+}
+
 .Fausto404 {
-  width: 50vw;
+  width: 75vw;
+  max-width: calc(100vh - 180px);
 }
 
 .HideLink {
@@ -52,6 +57,7 @@ p {
 
 .ThemeBackground {
   background-color: #401C19;
+  color: #fff;
 }
 
 .ThemeColor {
@@ -59,7 +65,8 @@ p {
 }
 
 /*dark theme*/
-.Dark {
+.Dark,
+.App.Dark .Button {
   background-color: #282c34;
   color: #fff;
 }

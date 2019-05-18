@@ -16,8 +16,8 @@ export class PrivateComponent extends React.Component {
     isAuthenticated: false,
   }
 
-  componentDidMount() {
-    this.doAuthenticate();
+  async componentDidMount() {
+    await this.doAuthenticate();
   }
 
   async doAuthenticate(){
@@ -42,10 +42,12 @@ export class PrivateComponent extends React.Component {
     } else {
       return (
         <React.Fragment>
-          {!this.state.isAuthenticated && <Redirect to={{ pathname: redirectPath, state: { from: this.props.location } }} />}
-          <BasicPage>
-            <Component {...props} />
-          </BasicPage>
+          {!this.state.isAuthenticated ?
+            <Redirect to={{ pathname: redirectPath}} /> :
+            <BasicPage>
+              <Component {...props} />
+            </BasicPage>
+          }
         </React.Fragment>
       )
     }

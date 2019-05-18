@@ -19,3 +19,8 @@
 .Table td {
   border-bottom: 1px solid #48201d;
 }
+
+.EmptyObject {
+  font-weight: bold;
+  text-transform: lowercase;
+}

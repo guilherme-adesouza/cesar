@@ -8,6 +8,7 @@ import {Redirect} from "react-router-dom";
 import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
 import UserService from '../../service/UserService';
+import Logo from '../../components/Logo';
 
 const LoginSchema = yup.object().shape({
   username: yup.string().required().default(''),
@@ -39,7 +40,7 @@ class Login extends Component {
       <div className="LoginPage">
         <main>
           <div className="Login Title">
-            <img src="caesar-logo-white.png" alt="Cesar Logo" width="54" height="54"/>
+            <Logo size={64}/>
             Cesar
           </div>
           <p>Sistema para controle de conquistas</p>
@@ -51,7 +52,7 @@ class Login extends Component {
               <div className="Login Form">
                 <Field title="Usuário/Email" type="text" name="username"/>
                 <Field title="Senha" type="password" name="password"/>
-                <CSButton type="submit" className="Dark">Login</CSButton>
+                <CSButton type="submit">Login</CSButton>
               </div>
             </Form>
           </Formik>

@@ -1,8 +1,24 @@
 import './Table.css'
 import React from 'react';
+import PropTypes from 'prop-types';
+import Utils from '../utils/Utils';
 
-export default function Table({data}) {
-    if(!data || data.length === 0) return null;
+class Table extends React.Component {
+
+  static propTypes = {
+    data: PropTypes.array
+  };
+
+  static defaultProps = {
+    data: []
+  }
+
+  render () {
+    const {data, object} = this.props;
+
+    if(!!data || data.length === 0) {
+      return <EmptyTable object={object} />;
+    }
     return (
         <table className="Table">
           <thead className="ThemeBackground">
@@ -27,4 +43,14 @@ export default function Table({data}) {
           </tbody>
         </table>
     )
+  }
+}
+
+export default Table;
+
+const EmptyTable = (props) => {
+  const isFeminineWord = Utils.isFeminineWord(props.object);
+  return (
+    <p>Não existe nenhum{isFeminineWord ? 'a' : ''} <span className="EmptyObject">{props.object}</span> criad{isFeminineWord ? 'a' : 'o'}</p>
+  )
 }
