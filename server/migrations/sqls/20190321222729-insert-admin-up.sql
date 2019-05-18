@@ -1,3 +1,3 @@
-INSERT INTO player (id, name, password, nickname, public, master) VALUES (default, 'admin', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'Administrador', false, true);
-INSERT INTO player (id, name, password, nickname, public, master) VALUES (default, 'guilherme-souza', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'Guilherme Souza', false, true);
-INSERT INTO player (id, name, password, nickname, public, master) VALUES (default, 'junior-lenhart', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'Júnior Lenhart', false, true);
+INSERT INTO player (id, name, password, nickname, public, email, master) VALUES (default, 'admin', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'Administrador', false, 'dev@caesar.com.br', true);
+INSERT INTO player (id, name, password, nickname, public, email, master) VALUES (default, 'guilherme-souza', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'Guilherme Souza', false, 'guilherme.souza2@universo.univates.br',true);
+INSERT INTO player (id, name, password, nickname, public, email, master) VALUES (default, 'junior-lenhart', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'Júnior Lenhart', false, 'junior.lenhart@universo.univates.br', true);
