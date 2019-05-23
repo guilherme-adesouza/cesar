@@ -11,11 +11,3 @@ test('fail encrypt and compare', () => {
   const encryptPassword = security.encrypt(password);
   expect(security.compareEncryptPassword({encryptPassword, password: '321'})).toBe(false);
 })
-
-test('successfully login', () => {
-  
-})
-
-test('unsuccessfully login', () => {
-
-})
