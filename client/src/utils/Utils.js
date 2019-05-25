@@ -5,7 +5,7 @@ class Utils {
   }
 
   static isDarkTheme = () => {
-    return document.getElementById('caesar-app').attributes.class.nodeValue.includes("Dark");
+    return Utils.bodyClassContains("Dark");
   }
 
   static isFeminineWord = (word = "") => {
@@ -13,9 +13,30 @@ class Utils {
   }
 
   static isMobile = () => {
-    //TODO get Regex for check userAgent
-    return false;
-    // return navigator.userAgent.includes('Android');
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  static bodyClassContains = (className) => {
+    return document.body.className.includes(className);
+  }
+
+  static addBodyClassName = (className) => {
+    if(!Utils.bodyClassContains(className)){
+      document.body.className += " " + className;
+    }
+  }
+
+  static removeBodyClassName = (className) => {
+    document.body.className.replace(`/\b${className}\b/g`, "");
+  }
+
+  static setMobileView = () => {
+    const isMobile = Utils.isMobile();
+    if(isMobile) {
+      Utils.addBodyClassName("Mobile");
+    } else {
+      Utils.removeBodyClassName("Mobile")
+    }
   }
 }
 

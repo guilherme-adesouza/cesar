@@ -4,7 +4,7 @@ import BasicService from './BasicService';
 class UserService extends BasicService {
 
   constructor(){
-    super('player');
+    super('user');
   }
 
   static login = async(data) => {

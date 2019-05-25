@@ -4,10 +4,6 @@
   text-align: left;
 }
 
-.App.Dark .Field input {
-  background-color: #494b54;
-}
-
 .Field input {
   width: 100%;
   box-sizing: border-box;
@@ -26,4 +22,9 @@
 .Field .Error {
   margin: 0.3em 0;
   display: block;
+}
+
+/*dark theme*/
+body.Dark .Field input {
+  background-color: #494b54;
 }

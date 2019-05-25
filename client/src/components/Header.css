@@ -18,11 +18,11 @@
 }
 
 .Header .BreadcumbTitle {
-  width: 100%;
+  width: calc(100% - 380px);
 }
 
 .Header .Logo {
-  margin-left: 0;
+  margin: auto auto 0;
   font-size: 18px;
   letter-spacing: 2.5px;
 }
@@ -36,4 +36,11 @@
 
 .Header .Logo img {
   padding: 0px 5px;
+}
+
+@media (max-width: 500px) {
+  .Header .BreadcumbTitle,
+  .Header .Avatar {
+    display: none;
+  }
 }

@@ -16,7 +16,7 @@ class Table extends React.Component {
   render () {
     const {data, object} = this.props;
 
-    if(!!data || data.length === 0) {
+    if(!data || data.length === 0) {
       return <EmptyTable object={object} />;
     }
     return (

@@ -66,7 +66,7 @@ p {
 
 /*dark theme*/
 .Dark,
-.App.Dark .Button {
+body.Dark .App .Button {
   background-color: #282c34;
   color: #fff;
 }

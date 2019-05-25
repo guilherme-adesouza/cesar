@@ -1,10 +1,10 @@
 import Service from './Service';
 import BasicService from './BasicService';
 
-class GameService extends BasicService {
+class AccountService extends BasicService {
   constructor(){
-    super('game');
+    super('account');
   }
 }
 
-export default GameService;
+export default AccountService;

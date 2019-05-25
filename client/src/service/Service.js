@@ -3,16 +3,17 @@ class Service {
   static fetch = async(url, options, cb) => {
     return await fetch(url, options)
     .then(async (response) => {
-      if(!!cb){
-        return cb(response);
-      } else {
+      if(response.status < 300) {
+        if(!!cb){
+          return cb(response);
+        }
         return response;
+      } else {
+        //throw Error(response.message);
       }
     })
     .catch(error => {
-      console.error('error trying to fetch ', url, error);
-
-      return error;
+      throw Error(error);
     });
   }
 
@@ -26,12 +27,7 @@ class Service {
     };
 
     return await Service.fetch(url, options, async (response) => {
-      const json = await response.json();
-      if(response.status < 300){
-        return json;
-      } else {
-        throw Error(json.message);
-      }
+      return await response.json();
     })
   }
 
@@ -42,12 +38,7 @@ class Service {
     };
 
     return await Service.fetch(url, options, async (response) => {
-      const json = await response.json();
-      if(response.status < 300){
-        return json;
-      } else {
-        throw Error(json.message);
-      }
+      return await response.json();
     });
   }
 
@@ -90,7 +81,6 @@ class Service {
       return await response.json();
     });
   }
-
 
 }
 

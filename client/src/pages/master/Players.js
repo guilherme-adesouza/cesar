@@ -1,52 +1,45 @@
 import './Players.css';
+import React, {Component} from 'react';
 
-import React, { Component, Fragment} from 'react';
-import {withRouter} from "react-router-dom";
-
-import * as yup from 'yup';
-import { Formik, Form, Field } from 'formik';
-
-import FileService from '../../service/FileService';
+import Table from '../../components/Table';
 import UserService from '../../service/UserService';
-
-import FileField from '../../components/form/FileField';
-import CSButton from '../../components/form/CSButton';
-
-const FileSchema = yup.object().shape({
-  file: yup.mixed().required().default(undefined),
-});
 
 class Player extends Component {
 
-  initUpload = FileSchema.default();
+  state = {
+    loading: true,
+    players: [],
+  }
 
-  uploadFile = async (values, actions) => {
+  async componentDidMount(){
+    await this.getPlayersList();
+  }
+
+  getPlayersList = async () => {
+    this.setState({loading: true});
     try {
-      await FileService.upload(values);
-      actions.resetForm(FileSchema.default());
+      const players = await new UserService().getAll();
+      this.setState({players});
     } catch(e) {
-      console.error('error trying to upload', e);
+      console.error(e);
+    } finally {
+      this.setState({loading: false});
     }
   }
 
   render(){
-    return(
-      <Fragment>
-        <h1 className="Title">Upload de Imagens</h1>
-        <Formik
-          validationSchema={FileSchema}
-          initialValues={this.initUpload}
-          onSubmit={this.uploadFile}>
-          <Form>
-            <div className="Form">
-              <Field name="file" component={FileField}/>
-              <CSButton type="submit" className="Dark">Enviar</CSButton>
-            </div>
-          </Form>
-        </Formik>
-      </Fragment>
+    const {loading, players} = this.state;
+
+    if(loading) return null;
+    return (
+      <div className="Plataform">
+        <div className="ContentTitle">
+          <h2 className="Title">Players</h2>
+        </div>
+        <Table data={players} object="usuário"/>
+      </div>
     )
   }
 }
 
-export default withRouter(Player);
+export default Player;

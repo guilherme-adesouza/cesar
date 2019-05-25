@@ -6,11 +6,13 @@ import {
   Switch
 } from "react-router-dom";
 
+import Utils from './utils/Utils';
 import pageRoutes from './pages/PagesRoutes';
 
 export default function App(){
+  Utils.setMobileView();
   return (
-    <div id="caesar-app" className="App Dark">
+    <div id="caesar-app" className="App">
       <Router>
         <Switch>
           {pageRoutes.map((pageRouter) => {

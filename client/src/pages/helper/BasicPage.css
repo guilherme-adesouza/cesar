@@ -1,22 +1,33 @@
 .Page {
+  position: relative;
   height: 100%;
-}
-
-.PageWrapper {
-    display: flex;
-    height: calc(100% - 68px);
-}
-
-.MainContent {
   width: 100%;
 }
 
-.App.Dark .MainContent {
+.PageWrapper {
+  display: flex;
+  height: calc(100% - 68px);
+}
+
+.MainContent {
+  overflow: auto;
+  transition: width 0.2s ease-out;
+}
+
+.PageWrapper.OpenSidebar .MainContent {
+  width: calc(100% - 180px);
+}
+
+.PageWrapper.CloseSidebar .MainContent {
+  width: calc(100% - 64px);
+}
+
+body.Dark .App .MainContent {
   background: #2f323b;
 }
 
 .Content {
-  padding: 0 70px;
+  padding: 0 5vw;
   overflow-y: auto;
   height: 100%;
 }

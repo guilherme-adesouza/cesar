@@ -1,0 +1,29 @@
+#UiMsgWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 15px;
+}
+
+.UiMsg {
+  display: inline-flex;
+  align-items: center;
+  text-align: left;
+  float: right;
+  padding: 10px;
+  min-width: 150px;
+  max-width: 200px;
+  border-radius: 4px;
+}
+
+.UiMsg span.Message {
+  width: 100%;
+}
+
+.UiMsg .Icon {
+  font-size: 14px;
+}
+
+.UiMsg.Error {
+  background-color: red;
+}
