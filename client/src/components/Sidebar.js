@@ -21,7 +21,7 @@ class Sidebar extends Component {
     }
 
     componentDidMount() {
-      this.setState({open: !Utils.isMobile()})
+      this.props.toggleSidebar(!Utils.isMobile());
     }
 
     toggleSidebar = (event) => {

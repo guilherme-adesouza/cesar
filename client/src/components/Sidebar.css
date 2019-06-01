@@ -6,14 +6,6 @@
   transition: width 0.2s ease-out;
 }
 
-.PageWrapper.OpenSidebar .Sidebar {
-  width: 180px;
-}
-
-.PageWrapper.CloseSidebar .Sidebar {
-  width: 64px;
-}
-
 .Sidebar .NavigationList {
   padding: 0;
   margin: 0;

@@ -14,8 +14,24 @@
   transition: width 0.2s ease-out;
 }
 
+body.Mobile .PageWrapper.OpenSidebar .Sidebar {
+  width: 100%;
+}
+
+.PageWrapper.OpenSidebar .Sidebar {
+  width: 180px;
+}
+
+.PageWrapper.CloseSidebar .Sidebar {
+  width: 64px;
+}
+
 .PageWrapper.OpenSidebar .MainContent {
   width: calc(100% - 180px);
+}
+
+body.Mobile .PageWrapper.OpenSidebar .MainContent {
+  width: 0px;
 }
 
 .PageWrapper.CloseSidebar .MainContent {

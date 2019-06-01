@@ -11,8 +11,9 @@ class BasicPage extends Component {
     openSidebar: true,
   }
 
-  toggleSidebar = (event) => {
-    this.setState({openSidebar: !this.state.openSidebar});
+  toggleSidebar = (status) => {
+    const openSidebar = !!status ? status : !this.state.openSidebar;
+    this.setState({openSidebar});
   }
 
   render(){
