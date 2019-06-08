@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 class BasicPage extends Component {
 
   state = {
-    openSidebar: true,
+    openSidebar: false,
   }
 
   toggleSidebar = (status) => {

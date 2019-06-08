@@ -21,7 +21,9 @@ class Sidebar extends Component {
     }
 
     componentDidMount() {
-      this.props.toggleSidebar(!Utils.isMobile());
+      if(Utils.isMobile()){
+        this.props.toggleSidebar(false);
+      }
     }
 
     toggleSidebar = (event) => {
@@ -33,7 +35,7 @@ class Sidebar extends Component {
         <nav className="Sidebar Navigation">
           <ul className="NavigationList">
             {this.state.navigationList.map((item, idx) =>
-              <li key={idx} className="NavigationItem Hover">
+              <li key={idx} className="NavigationItem Hover" title={item.name}>
                 <Link to={item.link} className="HideLink">
                   <MaterialIcon name={item.icon}/>
                   <span className="nowrap">{item.name}</span>

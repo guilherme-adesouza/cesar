@@ -6,13 +6,15 @@ import Table from '../../components/Table';
 import Button from '../../components/Button';
 import PlatformService from '../../service/PlatformService';
 
-import * as yup from 'yup';
+import {csYup} from '../../components/form/csYup';
 import { Formik, Form } from 'formik';
 import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
 
-const PlatformSchema = yup.object().shape({
-  platform: yup.string().required().default('')
+const PlatformSchema = csYup(yup => {
+  return yup.object().shape({
+    platform: yup.string().required().default('')
+  })
 });
 
 class PlatformForm extends Component {
@@ -36,7 +38,7 @@ class PlatformForm extends Component {
         onSubmit={this.savePlatform}>
         <Form>
           <div className="Form">
-            <Field title="Plataforma" type="text" name="platform"/>
+            <Field title="Plataforma" type="text" name="platform" required={true}/>
             <CSButton type="submit" className="Dark">Salvar</CSButton>
           </div>
         </Form>
@@ -72,7 +74,7 @@ class PlatformsPage extends Component {
 
   newPlataform = (event) => {
     event.preventDefault();
-    this.setState({onForm: true, clearForm: this.state.onForm});
+    this.setState({onForm: !this.state.onForm, clearForm: this.state.onForm});
   }
 
   render(){
@@ -83,7 +85,7 @@ class PlatformsPage extends Component {
       <div className="Plataform">
         <div className="ContentTitle">
           <h2 className="Title">Plataformas</h2>
-          <Button className="ThemeBackground" onClick={this.newPlataform}>Novo</Button>
+          <Button className="ThemeBackground" onClick={this.newPlataform}>{this.state.onForm ? "Voltar" : "Novo"}</Button>
         </div>
         {onForm ?
           <PlatformForm

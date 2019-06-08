@@ -5,6 +5,7 @@ const CSField = ({
                           className = '',
                           name = '',
                           title = null,
+                          required = false,
                           field,
                           form,
                           children,
@@ -12,7 +13,7 @@ const CSField = ({
                         }) => {
   return (
     <React.Fragment>
-      {title && <span className="Title">{title}</span>}
+      {title && <span className="Title">{title}{required ? " *" : ""}</span>}
       <input type={type} name={name} {...field} {...props}/>
       {children}
     </React.Fragment>
