@@ -19,15 +19,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //user requests
 require('./controller/user')(app);
 //basic crud controller
-require('./controller/crudController')(app);
+require('./controller/account')(app);
+require('./controller/game')(app);
+require('./controller/genre')(app);
+require('./controller/platform')(app);
+require('./controller/player')(app);
+require('./controller/race')(app);
+require('./controller/raceType')(app);
+require('./controller/user')(app);
 require('./utils/upload')(app);
 
 app.get('/', (req, res) => {
   res.send('Cesar server running here!');
 });
 
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
+app.get('/api/test', (req, res) => {
+  res.send({test: 'I am working! Awesome!' });
 });
 
 app.listen(port, () => {

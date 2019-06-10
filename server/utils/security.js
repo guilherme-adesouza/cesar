@@ -4,6 +4,12 @@ const jwt = require('jsonwebtoken');
 const secretKey = 'esquizofrenia_acrombatica';
 const jwt_name = 'cesar_session';
 
+function decodeRequestToken(req){
+  const token = req.cookies[jwt_name];
+  const jwt = !!token && decodeJWT(token);
+  return jwt;
+}
+
 function generateJWT(user){
   const expires = Date.now() + (parseInt(process.env.JWT_EXPIRATION_MINUTES) * 1000 * 60);
   return jwt.sign(JSON.stringify({user, expires}), secretKey);
@@ -27,5 +33,6 @@ module.exports = {
   generateJWT,
   decodeJWT,
   encrypt,
-  compareEncryptPassword
+  compareEncryptPassword,
+  decodeRequestToken
 }

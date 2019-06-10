@@ -5,6 +5,11 @@ class AccountService extends BasicService {
   constructor(){
     super('account');
   }
+
+  getByPlayer = async () => {
+    return await Service.getJSON(`${this.url}-player`);
+  }
+
 }
 
 export default AccountService;

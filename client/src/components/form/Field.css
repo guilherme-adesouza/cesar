@@ -1,6 +1,7 @@
 .Field {
+  position: relative;
   font-size: 13px;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
   text-align: left;
 }
 
@@ -22,6 +23,7 @@
 .Field .Error {
   margin: 0.3em 0;
   display: block;
+  position: absolute;
 }
 
 /*dark theme*/

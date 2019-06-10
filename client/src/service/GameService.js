@@ -4,6 +4,7 @@ class GameService extends BasicService {
   constructor(){
     super('game');
   }
+
 }
 
 export default GameService;

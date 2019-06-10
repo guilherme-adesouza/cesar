@@ -34,8 +34,7 @@ module.exports = function(app){
   });
 
   app.get('/api/verify-auth', (req, res) => {
-    const token = req.cookies[security.jwt_name];
-    const jwt = !!token && security.decodeJWT(token);
+    const jwt = security.decodeRequestToken(req);
     if (jwt && Date.now() < jwt.expires) {
       if(req.query.checkMaster) {
         res.send({auth: jwt.user.master});

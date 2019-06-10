@@ -7,6 +7,11 @@ class AccountDAO extends BasicDAO {
     super('account')
   }
 
+  getByPlayer(player, cb) {
+    const player_id = player.id;
+    return dao.selectMany({table: this.table, params: {player_id}}, cb);
+  }
+
 }
 
 module.exports = AccountDAO;

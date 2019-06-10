@@ -20,7 +20,7 @@ const GameSchema = csYup(yup => {
 
 class GameForm extends Component {
 
-  saveGames = async (values, actions) => {
+  saveGame = async (values, actions) => {
     try {
       await new GameService().create(values);
       this.props.onSubmit();
@@ -36,11 +36,11 @@ class GameForm extends Component {
       <Formik
         validationSchema={GameSchema}
         initialValues={this.initGame}
-        onSubmit={this.saveGames}>
+        onSubmit={this.saveGame}>
         <Form>
           <div className="Form">
-            <Field title="Nome" type="text" name="name" required={true}/>
-            <Field title="Nome de visualização" type="text" name="name_visualization"/>
+            <Field title="Nome" name="name" required={true}/>
+            <Field title="Nome de visualização" name="name_visualization"/>
             <CSButton type="submit" className="Dark">Salvar</CSButton>
           </div>
         </Form>

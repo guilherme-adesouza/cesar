@@ -1,20 +1,27 @@
+function checkStatus(response) {
+  if(response.status < 300) {
+    return response;
+  }
+  throw Error(response.statusText);
+}
+
+function handleError(error){
+  console.error(error);
+  throw Error(error);
+}
+
 class Service {
 
   static fetch = async(url, options, cb) => {
     return await fetch(url, options)
-    .then(async (response) => {
-      if(response.status < 300) {
-        if(!!cb){
-          return cb(response);
-        }
-        return response;
-      } else {
-        //throw Error(response.message);
+    .then(checkStatus)
+    .then((response) => {
+      if(!!cb){
+        return cb(response);
       }
+      return response;
     })
-    .catch(error => {
-      throw Error(error);
-    });
+    .catch(handleError);
   }
 
   static postJSON = async(url, data) => {

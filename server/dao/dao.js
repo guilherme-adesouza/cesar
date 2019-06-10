@@ -58,11 +58,11 @@ function paramIndex(index) {
   return `$${index + 1}`;
 }
 
-function getParams(params, indexAlter = 0){
+function getParams(params, baseIndex = 0){
   let query = 'WHERE 1 = 1';
   const columns = getFields(params);
   columns.forEach((column, index) => {
-    query += ` AND ${column} = ${paramIndex(index + indexAlter)}`;
+    query += ` AND ${column} = ${paramIndex(baseIndex + index)}`;
   })
   return query;
 }
