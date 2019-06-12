@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 import Table from '../../components/Table';
 import Button from '../../components/Button';
-import AccountService from '../../service/AccountService';
+import Api from '../../service/Api';
 
 import {csYup} from '../../components/form/csYup';
 import { Formik, Form } from 'formik';
@@ -13,7 +13,7 @@ import CSButton from '../../components/form/CSButton';
 
 const GameSchema = csYup(yup => {
   return yup.object().shape({
-    plataform_id: yup.number().required().default(''),
+    platform_id: yup.number().required().default(''),
     account: yup.string().required().default(''),
     nickname: yup.string().required().default(''),
     link: yup.string().default(''),
@@ -25,7 +25,7 @@ class AccountForm extends Component {
 
   saveAccount = async (values, actions) => {
     try {
-      await new AccountService().create(values);
+      await Api.Account.create(values);
       this.props.onSubmit();
     } catch(e) {
       console.error('error trying to create plataform...', e);
@@ -42,10 +42,15 @@ class AccountForm extends Component {
         onSubmit={this.saveAccount}>
         <Form>
           <div className="Form">
-            <Field title="Plataforma" type="select" name="plataform_id" required={true}/>
-            <Field title="Nome da Conta" name="account" required={true}/>
+            <Field title="Nome da conta" name="account" required={true}/>
+            <Field  title="Plataforma"
+                    options={this.props.platforms}
+                    keys={{value: "id", label:"platform"}}
+                    type="select"
+                    name="platform_id"
+                    required={true}/>
             <Field title="Nickname" name="nickname" required={true}/>
-            <Field title="Link para perfil" name="nickname"/>
+            <Field title="Link para perfil" name="link"/>
             <Field title="Nível" name="level"/>
             <CSButton type="submit" className="Dark">Salvar</CSButton>
           </div>
@@ -71,7 +76,7 @@ class AccountsPage extends Component {
   getAccounts = async () => {
     this.setState({onForm: false, loading: true});
     try {
-      const accounts = await new AccountService().getByPlayer();
+      const accounts = await Api.Account.getByPlayer();
       this.setState({accounts});
     } catch(e) {
       console.error('error', e);
@@ -80,13 +85,21 @@ class AccountsPage extends Component {
     }
   }
 
-  newAccount = (event) => {
+  newAccount = async (event) => {
     event.preventDefault();
-    this.setState({onForm: !this.state.onForm, clearForm: this.state.onForm});
+    this.setState({loading: true});
+    try {
+      const platforms = !!this.state.platforms ? this.state.platforms : await Api.Platform.getAll();
+      this.setState({platforms, onForm: !this.state.onForm, clearForm: this.state.onForm});
+    } catch(e) {
+      console.error('error', e);
+    } finally {
+      this.setState({loading: false});
+    }
   }
 
   render(){
-    const {loading, onForm, clearForm, accounts} = this.state;
+    const {loading, onForm, clearForm, accounts, platforms} = this.state;
 
     if(loading) return null;
     return (
@@ -98,6 +111,7 @@ class AccountsPage extends Component {
         {onForm ?
           <AccountForm
             clearForm={clearForm}
+            platforms={platforms}
             onSubmit={this.getAccounts}
           />
         : <Table data={accounts} object="conta"/>

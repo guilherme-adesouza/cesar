@@ -2,7 +2,7 @@ import './Players.css';
 import React, {Component} from 'react';
 
 import Table from '../../components/Table';
-import UserService from '../../service/UserService';
+import Api from '../../service/Api';
 
 class Player extends Component {
 
@@ -18,7 +18,7 @@ class Player extends Component {
   getPlayersList = async () => {
     this.setState({loading: true});
     try {
-      const players = await new UserService().getAll();
+      const players = await Api.User.getAll();
       this.setState({players});
     } catch(e) {
       console.error(e);

@@ -34,9 +34,13 @@ class BasicController {
     });
   }
 
+  beforeSaveOrUpdate({req, res, ...props}){
+      return req.body;
+  }
+
   insert(){
     this.app.post(`/api/${this.url}`, (req, res) => {
-      const object = req.body;
+      const object = this.beforeSaveOrUpdate({req, res});
       try {
         this.dao.insert(object, (response) => {
           res.status(201).send({response});
@@ -50,7 +54,7 @@ class BasicController {
   update(){
     this.app.put(`/api/${this.url}/:id`, (req, res) => {
       const id = req.params.id;
-      const object = req.body;
+      const object = this.beforeSaveOrUpdate({req, res, id});
       try {
         this.dao.update(id, object, (object) => {
           res.sendStatus(204);

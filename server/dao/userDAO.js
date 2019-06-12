@@ -10,7 +10,7 @@ class UserDAO extends BasicDAO {
 
   insert(values, cb) {
     const {password, ...otherValues} = values;
-    const player = {password: security.encrypt(password), ...otherValues};
+    const player = {password: Security.encrypt(password), ...otherValues};
     return dao.insert({table: this.table, values}, cb);
   }
 

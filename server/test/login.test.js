@@ -1,4 +1,4 @@
-const security = require('../utils/security');
+const Security = require('../utils/security');
 const UserDAO = require('../dao/userDAO');
 
 const userDAO = new UserDAO();
@@ -6,7 +6,7 @@ const userDAO = new UserDAO();
 test('successfully login email', done => {
   function validateLogin(credentials, user){
     expect(user).toBe(undefined);
-    // expect(security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})).toBe(true);
+    // expect(Security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})).toBe(true);
     done();
   }
 
@@ -22,7 +22,7 @@ test('successfully login email', done => {
 test('successfully login username', done => {
   function validateLogin(credentials, user){
     expect(user).toBeDefined();
-    expect(security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})).toBe(true);
+    expect(Security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})).toBe(true);
     done();
   }
 
@@ -38,7 +38,7 @@ test('successfully login username', done => {
 test('unsuccessfully login username', done => {
   function validateLogin(credentials, user){
     expect(user).toBe(undefined);
-    // expect(security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})).toBe(false);
+    // expect(Security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})).toBe(false);
     done();
   }
 

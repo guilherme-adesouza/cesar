@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 import Table from '../../components/Table';
 import Button from '../../components/Button';
-import PlatformService from '../../service/PlatformService';
+import Api from '../../service/Api';
 
 import {csYup} from '../../components/form/csYup';
 import { Formik, Form } from 'formik';
@@ -21,7 +21,7 @@ class PlatformForm extends Component {
 
   savePlatform = async (values, actions) => {
     try {
-      await new PlatformService().create(values);
+      await Api.Platform.create(values);
       this.props.onSubmit();
     } catch(e) {
       console.error('error trying to create plataform...', e);
@@ -63,7 +63,7 @@ class PlatformsPage extends Component {
   getPlataformList = async () => {
     this.setState({onForm: false, loading: true});
     try {
-      const platforms = await new PlatformService().getAll();
+      const platforms = await Api.Platform().getAll();
       this.setState({platforms});
     } catch(e) {
       console.error(e);

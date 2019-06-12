@@ -1,4 +1,4 @@
-const security = require('../utils/security');
+const Validations = require('./validations');
 const AccountDAO = require('../dao/accountDAO');
 const BasicController = require('./basicController');
 
@@ -6,12 +6,7 @@ class AccountController extends BasicController {
 
   getByPlayer(){
     this.app.get(`/api/${this.url}-player/`, (req, res) => {
-      console.log('gonna getByPlayer');
-      const jwt = security.decodeRequestToken(req);
-      const player = !!jwt ? jwt.user : req.params.user;
-      if(!player){
-        res.status(404).send({message: `Need to inform the player owner of accounts`})
-      }
+      const player = Validations.validateUser(req, res);
       try {
         this.dao.getByPlayer(player, (list) => {
           res.status(200).send(list);
@@ -20,6 +15,13 @@ class AccountController extends BasicController {
         throw new Error(error);
       }
     });
+  }
+
+  beforeSaveOrUpdate({req, res, ...props}){
+    const player = Validations.validateUser(req, res);
+    let account = req.body;
+    account.player_id = player.id;
+    return account;
   }
 
   initialize(){

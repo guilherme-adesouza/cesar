@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 import Table from '../../components/Table';
 import Button from '../../components/Button';
-import GameService from '../../service/GameService';
+import Api from '../../service/Api';
 
 import {csYup} from '../../components/form/csYup';
 import { Formik, Form } from 'formik';
@@ -22,7 +22,7 @@ class GameForm extends Component {
 
   saveGame = async (values, actions) => {
     try {
-      await new GameService().create(values);
+      await Api.Game.create(values);
       this.props.onSubmit();
     } catch(e) {
       console.error('error trying to create plataform...', e);
@@ -65,7 +65,7 @@ class GamesPage extends Component {
   getGamesList = async () => {
     this.setState({onForm: false, loading: true});
     try {
-      const games = await new GameService().getAll();
+      const games = await Api.Game.getAll();
       this.setState({games});
     } catch(e) {
       console.error('error', e);

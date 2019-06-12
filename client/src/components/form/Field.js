@@ -4,17 +4,22 @@ import React from 'react';
 import {Field, ErrorMessage} from 'formik';
 
 import CSField from './CSField';
+import CSSelectField from './CSSelectField';
 
 const COMPONENTS = {
   "text": CSField,
-  "password": CSField
+  "password": CSField,
+  "select": CSSelectField,
 }
 
-const MyField = ({className = '', name= '', type = 'text', ...props}) => {
+const MyField = ({className = '', name= '', type = 'text', title = null, required = false, ...props}) => {
   const component = !!COMPONENTS[type] ? COMPONENTS[type] : type;
   return (
     <div className={`Field ${className}`}>
+      {title && <span className="Title">{title}{required ? " *" : ""}</span>}
       <Field {...props}
+             title={title}
+             required={required}
              name={name}
              type={type}
              component={component}/>
