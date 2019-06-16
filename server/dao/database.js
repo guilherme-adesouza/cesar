@@ -1,12 +1,12 @@
-require('dotenv').config();
+const Config = require('../utils/config');
 
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  user: Config.DB_USER,
+  host: Config.HOST,
+  database: Config.DB_NAME,
+  password: Config.DB_PASSWORD,
+  port: Config.DB_PORT,
 })
 
 const executeQuery = (query, cb) => {

@@ -92,7 +92,7 @@ id SERIAL
 );
 
 /* -------------------------------- PLAYER */
-INSERT INTO player VALUES (default, 'Fernando Augusto Giordani', 'esquizofrenia-acrumbática-maluco...nao-é-brinquedo-não', 'GORDAN', 'fernando.a.giordani@gmail.com', 'link-avatar');
+INSERT INTO player VALUES (default, 'Fernando Augusto Giordani', 'esquizofrenia-acrumbática-maluco...nao-é-brinquedo-não', 'GORDAN', true, true, 'fernando.a.giordani@gmail.com', 'link-avatar');
 SELECT * FROM player;
 
 /* -------------------------------- platform */

@@ -1,4 +1,5 @@
 const Security = require('../utils/security');
+const Config = require('../utils/config');
 const UserDAO = require('../dao/userDAO');
 
 function validateLogin(credentials, user, res){
@@ -7,6 +8,15 @@ function validateLogin(credentials, user, res){
     res.send({message: 'login success'});
   } else {
     res.status(403).send({message: 'NOT OKAY MEN!'});
+  }
+}
+
+function checkJWT(jwt){
+  if(!jwt){ //check jwt
+    res.clearCookie('cesar_session');
+    res.send({auth: false});
+  } else if (Date.now() > jwt.expires) { //refresh jwt
+      jwt = Security.generateJWT(jwt.user, jwt.expires);
   }
 }
 
@@ -35,22 +45,19 @@ module.exports = function(app){
 
   app.get('/api/verify-auth', (req, res) => {
     const jwt = Security.decodeRequestToken(req);
-    if (jwt && Date.now() < jwt.expires) {
-      if(req.query.checkMaster) {
-        res.send({auth: jwt.user.master});
-      } else {
-        res.send({auth: true});
-      }
+    checkJWT(jwt);
+    if(req.query.checkMaster) {
+      res.send({auth: jwt.user.master});
     } else {
-      res.clearCookie('cesar_session');
-      res.send({auth: false});
+      res.send({auth: true});
     }
   });
 
   app.get('/api/generate-password', (req, res) => {
-    if (req.query.token === process.env.API_TOKEN) {
+    if (req.query.token === Config.API_TOKEN) {
       const encryptPass = Security.encrypt(req.query.password);
       res.send({password: encryptPass});
     }
+    res.send("API Token not valid").status(401);
   });
 }

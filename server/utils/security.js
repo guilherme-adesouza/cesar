@@ -1,3 +1,4 @@
+const Config = require('./config');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -10,13 +11,16 @@ function decodeRequestToken(req){
   return jwt;
 }
 
-function generateJWT(user){
-  const expires = Date.now() + (parseInt(process.env.JWT_EXPIRATION_MINUTES) * 1000 * 60);
-  return jwt.sign(JSON.stringify({user, expires}), secretKey);
+function generateJWT(user, creationTime = null){
+  const expires = Date.now() + (parseInt(Config.JWT_EXPIRATION_MINUTES) * 1000 * 60);
+  if(!creationTime) {
+    creationTime = expires;
+  }
+  return jwt.sign(JSON.stringify({user, expires, creationTime}), secretKey);
 }
 
 function decodeJWT(token){
-  return jwt.verify(token, secretKey)
+  return jwt.verify(token, secretKey);
 }
 
 function encrypt(string) {

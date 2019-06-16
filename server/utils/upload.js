@@ -3,8 +3,9 @@ const path = require('path');
 const os = require('os');
 const crypto = require('crypto');
 let multer = require('multer');
+const Config = require('../utils/config');
 
-const uploadDir = path.join(os.homedir(), process.env.UPLOAD_DIR);
+const uploadDir = path.join(os.homedir(), Config.UPLOAD_DIR);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {

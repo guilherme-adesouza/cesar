@@ -1,15 +1,25 @@
+const Config = require('./utils/config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const app = express();
 
-require('dotenv').config();
-
 var DBMigrate = require('db-migrate');
-var dbmigrate = DBMigrate.getInstance(true);
+var dbmCesar = DBMigrate.getInstance(true);
+var dbStartConfig = {
+  dev: {
+    user: Config.DB_USER,
+    host: Config.HOST,
+    database: Config.DB_START_NAME,
+    password: Config.DB_PASSWORD,
+    port: Config.DB_PORT,
+    driver: 'pg'
+  }
+};
+var dbmStart = DBMigrate.getInstance(true, { env: 'dev', config: dbStartConfig });
 
-const port = process.env.PORT;
+const port = Config.PORT;
 
 app.use(express.static('public'));
 app.use(cookieParser());
@@ -37,8 +47,20 @@ app.get('/api/test', (req, res) => {
   res.send({test: 'I am working! Awesome!' });
 });
 
-app.listen(port, () => {
-  dbmigrate.up();
-  console.log(`Cesar Server started!`)
-  console.log(`Listening on port ${port}...`);
+dbmStart.createDatabase("cesar")
+.then(function() {
+  dbmCesar.up().then(function() {
+    app.listen(port, () => {
+      console.info(`Listening on port ${port}...`);
+      console.info(`Cesar Server started!`)
+    })
+  });
+})
+.catch(function(e) {
+  dbmCesar.up().then(function() {
+    app.listen(port, () => {
+      console.info(`Listening on port ${port}...`);
+      console.info(`Cesar Server started!`)
+    })
+  });
 });
