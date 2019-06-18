@@ -30,6 +30,17 @@ class Utils {
     document.body.className.replace(`/\b${className}\b/g`, "");
   }
 
+  static formatDate = (date) => {
+    if(!!date){
+      let formattedDate = date;
+      if(typeof date === 'string'){
+        formattedDate = new Date(date);
+      }
+      return formattedDate.toISOString().split('T')[0];
+    }
+    return "";
+  }
+
   static setMobileView = () => {
     const isMobile = Utils.isMobile();
     if(isMobile) {

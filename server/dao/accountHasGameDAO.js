@@ -8,11 +8,16 @@ class AccountHasGameDAO extends BasicDAO {
   }
 
   getByAccount(accountId, cb) {
-    return dao.selectMany({table: this.table, params: {account_id: accountId}}, cb);
+    return dao.selectMany({ table: "game",
+                            join: "LEFT JOIN account_has_game ON game.id = account_has_game.game_id",
+                            params: {account_id: accountId}},
+                            cb);
   }
 
   getByGame(gameId, cb) {
-    return dao.selectMany({table: this.table, params: {game_id: gameId}}, cb);
+    return dao.selectMany({ table: this.table,
+                            params: {game_id: gameId}},
+                            cb);
   }
 
   getByAccountAndGame({accountId, gameId}, cb){

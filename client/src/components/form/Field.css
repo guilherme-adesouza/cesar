@@ -5,6 +5,7 @@
   text-align: left;
 }
 
+.Field textarea,
 .Field select,
 .Field input {
   width: 100%;
@@ -29,6 +30,7 @@
 }
 
 /*dark theme*/
+body.Dark .Field textarea,
 body.Dark .Field select,
 body.Dark .Field input {
   background-color: #494b54;

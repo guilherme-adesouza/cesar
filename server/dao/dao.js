@@ -10,9 +10,9 @@ class DAO {
     db.executeQuery(query, (result) => cb(result[0]));
   }
 
-  static selectMany({table = '', fields = '*', params = {}, additionalQuery = ''}, cb) {
+  static selectMany({table = '', fields = '*', join = "", params = {}, additionalQuery = ''}, cb) {
     const query = {
-      text: `SELECT ${fields} FROM ${table} ${getParams(params)} ${additionalQuery}`,
+      text: `SELECT ${fields} FROM ${table} ${join} ${getParams(params)} ${additionalQuery}`,
       values: Object.values(params)
     }
     db.executeQuery(query, (result) => cb(result));

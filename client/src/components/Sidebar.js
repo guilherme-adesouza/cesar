@@ -10,7 +10,6 @@ class Sidebar extends Component {
     state = {
       navigationList: [
         {link: "/dashboard", icon: "dashboard", name: "Dashboard"},
-        {link: "/inventory", icon: "assignment_outline", name: "Inventário"},
         {link: "/races", icon: "timer_outline", name: "Corridas"},
         {link: "/games", icon: "videogame_asset_outline", name: "Jogos"},
         {link: "/achievements", icon: "star_rate_outline", name: "Conquistas"},

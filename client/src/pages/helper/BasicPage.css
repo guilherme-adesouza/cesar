@@ -43,7 +43,7 @@ body.Dark .App .MainContent {
 }
 
 .Content {
-  padding: 0 5vw;
+  padding: 0 5vw 5vh;
   overflow-y: auto;
   height: 100%;
 }

@@ -11,7 +11,7 @@ function validateLogin(credentials, user, res){
   }
 }
 
-function checkJWT(jwt){
+function checkJWT(jwt, res){
   if(!jwt){ //check jwt
     res.clearCookie('cesar_session');
     res.send({auth: false});
@@ -45,7 +45,7 @@ module.exports = function(app){
 
   app.get('/api/verify-auth', (req, res) => {
     const jwt = Security.decodeRequestToken(req);
-    checkJWT(jwt);
+    checkJWT(jwt, res);
     if(req.query.checkMaster) {
       res.send({auth: jwt.user.master});
     } else {

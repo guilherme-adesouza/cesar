@@ -46,6 +46,7 @@ class AccountController extends BasicController {
   initialize(){
     super.initialize();
     this.getByPlayer();
+    this.getGames();
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
+import Utils from '../../utils/Utils';
 
-const CSField = ({
-                          type = "text",
+const CSDateField = ({
                           title = null,
                           field,
                           form,
@@ -10,14 +10,10 @@ const CSField = ({
                           ...props
                         }) => {
   const holder = placeholder || title;
-  if(type === "textarea"){
-    return (
-      <textarea placeholder={holder} {...field} {...props}/>
-    );
-  }
+  const {value, ...fieldProps} = field;
   return (
-    <input placeholder={holder} type={type} {...field} {...props}/>
+    <input placeholder={holder} value={Utils.formatDate(value)} {...fieldProps} {...props}/>
   );
 }
 
-export default CSField;
+export default CSDateField;

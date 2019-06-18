@@ -16,16 +16,21 @@ const CSSelectField = ({
                           name = '',
                           title = null,
                           options = [],
-                          keys={value: "value", label: "label"},
+                          customChange = null,
+                          keys={value: 'value', label: 'label'},
                           emptyOption = true,
                           field,
-                          form,
                           ...props
                         }) => {
   const opts = arrayToOptions(options, keys);
+  const {onChange, ...fieldProps} = field;
   return (
-    <select {...field}
-            {...props}>
+    <select {...props}
+            {...fieldProps}
+            onChange={(e) => {
+              if(customChange) customChange(e);
+              onChange(e);
+            }}>
         {emptyOption &&
             <option value="">Selecione uma opção</option>
         }

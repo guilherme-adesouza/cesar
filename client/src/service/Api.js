@@ -4,6 +4,7 @@ import GameService from './GameService';
 import GenreService from './GenreService';
 import PlatformService from './PlatformService';
 import RaceService from './RaceService';
+import RaceTypeService from './RaceTypeService';
 import UserService from './UserService';
 
 class Api {
@@ -13,6 +14,7 @@ class Api {
   static Genre = new GenreService();
   static Platform = new PlatformService();
   static Race = new RaceService();
+  static RaceType = new RaceTypeService();
   static User = new UserService();
 }
 

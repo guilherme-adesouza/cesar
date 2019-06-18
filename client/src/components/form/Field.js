@@ -5,15 +5,25 @@ import {Field, ErrorMessage} from 'formik';
 
 import CSField from './CSField';
 import CSSelectField from './CSSelectField';
+import CSDateField from './CSDateField';
 
 const COMPONENTS = {
   "text": CSField,
+  "textarea": CSField,
   "password": CSField,
   "select": CSSelectField,
+  "date": CSDateField,
 }
 
-const MyField = ({className = '', name= '', type = 'text', title = null, required = false, ...props}) => {
-  const component = !!COMPONENTS[type] ? COMPONENTS[type] : type;
+const MyField = ({
+                    className = '',
+                    name= '',
+                    type = 'text',
+                    title = null,
+                    required = false,
+                    ...props
+                  }) => {
+  const component = !!COMPONENTS[type] ? COMPONENTS[type] : undefined;
   return (
     <div className={`Field ${className}`}>
       {title && <span className="Title">{title}{required ? " *" : ""}</span>}

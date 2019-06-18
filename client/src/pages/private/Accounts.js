@@ -13,7 +13,7 @@ import CSButton from '../../components/form/CSButton';
 
 const GameSchema = csYup(yup => {
   return yup.object().shape({
-    platform_id: yup.number().required().default(''),
+    platform_id: yup.number().required().default(0),
     account: yup.string().required().default(''),
     nickname: yup.string().required().default(''),
     link: yup.string().default(''),

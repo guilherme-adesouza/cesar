@@ -34,6 +34,19 @@ p {
   white-space: nowrap;
 }
 
+.Row {
+  display: flex;
+  align-items: center;
+}
+
+.Row.Half > * {
+  width: 50%;
+}
+
+.Row.Half > *:not(:first-child) {
+  margin-left: 2%;
+}
+
 .CesarLogo {
   color: transparent;
 }
