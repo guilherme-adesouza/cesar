@@ -37,6 +37,7 @@ require('./controller/player')(app);
 require('./controller/race')(app);
 require('./controller/raceType')(app);
 require('./controller/user')(app);
+require('./controller/mail')(app);
 require('./utils/upload')(app);
 
 app.get('/', (req, res) => {
