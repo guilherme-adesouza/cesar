@@ -33,14 +33,16 @@ class Mail {
   static async sendMail({from, to, subject, text, body}){
     await Mail.start();
     console.log("[MAIL]: Preparing to sent mail... "+account.user+" | "+to+" | "+from+" | "+subject+" | "+text);
-    let info = await transport.sendMail({
+    return await transport.sendMail({
       from: account.user, // sender address
       to: to, // list of receivers
       subject: subject, // Subject line
       text: text, // plain text body
       html: body // html body
     }).then(info => {
-      console.log('Preview URL: ' + nodemailer.getTestMessageUrl(info));
+      const previewURL = nodemailer.getTestMessageUrl(info);
+      console.info('Preview URL: '+previewURL);
+      return {previewURL};
     });
   }
 }

@@ -1,18 +1,14 @@
 const fs = require('fs');
-const path = require('path');
-const os = require('os');
 const crypto = require('crypto');
 let multer = require('multer');
 const Config = require('../utils/config');
 
-const uploadDir = path.join(os.homedir(), Config.UPLOAD_DIR);
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, uploadDir)
+    cb(null, Config.UPLOAD_DIR)
   },
   filename: (req, file, cb) => {
-    console.info('Uploading file ', file.originalname, ' into \''+uploadDir+'\'...');
+    console.info('Uploading file ', file.originalname, ' into \''+Config.UPLOAD_DIR+'\'...');
     cb(null, file.originalname)
   }
 });
@@ -21,7 +17,7 @@ const upload  = multer({storage});
 
 module.exports = function(app){
     app.post('/api/upload', upload.single('file'), (req, res) => {
-        fs.mkdir(uploadDir, (err) => {
+        fs.mkdir(Config.UPLOAD_DIR, (err) => {
             if(err.code !== 'EEXIST'){
               console.error('error creating directory: ', err);
               res.status(500).send({message: 'error creating directory: ', err})

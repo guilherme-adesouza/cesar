@@ -13,8 +13,8 @@ class MailController {
       const body = req.body;
       body.from = player;
       try {
-        await Mail.sendMail(body);
-        res.sendStatus(200);
+        const result = await Mail.sendMail(body);
+        res.send(result).status(200);
       } catch(error){
         throw new Error(error);
       }

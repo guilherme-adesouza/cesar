@@ -21,7 +21,7 @@ var dbmStart = DBMigrate.getInstance(true, { env: 'dev', config: dbStartConfig }
 
 const port = Config.PORT;
 
-app.use(express.static('public'));
+app.use('/uploads', express.static(Config.UPLOAD_DIR));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

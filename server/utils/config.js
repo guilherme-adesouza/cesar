@@ -1,3 +1,5 @@
+const os = require('os');
+const path = require('path');
 require('dotenv').config();
 
 const { PORT, HOST,
@@ -21,7 +23,7 @@ const Config = {
   'API_TOKEN': API_TOKEN || 'TyasA61A9CHaicoJ852',
   'JWT_EXPIRATION_MINUTES': JWT_EXPIRATION_MINUTES || 60,
   'JWT_MAX_DAYS_ALIVE': JWT_MAX_DAYS_ALIVE || 7,
-  'UPLOAD_DIR': UPLOAD_DIR || '.cesar'
+  'UPLOAD_DIR': path.join(os.homedir(), UPLOAD_DIR || '.cesar')
 }
 
 module.exports = Config;
