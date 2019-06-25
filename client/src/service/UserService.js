@@ -7,21 +7,26 @@ class UserService extends BasicService {
     super('user');
   }
 
-  static login = async(data) => {
+  login = async(data) => {
     return await Service.postJSON('/api/login', data);
   }
 
-  static verifyAuth = async() => {
+  verifyAuth = async() => {
     const json =  await Service.getJSON('/api/verify-auth');
     return json.auth;
   }
 
-  static verifyMaster = async() => {
+  verifyMaster = async() => {
     const json =  await Service.getJSON('/api/verify-auth?checkMaster=true');
     return json.auth;
   }
 
-  static logout = async(data) => {
+  getUserData = async() => {
+    const json =  await Service.getJSON('/api/verify-auth');
+    return json.user;
+  }
+
+  logout = async(data) => {
     await Service.get('/api/logout');
   }
 }

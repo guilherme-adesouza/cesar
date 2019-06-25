@@ -41,7 +41,7 @@ class GameForm extends Component {
           <div className="Form">
             <Field title="Nome" name="name" required={true}/>
             <Field title="Nome de visualização" name="name_visualization"/>
-            <CSButton type="submit" className="Dark">Salvar</CSButton>
+            <CSButton type="submit">Salvar</CSButton>
           </div>
         </Form>
       </Formik>

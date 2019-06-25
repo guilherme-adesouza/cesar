@@ -11,10 +11,11 @@
   width: 100%;
   box-sizing: border-box;
   border-radius: 3px;
-  border: 1px solid transparent;
+  border: 1px solid;
+  border-color: transparent;
   height: 28px;
   padding: 3px 6px;
-  color: #d7d7d6;
+  background-color: #ddd;
 }
 
 .Field .Title {
@@ -34,4 +35,5 @@ body.Dark .Field textarea,
 body.Dark .Field select,
 body.Dark .Field input {
   background-color: #494b54;
+  color: #d7d7d6;
 }

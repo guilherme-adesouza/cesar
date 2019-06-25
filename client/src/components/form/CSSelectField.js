@@ -20,6 +20,7 @@ const CSSelectField = ({
                           keys={value: 'value', label: 'label'},
                           emptyOption = true,
                           field,
+                          form,
                           ...props
                         }) => {
   const opts = arrayToOptions(options, keys);

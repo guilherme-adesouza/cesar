@@ -6,7 +6,7 @@ import {
 
 import BasicPage from '../pages/helper/BasicPage';
 import LoadingPage from '../pages/public/Loading';
-import UserService from '../service/UserService';
+import Api from '../service/Api';
 
 export class PrivateComponent extends React.Component {
 
@@ -21,10 +21,10 @@ export class PrivateComponent extends React.Component {
   }
 
   async doAuthenticate(){
-    const isLogged = await UserService.verifyAuth();
+    const isLogged = await Api.User.verifyAuth();
     let isAuthenticated = isLogged;
     if(isLogged && this.props.masterRoute) {
-      isAuthenticated = await UserService.verifyMaster();
+      isAuthenticated = await Api.User.verifyMaster();
     }
     this.setState({
       loading: false,

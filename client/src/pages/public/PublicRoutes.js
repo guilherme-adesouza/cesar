@@ -2,6 +2,7 @@ import NotFound from './NotFound';
 import Login from './Login';
 import Loading from './Loading';
 import Forbidden from './Forbidden';
+import Error from './Error';
 import {Route} from "react-router-dom";
 
 const routes = [
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/403',
     component: Forbidden,
+  },
+  {
+    path: '/error',
+    component: Error,
   },
   {
     component: NotFound,

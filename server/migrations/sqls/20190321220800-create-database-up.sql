@@ -32,11 +32,11 @@ CREATE TABLE "player" (
   "name" VARCHAR(300) NOT NULL,
   "password" TEXT NOT NULL,
   "nickname" VARCHAR(40) NOT NULL,
-  "public" BOOLEAN NOT NULL,
-  "master" BOOLEAN NOT NULL,
+  "public" BOOLEAN NOT NULL DEFAULT TRUE,
+  "master" BOOLEAN NOT NULL DEFAULT FALSE,
   "email" VARCHAR(300) NULL,
   "avatar" TEXT NULL,
-  "active" BOOLEAN NULL,
+  "active" BOOLEAN NULL DEFAULT TRUE,
   "achievements_control" BOOLEAN NULL,
   PRIMARY KEY ("id")
   );

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 
-import UserService from '../../service/UserService';
+import Api from '../../service/Api';
 
 class Logout extends Component {
 
@@ -10,7 +10,7 @@ class Logout extends Component {
   }
 
   async componentDidMount(){
-    await UserService.logout();
+    await Api.User.logout();
     this.setState({loading: false});
   }
 

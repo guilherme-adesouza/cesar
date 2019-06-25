@@ -7,7 +7,9 @@ import Home from './Home';
 import Inventory from './Inventory';
 import Logout from './Logout';
 import Platforms from './Platforms';
+import Profile from './Profile';
 import Races from './Races';
+import UploadExample from '../helper/UploadExample';
 
 const routes = [
   {
@@ -57,8 +59,17 @@ const routes = [
     component: Platforms,
   },
   {
+    path: '/profile',
+    name: 'Meu Perfil',
+    component: Profile,
+  },
+  {
     path: '/races',
     component: Races,
+  },
+  {
+    path: '/upload-example',
+    component: UploadExample
   }
 ];
 

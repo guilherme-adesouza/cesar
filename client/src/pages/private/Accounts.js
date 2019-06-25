@@ -52,7 +52,7 @@ class AccountForm extends Component {
             <Field title="Nickname" name="nickname" required={true}/>
             <Field title="Link para perfil" name="link"/>
             <Field title="Nível" name="level"/>
-            <CSButton type="submit" className="Dark">Salvar</CSButton>
+            <CSButton type="submit">Salvar</CSButton>
           </div>
         </Form>
       </Formik>

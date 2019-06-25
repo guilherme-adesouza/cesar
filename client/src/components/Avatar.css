@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  width: 177px;
 }
 
 .Avatar .Username {
@@ -15,5 +16,7 @@
 
 .Avatar .UserPhoto {
   height: 48px;
+  width: 48px;
   border-radius: 100%;
+  word-break: break-word;
 }

@@ -1,5 +1,3 @@
-import './Players.css';
-
 import React, { Component, Fragment} from 'react';
 
 import * as yup from 'yup';

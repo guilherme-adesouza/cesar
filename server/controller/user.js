@@ -3,11 +3,13 @@ const Config = require('../utils/config');
 const UserDAO = require('../dao/userDAO');
 
 function validateLogin(credentials, user, res){
-  if(!!user && Security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})) {
+  if(!!user && user.active && Security.compareEncryptPassword({encryptPassword: user.password, password: credentials.password})) {
     res.cookie(Security.jwt_name, Security.generateJWT(user), { httpOnly: true });
-    res.send({message: 'login success'});
+    delete user.password;
+    delete user.active;
+    res.send({user});
   } else {
-    res.status(403).send({message: 'NOT OKAY MEN!'});
+    res.status(403).send({message: 'Credentials not valid'});
   }
 }
 
@@ -46,10 +48,15 @@ module.exports = function(app){
   app.get('/api/verify-auth', (req, res) => {
     const jwt = Security.decodeRequestToken(req);
     checkJWT(jwt, res);
+
+    const user = jwt.user;
+    delete user.password;
+    delete user.active;
+
     if(req.query.checkMaster) {
-      res.send({auth: jwt.user.master});
+      res.send({auth: jwt.user.master, user});
     } else {
-      res.send({auth: true});
+      res.send({auth: true, user});
     }
   });
 

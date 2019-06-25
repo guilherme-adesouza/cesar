@@ -8,6 +8,7 @@ body {
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s linear;
 }
 
 *:not(img) {
@@ -71,10 +72,12 @@ p {
 .ThemeBackground {
   background-color: #401C19;
   color: #fff;
+  transition: background-color color 0.2s ease-out;
 }
 
 .ThemeColor {
   color: #401C19;
+  transition: background-color color 0.2s ease-out;
 }
 
 /*dark theme*/

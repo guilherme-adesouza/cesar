@@ -39,7 +39,7 @@ class PlatformForm extends Component {
         <Form>
           <div className="Form">
             <Field title="Plataforma" type="text" name="platform" required={true}/>
-            <CSButton type="submit" className="Dark">Salvar</CSButton>
+            <CSButton type="submit">Salvar</CSButton>
           </div>
         </Form>
       </Formik>
@@ -63,7 +63,7 @@ class PlatformsPage extends Component {
   getPlataformList = async () => {
     this.setState({onForm: false, loading: true});
     try {
-      const platforms = await Api.Platform().getAll();
+      const platforms = await Api.Platform.getAll();
       this.setState({platforms});
     } catch(e) {
       console.error(e);

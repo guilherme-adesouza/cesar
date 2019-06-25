@@ -5,11 +5,20 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 
 import EmptyPhoto from '../resources/images/empty-user-photo.png';
+import Utils from '../utils/Utils';
 
 class Avatar extends Component {
 
   state = {
-    openDropdown: false
+    openDropdown: false,
+    user: {},
+  }
+
+  async componentDidMount(){
+    const sessionInfo = await Utils.getSessionInfo();
+    if(!!sessionInfo){
+      this.setState({user: sessionInfo.user})
+    }
   }
 
   toggleDropdown = (event) => {
@@ -18,14 +27,18 @@ class Avatar extends Component {
   }
 
   render(){
+    const {user, openDropdown} = this.state;
     return (
         <div className="Avatar" onClick={this.toggleDropdown}>
-          <span className="Username">Nome de Usuário</span>
-          <img src={EmptyPhoto} alt="user_photo" className="UserPhoto"/>
-          {this.state.openDropdown &&
+          <span className="Username">{user.nickname}</span>
+          <img src={user.avatar || EmptyPhoto} alt="user_photo" className="UserPhoto"/>
+          {openDropdown &&
             <ul className="Dropdown Contrast">
               <li className="Hover">
-                  <Link className="HideLink" to="logout">Sair</Link>
+                <Link className="HideLink" to="profile">Meu Perfil</Link>
+              </li>
+              <li className="Hover">
+                <Link className="HideLink" to="logout">Sair</Link>
               </li>
             </ul>
           }

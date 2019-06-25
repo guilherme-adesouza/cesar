@@ -6,7 +6,8 @@ import Utils from '../utils/Utils';
 class Table extends React.Component {
 
   static propTypes = {
-    data: PropTypes.array
+    data: PropTypes.array,
+    header: PropTypes.array
   };
 
   static defaultProps = {
@@ -19,13 +20,16 @@ class Table extends React.Component {
     if(!data || data.length === 0) {
       return <EmptyTable object={object} />;
     }
+
+    const header = this.props.header || Object.getOwnPropertyNames(data[0]);
+
     return (
         <table className="Table">
           <thead className="ThemeBackground">
             <tr>
-              {Object.getOwnPropertyNames(data[0]).map((property, idx) => {
+              {header.map((header, idx) => {
                 return (
-                  <th key={idx}>{property}</th>
+                  <th key={idx}>{header}</th>
                 )}
               )}
             </tr>

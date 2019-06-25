@@ -74,7 +74,7 @@ class RaceForm extends Component {
             <Field title="Data prevista de conclusão" type="date" name="date_prev_conclusion"/>
             <Field title="Data de conclusão" type="date" name="date_conclusion"/>
             <Field title="Observação" type="textarea" name="observation"/>
-            <CSButton type="submit" className="Dark">Salvar</CSButton>
+            <CSButton type="submit">Salvar</CSButton>
           </div>
         </Form>
       </Formik>

@@ -7,8 +7,9 @@ import {Redirect} from "react-router-dom";
 
 import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
-import UserService from '../../service/UserService';
+import Api from '../../service/Api';
 import Logo from '../../components/Logo';
+import Utils from '../../utils/Utils';
 
 const LoginSchema = yup.object().shape({
   username: yup.string().required().default(''),
@@ -21,7 +22,8 @@ class Login extends Component {
 
   attemptLogin = async (values, actions) => {
     try {
-      await UserService.login(values);
+      const user = await Api.User.login(values);
+      Utils.setSessionInfo(user);
       this.setState({redirectToReferrer: true});
     } catch(e) {
       console.error('error trying to login', e);
@@ -29,6 +31,10 @@ class Login extends Component {
   }
 
   initProfile = LoginSchema.default();
+
+  componentDidMount(){
+    Utils.setSessionInfo();
+  }
 
   render() {
     let from = this.props.location.state ? this.props.location.state.from || { pathname: "/home" } : { pathname: "/home" };
