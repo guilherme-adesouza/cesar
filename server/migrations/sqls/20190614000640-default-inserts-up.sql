@@ -593,3 +593,8 @@ UPDATE game SET name_visualization = 'The Fall' WHERE id IN (133);
 UPDATE game SET name_visualization = 'Lines X Free' WHERE id IN (150);
 UPDATE game SET name_visualization = 'Lines X' WHERE id IN (149);
 UPDATE game SET name_visualization = 'Lines Infinite' WHERE id IN (151);
+
+INSERT INTO race_type VALUES (default, 'Platina');
+INSERT INTO race_type VALUES (default, 'Replatina');
+INSERT INTO race_type VALUES (default, 'Novas Conquistas');
+INSERT INTO race_type VALUES (default, 'ForFun');

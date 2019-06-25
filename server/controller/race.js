@@ -5,6 +5,13 @@ class RaceController extends BasicController {
   initialize(){
     super.initialize();
   }
+
+  beforeSaveOrUpdate({req, res, ...props}){
+    const {game_id, account_id, ...bodyProps} = req.body
+    let body = {...bodyProps}
+    body.account_has_game_id = game_id
+    return body;
+  }
 }
 
 module.exports = function(app){
