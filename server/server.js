@@ -11,7 +11,7 @@ var dbConfig = {
   dev: {
     user: Config.DB_USER,
     host: Config.HOST,
-    database = Config.DB_NAME,
+    database: Config.DB_NAME,
     password: Config.DB_PASSWORD,
     port: Config.DB_PORT,
     driver: 'pg'
