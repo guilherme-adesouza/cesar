@@ -43,7 +43,7 @@ class BasicController {
       const object = this.beforeSaveOrUpdate({req, res});
       try {
         this.dao.insert(object, (response) => {
-          res.status(201).send({response});
+          res.status(201).send({message: "Create successfully"});
         })
       } catch(error){
         throw new Error(error);
@@ -57,7 +57,7 @@ class BasicController {
       const object = this.beforeSaveOrUpdate({req, res, id});
       try {
         this.dao.update(id, object, (object) => {
-          res.sendStatus(204);
+          res.status(204).send({message: "Update successfully"});
         })
       } catch(error){
         throw new Error(error);
@@ -70,7 +70,7 @@ class BasicController {
       const id = req.params.id;
       try {
         this.dao.delete(id, (cbRes) => {
-          res.sendStatus(200);
+          res.status(200).send({message: "Delete successfully"});
         })
       } catch(error){
         throw new Error(error);

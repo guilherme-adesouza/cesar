@@ -6,7 +6,7 @@ const { PORT, HOST,
         DB_START_NAME,
         DB_USER, DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT,
         API_TOKEN, JWT_EXPIRATION_MINUTES, JWT_MAX_DAYS_ALIVE,
-        UPLOAD_DIR} = process.env;
+        UPLOAD_DIR, UPLOAD_DIR_EXPOSE} = process.env;
 
 const Config = {
   'PORT': PORT || 5000,
@@ -23,7 +23,8 @@ const Config = {
   'API_TOKEN': API_TOKEN || 'TyasA61A9CHaicoJ852',
   'JWT_EXPIRATION_MINUTES': JWT_EXPIRATION_MINUTES || 60,
   'JWT_MAX_DAYS_ALIVE': JWT_MAX_DAYS_ALIVE || 7,
-  'UPLOAD_DIR': path.join(os.homedir(), UPLOAD_DIR || '.cesar')
+  'UPLOAD_DIR': path.join(os.homedir(), UPLOAD_DIR || '.cesar'),
+  'UPLOAD_DIR_EXPOSE': UPLOAD_DIR_EXPOSE || '/uploads',
 }
 
 module.exports = Config;

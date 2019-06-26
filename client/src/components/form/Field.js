@@ -6,6 +6,7 @@ import {Field, ErrorMessage} from 'formik';
 import CSField from './CSField';
 import CSSelectField from './CSSelectField';
 import CSDateField from './CSDateField';
+import FileField from './FileField';
 
 const COMPONENTS = {
   "text": CSField,
@@ -13,6 +14,7 @@ const COMPONENTS = {
   "password": CSField,
   "select": CSSelectField,
   "date": CSDateField,
+  "file": FileField
 }
 
 const MyField = ({

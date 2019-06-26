@@ -17,45 +17,11 @@ const ProfileSchema = csYup(yup => {
     nickname: yup.string().required().default(''),
     email: yup.string().default(''),
     nickname: yup.string().default(''),
-    avatar: yup.string().default(''),
+    avatar: yup.mixed().default(undefined),
   })
 });
 
-class ProfileForm extends Component {
-
-  saveProfile = async (values, actions) => {
-    try {
-      await Api.User.update(values);
-      this.props.onSubmit();
-    } catch(e) {
-      console.error('error trying to create plataform...', e);
-    }
-  }
-
-  render(){
-    return (
-      <Formik
-        validationSchema={ProfileSchema}
-        initialValues={this.props.initProfile}
-        onSubmit={this.saveProfile}>
-        <Form>
-          <div className="Form">
-            <div>
-            </div>
-            <div>
-              <Field title="Nome" name="name" required={true}/>
-              <Field title="Apelido" name="nickname"/>
-              <Field title="E-mail" name="email"/>
-            </div>
-            <CSButton type="submit">Salvar</CSButton>
-          </div>
-        </Form>
-      </Formik>
-    )
-  }
-}
-
-class GamesPage extends Component {
+class ProfilePage extends Component {
 
   state = {
     loading: true,
@@ -71,23 +37,59 @@ class GamesPage extends Component {
     }
   }
 
+  saveProfile = async (values, actions) => {
+    const {avatar, id, ...profileValues} = values;
+    const profile = profileValues;
+    try {
+      if(!!avatar && typeof avatar === 'object'){
+        const {path} = await Api.File.upload({file: avatar});
+        profile.avatar = path;
+      }
+      await Api.User.update(id, profile);
+      Utils.setSessionInfo(profile);
+    } catch(e) {
+      console.error('error trying to save profile...', e);
+    }
+  }
+
   render(){
     const {loading, games, initProfile} = this.state;
 
     if(loading) return null;
     return (
-      <div className="Plataform">
+      <div className="Profile">
         <div className="ContentTitle">
           <h2 className="Title">Meu Perfil</h2>
         </div>
-        <ProfileForm
-          initProfile={initProfile}
-          onSubmit={this.getGamesList}
-        />
+        <div>
+          <Formik
+            validationSchema={ProfileSchema}
+            initialValues={this.state.initProfile}
+            onSubmit={this.saveProfile}>
+            <Form>
+              <div className="ProfileForm">
+                <div className="AvatarForm">
+                  <Field name="avatar"
+                         type="file"/>
+                </div>
+                <div className="ProfileData">
+                  <div className="Form">
+                    <div>
+                      <Field title="Nome" name="name" required={true}/>
+                      <Field title="Apelido" name="nickname"/>
+                      <Field title="E-mail" name="email"/>
+                    </div>
+                    <CSButton type="submit">Salvar</CSButton>
+                  </div>
+                </div>
+              </div>
+            </Form>
+          </Formik>
+        </div>
       </div>
     )
   }
 
 }
 
-export default GamesPage;
+export default ProfilePage;

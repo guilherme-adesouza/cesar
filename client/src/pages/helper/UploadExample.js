@@ -17,7 +17,7 @@ class UploadExample extends Component {
 
   uploadFile = async (values, actions) => {
     try {
-      await FileService.upload(values);
+      await new FileService().upload(values);
       actions.resetForm(FileSchema.default());
     } catch(e) {
       console.error('error trying to upload', e);

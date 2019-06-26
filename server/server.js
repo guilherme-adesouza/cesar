@@ -6,22 +6,27 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 var DBMigrate = require('db-migrate');
-var dbmCesar = DBMigrate.getInstance(true);
-var dbStartConfig = {
+
+var dbConfig = {
   dev: {
     user: Config.DB_USER,
     host: Config.HOST,
-    database: Config.DB_START_NAME,
+    database = Config.DB_NAME,
     password: Config.DB_PASSWORD,
     port: Config.DB_PORT,
     driver: 'pg'
   }
 };
+
+var dbStartConfig = dbConfig;
+dbStartConfig.dev.database = Config.DB_START_NAME;
+
+var dbmCesar = DBMigrate.getInstance(true, { env: 'dev', config: dbConfig });
 var dbmStart = DBMigrate.getInstance(true, { env: 'dev', config: dbStartConfig });
 
 const port = Config.PORT;
 
-app.use('/uploads', express.static(Config.UPLOAD_DIR));
+app.use(Config.UPLOAD_DIR_EXPOSE, express.static(Config.UPLOAD_DIR));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

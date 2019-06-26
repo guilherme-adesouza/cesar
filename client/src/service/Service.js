@@ -85,7 +85,7 @@ class Service {
     };
 
     return await Service.fetch(url, options, async (response) => {
-      return await response.json();
+      return await response;
     });
   }
 

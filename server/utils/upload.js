@@ -29,6 +29,7 @@ const upload  = multer({storage});
 
 module.exports = function(app){
     app.post('/api/upload', upload.single('file'), (req, res) => {
-        res.status(200).send({message: 'Upload successfully!', path: req.file.path});
+        const filePath = path.join(Config.UPLOAD_DIR_EXPOSE, req.file.filename);
+        res.status(200).send({message: 'Upload successfully!', path: filePath});
     });
 }

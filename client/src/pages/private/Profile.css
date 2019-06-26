@@ -1,0 +1,19 @@
+.Profile .ProfileForm {
+  display: flex;
+}
+
+.Profile .ProfileForm > * {
+  padding: 2%;
+}
+
+.Profile .ProfileForm .ProfileData {
+  width: 64%;
+}
+
+.Profile .ProfileForm .AvatarDescription {
+  word-break: break-all;
+}
+
+.Profile .ProfileForm .AvatarForm {
+  width: 30%;
+}

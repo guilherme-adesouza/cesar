@@ -1,5 +1,6 @@
 import './FileField.css';
 import React, {Component} from 'react';
+import EmptyPhoto from '../../resources/images/empty-user-photo.png';
 
 class FileField extends Component {
 
@@ -9,6 +10,10 @@ class FileField extends Component {
       height: 0,
       src: undefined
     }
+  }
+
+  componentDidMount(){
+    this.setState({image: {src: this.props.field.value}});
   }
 
   handleSelectFile = (e) => {
@@ -47,14 +52,12 @@ class FileField extends Component {
     const {src, width, height} = this.state.image;
     return(
       <div className="FileField">
-        <span className="UploadInfo">Arquivo para upload</span>
-        <input type="file" accept="image/*" className="FileInput" onChange={this.handleSelectFile}/>
-        {!!src &&
-          <div className="Preview">
-            <img className="PreviewUpload" src={src} alt="Upload"/>
-            <span>{width} x {height}</span>
-          </div>
-        }
+        <div className="FileContent">
+          <input type="file" accept="image/*" className="FileInput" onChange={this.handleSelectFile}/>
+          <div className="UploadHover">Upload</div>
+          <img className="PreviewUpload" src={src || EmptyPhoto} alt="Upload"/>
+          <span className="Dimensions">{!!src ? `${width} x ${height}`: ''}</span>
+        </div>
       </div>
     )
   }
