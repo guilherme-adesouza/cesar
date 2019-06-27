@@ -12,7 +12,6 @@ class Sidebar extends Component {
         {link: "/dashboard", icon: "dashboard", name: "Dashboard"},
         {link: "/races", icon: "timer_outline", name: "Corridas"},
         {link: "/games", icon: "videogame_asset_outline", name: "Jogos"},
-        {link: "/achievements", icon: "star_rate_outline", name: "Conquistas"},
         {link: "/accounts", icon: "account_balance_wallet_outline", name: "Contas"},
         {link: "/platforms", icon: "airplay_outline", name: "Plataformas"},
         {link: "/players", icon: "person", name: "Players"},

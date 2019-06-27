@@ -8,12 +8,15 @@ class FileField extends Component {
     image: {
       width: 0,
       height: 0,
-      src: undefined
+      src: undefined,
+      lineHeight: 0
     }
   }
 
   componentDidMount(){
-    this.setState({image: {src: this.props.field.value}});
+    const lineHeight = !!document.getElementById('PreviewUpload') ? document.getElementById('PreviewUpload').height : 0;
+    const image = {src: this.props.field.value};
+    this.setState({image, lineHeight});
   }
 
   handleSelectFile = (e) => {
@@ -32,9 +35,11 @@ class FileField extends Component {
     reader.onloadend = function (e) {
       let image = new Image();
       image.src = e.target.result;
-      image.onload = function () {
+      image.onload = async function () {
           const {src, width, height} = image;
-          this.setState({image: {src, width, height}});
+          await this.setState({image: {src, width, height}});
+          const lineHeight = !!document.getElementById('PreviewUpload') ? document.getElementById('PreviewUpload').height : 0;
+          this.setState({lineHeight})
       }.bind(this);
     }.bind(this);
   }
@@ -49,14 +54,14 @@ class FileField extends Component {
   }
 
   render(){
-    const {src, width, height} = this.state.image;
+    const {src, width, height, lineHeight} = this.state.image;
     return(
       <div className="FileField">
         <div className="FileContent">
           <input type="file" accept="image/*" className="FileInput" onChange={this.handleSelectFile}/>
-          <div className="UploadHover">Upload</div>
-          <img className="PreviewUpload" src={src || EmptyPhoto} alt="Upload"/>
-          <span className="Dimensions">{!!src ? `${width} x ${height}`: ''}</span>
+          <div className="UploadHover" style={{lineHeight}}>Upload</div>
+          <img className="PreviewUpload" id="PreviewUpload" src={src || EmptyPhoto} alt="Upload"/>
+          {!!width && <span className="Dimensions">{!!src ? `${width} x ${height}`: ''}</span>}
         </div>
       </div>
     )

@@ -1,8 +1,9 @@
 .Dropdown {
   position: absolute;
   border: 1px solid #ccc;
-  width: 100%;
+  width: 200px;
   top: 40px;
+  right: 0;
   padding: 0;
   list-style: none;
   border-radius: 4px;

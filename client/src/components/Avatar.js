@@ -28,6 +28,9 @@ class Avatar extends Component {
 
   render(){
     const {user, openDropdown} = this.state;
+
+    if(!user) return null;
+
     return (
         <div className="Avatar" onClick={this.toggleDropdown}>
           <span className="Username">{user.nickname}</span>

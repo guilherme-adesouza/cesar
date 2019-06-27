@@ -64,7 +64,7 @@ class Login extends Component {
           </Formik>
         </main>
         <footer className="Footer">
-          <p>Criado por <a href="https://github.com/guilherme-adesouza" target="_blank" rel="external nofollow noopener noreferrer">Guilherme Souza</a> e <a href="https://github.com/JuniorLenhart" target="_blank" rel="external nofollow noopener noreferrer">Júnior Lenhart</a></p>
+          <p>Criado por <a href="https://github.com/guilherme-adesouza" target="_blank" rel="external nofollow noopener noreferrer">Guilherme Souza</a>, <a href="https://github.com/JuniorLenhart" target="_blank" rel="external nofollow noopener noreferrer">Júnior Lenhart</a> e <a href="https://github.com/silverKurt" target="_blank" rel="external nofollow noopener noreferrer">Paulo Maehler</a></p>
         </footer>
       </div>
     )

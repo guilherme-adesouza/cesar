@@ -20,6 +20,7 @@ function checkJWT(jwt, res){
   } else if (Date.now() > jwt.expires) { //refresh jwt
       jwt = Security.generateJWT(jwt.user, jwt.expires);
   }
+  return jwt;
 }
 
 module.exports = function(app){
@@ -46,8 +47,8 @@ module.exports = function(app){
   });
 
   app.get('/api/verify-auth', (req, res) => {
-    const jwt = Security.decodeRequestToken(req);
-    checkJWT(jwt, res);
+    let jwt = Security.decodeRequestToken(req);
+    jwt = checkJWT(jwt, res);
 
     const user = jwt.user;
     delete user.password;

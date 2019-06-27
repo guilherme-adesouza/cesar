@@ -2,7 +2,6 @@ import './Profile.css';
 
 import React, {Component} from 'react';
 
-import Button from '../../components/Button';
 import Api from '../../service/Api';
 import Utils from '../../utils/Utils';
 
@@ -16,7 +15,6 @@ const ProfileSchema = csYup(yup => {
     name: yup.string().required().default(''),
     nickname: yup.string().required().default(''),
     email: yup.string().default(''),
-    nickname: yup.string().default(''),
     avatar: yup.mixed().default(undefined),
   })
 });
@@ -53,7 +51,7 @@ class ProfilePage extends Component {
   }
 
   render(){
-    const {loading, games, initProfile} = this.state;
+    const {loading, initProfile} = this.state;
 
     if(loading) return null;
     return (
@@ -64,7 +62,7 @@ class ProfilePage extends Component {
         <div>
           <Formik
             validationSchema={ProfileSchema}
-            initialValues={this.state.initProfile}
+            initialValues={initProfile}
             onSubmit={this.saveProfile}>
             <Form>
               <div className="ProfileForm">
