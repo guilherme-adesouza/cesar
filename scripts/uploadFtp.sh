@@ -1,5 +1,4 @@
 #!/bin/sh
-
 USER=guilherme.souza2
 PASSWD=123
 HOST="ensino.univates.br"
