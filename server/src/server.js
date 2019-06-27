@@ -2,10 +2,8 @@ const Config = require('./utils/config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
 const app = express();
-
-var DBMigrate = require('db-migrate');
+const DBMigrate = require('db-migrate');
 
 var dbConfig = {
   dev: {

@@ -2,25 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('[Client] Install') {
+        stage('Client') {
             steps {
                 dir('client') {
                   sh "npm i"
+                  sh "CI=true npm run test"
+                  sh "npm run build"
                 }
             }
         }
 
-        stage('[Client] Test') {
+        stage('Server') {
             steps {
-                dir('client') {
+                dir('server') {
+                  sh "npm i"
                   sh "npm run test"
-                }
-            }
-        }
-
-        stage('[Client] Build') {
-            steps {
-                dir('client') {
                   sh "npm run build"
                 }
             }

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "test": "jest",
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "server": "nodemon src/server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "build": "rm build.tar.gz && tar -zcvf build.tar.gz migrations/ src/"
   },
   "dependencies": {
     "bcrypt": "^3.0.4",
