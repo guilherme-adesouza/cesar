@@ -1,23 +1,28 @@
 pipeline {
-
     agent any
 
-    options {
-        disableConcurrentBuilds()
-    }
-
     stages {
-        stage('Install') {
+        stage('[Client] Install') {
             steps {
-                sh 'cd ./client'
-                sh "npm i"
+                dir('client') {
+                  sh "npm i"
+                }
             }
         }
 
-        stage('Build') {
+        stage('[Client] Test') {
             steps {
-                sh 'cd ./client'
-                sh "npm run build"
+                dir('client') {
+                  sh "npm run test"
+                }
+            }
+        }
+
+        stage('[Client] Build') {
+            steps {
+                dir('client') {
+                  sh "npm run build"
+                }
             }
         }
     }
