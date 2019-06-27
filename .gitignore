@@ -61,6 +61,8 @@ typings/
 .next
 
 # builds
+client-build/
+server-build/
 junit.xml
-build.tar.gz
+*.tar.gz
 build/
