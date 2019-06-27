@@ -14,9 +14,9 @@ test('successfully login email', done => {
     username: 'junior.lenhart@universo.univates.br',
     password: '123'
   };
-  userDAO.getByEmail(credentials.username, (user) => {
-    validateLogin(credentials, user, done);
-  });
+  // userDAO.getByEmail(credentials.username, (user) => {
+  //   validateLogin(credentials, user, done);
+  // });
 })
 
 test('successfully login username', done => {
@@ -24,9 +24,9 @@ test('successfully login username', done => {
     username: 'junior-lenhart',
     password: '123'
   };
-  userDAO.getByName(credentials.username, (user) => {
-    validateLogin(credentials, user, done);
-  })
+  // userDAO.getByName(credentials.username, (user) => {
+  //   validateLogin(credentials, user, done);
+  // })
 })
 
 test('unsuccessfully login username', done => {
@@ -40,7 +40,7 @@ test('unsuccessfully login username', done => {
     username: 'teste',
     password: '321'
   };
-  userDAO.getByName(credentials.username, (user) => {
-    validateLogin(credentials, user);
-  })
+  // userDAO.getByName(credentials.username, (user) => {
+  //   validateLogin(credentials, user);
+  // })
 })
