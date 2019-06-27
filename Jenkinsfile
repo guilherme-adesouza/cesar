@@ -25,6 +25,20 @@ pipeline {
                 }
             }
         }
+
+        stage('Upload') {
+          steps {
+              dir('scripts') {
+                 sh "./uploadFtp.sh"
+              }
+          }
+        }
+    }
+
+    post {
+        always {
+          junit 'server/*.xml'
+        }
     }
 
 }

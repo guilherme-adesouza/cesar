@@ -1,8 +1,7 @@
 #!/bin/sh
 
-read -p "User: " USER
-#read -sp "Password: " PASSWD
-read -p "Password: " PASSWD
+USER=guilherme.souza2
+PASSWD=123
 SERVER_BUILD="caesar-server-build.tar.gz"
 CLIENT_BUILD="caesar-client-build.tar.gz"
 
