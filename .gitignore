@@ -61,5 +61,6 @@ typings/
 .next
 
 # builds
-
+junit.xml
+build.tar.gz
 build/

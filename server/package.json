@@ -2,7 +2,7 @@
   "name": "cesar",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest",
+    "test": "jest --ci --reporters=default --reporters=jest-junit",
     "server": "nodemon src/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "build": "rm build.tar.gz && tar -zcvf build.tar.gz migrations/ src/"
@@ -17,6 +17,7 @@
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "express-async-handler": "^1.1.4",
+    "jest-junit": "^6.4.0",
     "jsonwebtoken": "^8.5.0",
     "multer": "^1.4.1",
     "nodemailer": "^6.2.1",
@@ -29,6 +30,10 @@
     "jest": "^24.7.1"
   },
   "jest": {
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
     "verbose": true
   }
 }

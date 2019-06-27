@@ -16,6 +16,10 @@ pipeline {
             steps {
                 dir('server') {
                   sh "npm i"
+                  withEnv(["JEST_JUNIT_OUTPUT=./jest-test-results.xml"]) {
+                    sh 'npm run test'
+                  }
+                  junit 'jest-test-results.xml'
                   sh "npm run test"
                   sh "npm run build"
                 }
