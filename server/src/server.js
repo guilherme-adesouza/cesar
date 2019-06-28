@@ -16,10 +16,9 @@ var dbConfig = {
   }
 };
 
+var dbmCesar = DBMigrate.getInstance(true, { env: 'dev', config: dbConfig });
 var dbStartConfig = dbConfig;
 dbStartConfig.dev.database = Config.DB_START_NAME;
-
-var dbmCesar = DBMigrate.getInstance(true, { env: 'dev', config: dbConfig });
 var dbmStart = DBMigrate.getInstance(true, { env: 'dev', config: dbStartConfig });
 
 const port = Config.PORT;

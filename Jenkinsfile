@@ -25,7 +25,8 @@ pipeline {
         stage('Upload') {
           steps {
               dir('scripts') {
-                 sh "./uploadFtp.sh"
+                sh "./uploadScp.sh"
+                sh "./updateHomologation.sh"
               }
           }
         }
