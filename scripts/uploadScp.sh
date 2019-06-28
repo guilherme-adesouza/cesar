@@ -6,6 +6,7 @@ SERVER_BUILD="caesar-server-build.tar.gz"
 CLIENT_BUILD="caesar-client-build.tar.gz"
 
 cd "../server"
+ssh-keyscan 177.44.248.15 >> ~/.ssh/known_hosts
 sshpass -p $PASSWD scp -r $SERVER_BUILD $USER@177.44.248.15:~/caesar/
 
 cd "../client"
