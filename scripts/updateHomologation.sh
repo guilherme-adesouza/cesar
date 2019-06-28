@@ -9,6 +9,13 @@ CLIENT_FOLDER="client/"
 
 cd "../server"
 sshpass -p $PASSWD ssh $USER@177.44.248.15 <<EOF
+  (
+    cd "$NVM_DIR"
+    git fetch --tags origin
+    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+  ) && \. "$NVM_DIR/nvm.sh"
+  unset NPM_CONFIG_PREFIX
+  nvm install --lts
   cd ~/caesar
   tar -zxvf $SERVER_BUILD
   cp -r migrations $SERVER_FOLDER/
