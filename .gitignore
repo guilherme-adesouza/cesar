@@ -66,3 +66,7 @@ server-build/
 junit.xml
 *.tar.gz
 build/
+
+#keys
+*.pub
+*.rsa

@@ -26,6 +26,13 @@ pipeline {
           steps {
               dir('scripts') {
                 sh "./uploadScp.sh"
+              }
+          }
+        }
+
+        stage('Update') {
+          steps {
+              dir('scripts') {
                 sh "./updateHomologation.sh"
               }
           }

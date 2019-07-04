@@ -1,14 +1,12 @@
 #!/bin/sh
 echo "Updating homologation..."
-USER=estudante
-PASSWD=estudante
 SERVER_BUILD="caesar-server-build.tar.gz"
 CLIENT_BUILD="caesar-client-build.tar.gz"
 SERVER_FOLDER="server/"
 CLIENT_FOLDER="client/"
 
 cd "../server"
-sshpass -p $PASSWD ssh $USER@177.44.248.15 <<EOF
+ssh jenkins@34.67.101.28:<<EOF
   (
     cd "$NVM_DIR"
     git fetch --tags origin
