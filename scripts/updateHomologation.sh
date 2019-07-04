@@ -1,12 +1,14 @@
 #!/bin/sh
 echo "Updating homologation..."
+USER=estudante
+PASSWD=estudante
 SERVER_BUILD="caesar-server-build.tar.gz"
 CLIENT_BUILD="caesar-client-build.tar.gz"
 SERVER_FOLDER="server/"
 CLIENT_FOLDER="client/"
 
 cd "../server"
-ssh caesar_homologation:<<EOF
+sshpass -p $PASSWD ssh $USER@177.44.248.15 <<EOF
   cd ~/caesar
   tar -zxvf $SERVER_BUILD
   cp -r migrations $SERVER_FOLDER/
