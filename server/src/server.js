@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/test', (req, res) => {
-  res.send({test: 'I am working! Awesome!' });
+  res.send({test: 'TÁ FUNCIONANDO MAIS OU MENOS! YEY!' });
 });
 
 dbmStart.createDatabase("cesar")
