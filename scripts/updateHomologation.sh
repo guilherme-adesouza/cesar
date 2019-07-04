@@ -6,14 +6,7 @@ SERVER_FOLDER="server/"
 CLIENT_FOLDER="client/"
 
 cd "../server"
-ssh jenkins@34.67.101.28:<<EOF
-  (
-    cd "$NVM_DIR"
-    git fetch --tags origin
-    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-  ) && \. "$NVM_DIR/nvm.sh"
-  unset NPM_CONFIG_PREFIX
-  nvm install --lts
+ssh caesar_homologation:<<EOF
   cd ~/caesar
   tar -zxvf $SERVER_BUILD
   cp -r migrations $SERVER_FOLDER/
