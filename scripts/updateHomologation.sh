@@ -10,6 +10,8 @@ CLIENT_FOLDER="client/"
 cd "../server"
 sshpass -p $PASSWD ssh $USER@177.44.248.15 <<EOF
   cd ~/caesar
+  pm2 delete caesar-server
+  rm -rf $SERVER_FOLDER/*
   tar -zxvf $SERVER_BUILD
   cp -r migrations $SERVER_FOLDER/
   rm -rf migrations
@@ -21,7 +23,16 @@ sshpass -p $PASSWD ssh $USER@177.44.248.15 <<EOF
   echo "Starting server..."
   cd $SERVER_FOLDER
   npm i
-  npm run server &
-  cd ../../
+  pm2 --name caesar-server start npm -- run server
+
+
+  cd ../$CLIENT_FOLDER
+  pm2 stop caesar-client
+  rm -rf $CLIENT_FOLDER/
+  tar -zxvf $CLIENT_BUILD
+  cp -r build/* $CLIENT_FOLDER/
+  cd $CLIENTE_FOLDER/
+  echo "npm install -g serve"
+  echo "pm2 --name caesar-client start serve -- -s ."
 EOF
 echo "Update finished!"
