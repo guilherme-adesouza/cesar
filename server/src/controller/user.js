@@ -50,9 +50,11 @@ module.exports = function(app){
     let jwt = Security.decodeRequestToken(req);
     jwt = checkJWT(jwt, res);
 
-    const user = jwt.user;
-    delete user.password;
-    delete user.active;
+    const user = jwt.user
+    if(typeof user === 'object'){
+      delete user.password;
+      delete user.active;
+    }
 
     if(req.query.checkMaster) {
       res.send({auth: jwt.user.master, user});

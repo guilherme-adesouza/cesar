@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/test', (req, res) => {
-  res.send({test: 'TÁ FUNCIONANDO MAIS OU MENOS! YEY!' });
+  res.send({message: "Caesar API it's working! \o/" });
 });
 
 dbmStart.createDatabase("cesar")
