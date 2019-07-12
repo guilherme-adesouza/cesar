@@ -12,8 +12,25 @@
   float: right;
   padding: 10px;
   min-width: 150px;
-  max-width: 200px;
-  border-radius: 4px;
+  width: 235px;
+  border-radius: 6px;
+  opacity: 0;
+  animation: fadein-out 5.2s linear 0s infinite alternate;
+}
+
+@keyframes fadein-out {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .UiMsg span.Message {
@@ -26,4 +43,12 @@
 
 .UiMsg.Error {
   background-color: red;
+}
+
+.UiMsg.Success {
+    background: #0049ff;
+}
+
+.UiMsg.Warning {
+    background: #a05c00;
 }

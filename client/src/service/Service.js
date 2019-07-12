@@ -21,7 +21,6 @@ class Service {
       }
       return response;
     })
-    .catch(handleError);
   }
 
   static postJSON = async(url, data) => {

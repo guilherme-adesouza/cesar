@@ -10,6 +10,7 @@ import {csYup} from '../../components/form/csYup';
 import { Formik, Form } from 'formik';
 import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
+import UiMsg from '../../components/UiMsg';
 
 const RaceSchema = csYup(yup => {
   return yup.object().shape({
@@ -29,8 +30,9 @@ class RaceForm extends Component {
     try {
       await Api.Race.create(values);
       this.props.onSubmit();
+      UiMsg.success('Corrida salva com sucesso!');
     } catch(e) {
-      console.error('error trying to create race...', e);
+      UiMsg.error(`Ocorreu um erro ao tentar salvar a corrida. ${e}`);
     }
   }
 

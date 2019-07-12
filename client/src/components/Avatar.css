@@ -19,4 +19,5 @@
   width: 48px;
   border-radius: 100%;
   word-break: break-word;
+  overflow: hidden;
 }

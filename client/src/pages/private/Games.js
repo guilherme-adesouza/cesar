@@ -10,6 +10,7 @@ import {csYup} from '../../components/form/csYup';
 import { Formik, Form } from 'formik';
 import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
+import UiMsg from '../../components/UiMsg';
 
 const GameSchema = csYup(yup => {
   return yup.object().shape({
@@ -24,8 +25,9 @@ class GameForm extends Component {
     try {
       await Api.Game.create(values);
       this.props.onSubmit();
+      UiMsg.success('Jogo salvo com sucesso!');
     } catch(e) {
-      console.error('error trying to create plataform...', e);
+      UiMsg.error(`Ocorreu um erro ao tentar salvar o jogo. ${e}`);
     }
   }
 

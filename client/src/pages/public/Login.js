@@ -9,6 +9,7 @@ import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
 import Api from '../../service/Api';
 import Logo from '../../components/Logo';
+import UiMsg from '../../components/UiMsg';
 import Utils from '../../utils/Utils';
 
 const LoginSchema = yup.object().shape({
@@ -26,7 +27,7 @@ class Login extends Component {
       Utils.setSessionInfo(user);
       this.setState({redirectToReferrer: true});
     } catch(e) {
-      console.error('error trying to login', e);
+      UiMsg.error('Usuário ou senha incorretos');
     }
   }
 

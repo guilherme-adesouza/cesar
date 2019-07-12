@@ -9,6 +9,7 @@ import {csYup} from '../../components/form/csYup';
 import { Formik, Form } from 'formik';
 import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
+import UiMsg from '../../components/UiMsg';
 
 const ProfileSchema = csYup(yup => {
   return yup.object().shape({
@@ -43,10 +44,13 @@ class ProfilePage extends Component {
         const {path} = await Api.File.upload({file: avatar});
         profile.avatar = path;
       }
+      profile.avatar = profile.avatar || avatar
       await Api.User.update(id, profile);
-      Utils.setSessionInfo(profile);
+      Utils.setSessionInfo({user: {id, ...profile}});
+      UiMsg.success('Perfil atualizado com sucesso!');
+      window.location.reload();
     } catch(e) {
-      console.error('error trying to save profile...', e);
+      UiMsg.error(`Ocorreu um erro ao tentar salvar o perfil. ${e}`);
     }
   }
 

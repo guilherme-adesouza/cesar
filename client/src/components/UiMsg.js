@@ -18,6 +18,12 @@ class UiMsgComponent extends React.Component {
     ReactDOM.unmountComponentAtNode(UiMsg.getWrapper());
   }
 
+  componentDidMount(){
+    // setTimeout(function(){
+    //   ReactDOM.unmountComponentAtNode(UiMsg.getWrapper());
+    // }, 5000);
+  }
+
   render () {
     const {messageType, message} = this.props
     return (
@@ -54,8 +60,8 @@ class UiMsg {
     )
   }
 
-  static error(message){
-    UiMsg.add({message, messageType: MessagesTypes.ERROR});
+  static error(message, fixed = false){
+    UiMsg.add({message, fixed, messageType: MessagesTypes.ERROR});
   }
 
   static success(message){
