@@ -19,9 +19,9 @@ class UiMsgComponent extends React.Component {
   }
 
   componentDidMount(){
-    // setTimeout(function(){
-    //   ReactDOM.unmountComponentAtNode(UiMsg.getWrapper());
-    // }, 5000);
+    setTimeout(function(){
+      ReactDOM.unmountComponentAtNode(UiMsg.getWrapper());
+    }, 5000);
   }
 
   render () {
