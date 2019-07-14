@@ -1,4 +1,4 @@
-INSERT INTO player VALUES (default, 'Fernando Augusto Giordani', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'GORDAN', true, true, 'fernando.a.giordani@gmail.com', 'link-avatar');
+INSERT INTO player VALUES (default, 'Fernando Augusto Giordani', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'GORDAN', true, false, 'fernando.a.giordani@gmail.com', 'link-avatar');
 
 /* -------------------------------- platform */
 INSERT INTO platform VALUES (default, 'Steam (PC)', 'logo-steam');
