@@ -1,0 +1,41 @@
+.AccountDetail {
+  color: #000;
+  margin: 10px 0;
+  padding: 20px;
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px 1px #161616;
+}
+
+.AccountDetail,
+.AccountLogo .AccountLevel {
+  background-color: #fff;
+}
+
+.AccountLogo {
+  margin-right: 15px;
+  position: relative;
+}
+
+.AccountLogo .PlatformLogo {
+  border-radius: 100%;
+}
+
+.AccountLogo .AccountLevel {
+  border-radius: 100%;
+  border: 1px solid #2f323b;
+}
+
+.AccountLogo .AccountLevel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.AccountData {
+  padding: 10px;
+  width: 100%;
+  border-radius: 4px;
+}

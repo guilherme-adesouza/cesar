@@ -15,11 +15,13 @@ function validateLogin(credentials, user, res){
 
 function checkJWT(jwt, res){
   if(!jwt){ //check jwt
+    console.log('uuuuuuu', jwt);
     res.clearCookie('cesar_session');
     res.send({auth: false});
   } else if (Date.now() > jwt.expires) { //refresh jwt
-      jwt = Security.generateJWT(jwt.user, jwt.expires);
+//      jwt = Security.generateJWT(jwt.user, jwt.expires);
   }
+//  console.log('bleble', jwt);
   return jwt;
 }
 
@@ -48,7 +50,9 @@ module.exports = function(app){
 
   app.get('/api/verify-auth', (req, res) => {
     let jwt = Security.decodeRequestToken(req);
+    console.log('jwt', jwt);
     jwt = checkJWT(jwt, res);
+    console.log('asdad', jwt);
 
     const user = jwt.user
     if(typeof user === 'object'){
@@ -57,6 +61,7 @@ module.exports = function(app){
     }
 
     if(req.query.checkMaster) {
+      console.log(jwt);
       res.send({auth: jwt.user.master, user});
     } else {
       res.send({auth: true, user});

@@ -5,12 +5,15 @@ import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 import {Redirect} from "react-router-dom";
 
+import Utils from '../../utils/Utils';
+import Api from '../../service/Api';
+
 import Field from '../../components/form/Field';
 import CSButton from '../../components/form/CSButton';
-import Api from '../../service/Api';
+
 import Logo from '../../components/Logo';
 import UiMsg from '../../components/UiMsg';
-import Utils from '../../utils/Utils';
+import SwitchThemeButton from '../../components/SwitchThemeButton';
 
 const LoginSchema = yup.object().shape({
   username: yup.string().required().default(''),
@@ -45,10 +48,11 @@ class Login extends Component {
 
     return (
       <div className="LoginPage">
+        <SwitchThemeButton />
         <main>
           <div className="Login Title">
             <Logo size={64}/>
-            Cesar
+            Caesar
           </div>
           <p>Sistema para controle de conquistas</p>
           <Formik

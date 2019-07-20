@@ -1,16 +1,16 @@
 INSERT INTO player VALUES (default, 'Fernando Augusto Giordani', '$2b$10$9O5MsJ0PQoKxSdIDcvIOcuIFZddMH8pCnd6tqZA5jht/9oBpp7iQ.', 'GORDAN', true, false, 'fernando.a.giordani@gmail.com', 'link-avatar');
 
 /* -------------------------------- platform */
-INSERT INTO platform VALUES (default, 'Steam (PC)', 'logo-steam');
-INSERT INTO platform VALUES (default, 'RetroAchievements', 'logo-retroachievements');
-INSERT INTO platform VALUES (default, 'uPlay (PC)', 'logo-uplay');
-INSERT INTO platform VALUES (default, 'Origin (PC)', 'logo-origin');
-INSERT INTO platform VALUES (default, 'Xbox (PC/Xbox/Xbox 360/Xbox One)', 'logo-xbox');
-INSERT INTO platform VALUES (default, 'PlayStation (PS3/PS4)', 'logo-playstation');
-INSERT INTO platform VALUES (default, 'Gog.com (PC)', 'logo-gog.com');
-INSERT INTO platform VALUES (default, 'In-Game', 'logo-ingame');
-INSERT INTO platform VALUES (default, 'Mídia Física', 'logo-midiafisica');
-INSERT INTO platform VALUES (default, 'Genérico', 'logo-generico');
+INSERT INTO platform VALUES (default, 'Steam (PC)', 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png');
+INSERT INTO platform VALUES (default, 'RetroAchievements', 'https://avatars0.githubusercontent.com/u/5411318?s=400&v=4');
+INSERT INTO platform VALUES (default, 'uPlay (PC)', 'https://pbs.twimg.com/media/DfekaqCWkAAt2X5.jpg');
+INSERT INTO platform VALUES (default, 'Origin (PC)', 'https://www.stickpng.com/assets/images/5b447f12e99939b4572e32c0.png');
+INSERT INTO platform VALUES (default, 'Xbox (PC/Xbox/Xbox 360/Xbox One)', 'https://images-na.ssl-images-amazon.com/images/I/31WnRikjvBL.png');
+INSERT INTO platform VALUES (default, 'PlayStation (PS3/PS4)', 'https://cdn.iconscout.com/icon/free/png-512/playstation-34-569261.png');
+INSERT INTO platform VALUES (default, 'Gog.com (PC)', 'https://i1.wp.com/www.metaljesusrocks.com/wp-content/uploads/2014/10/lvRmzs2x.png?fit=400%2C400&ssl=1');
+INSERT INTO platform VALUES (default, 'In-Game', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/768px-Video-Game-Controller-Icon-IDV-green.svg.png');
+INSERT INTO platform VALUES (default, 'Mídia Física', 'https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/cd_gold.png');
+INSERT INTO platform VALUES (default, 'Genérico', 'https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/cd.png');
 
 /* -------------------------------- TYPE */
 INSERT INTO genre VALUES (default, 'Action');

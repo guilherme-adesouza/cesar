@@ -49,7 +49,7 @@ class Utils {
   }
 
   static removeBodyClassName = (className) => {
-    document.body.className.replace(`/\b${className}\b/g`, "");
+    document.body.className.replace(`/${className}/gi`, "");
   }
 
   static formatDate = (date) => {

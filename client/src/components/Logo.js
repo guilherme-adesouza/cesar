@@ -17,9 +17,15 @@ class Logo extends React.Component {
     inDarkTheme: true,
   }
 
-  componentDidMount() {
+  //MIAU
+  updateTheme(){
     const inDarkTheme = Utils.isDarkTheme();
     this.setState({inDarkTheme});
+  }
+
+  componentDidMount() {
+    window._UPDATE_THEME = () => this.updateTheme();
+    this.updateTheme();
   }
 
   render () {

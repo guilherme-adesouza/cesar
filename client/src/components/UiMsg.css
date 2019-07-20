@@ -5,17 +5,26 @@
   margin: 15px;
 }
 
+#UiMsgWrapper,
+.UiMsg {
+  min-width: 150px;
+  width: 235px;
+}
+
 .UiMsg {
   display: inline-flex;
   align-items: center;
   text-align: left;
   float: right;
   padding: 10px;
-  min-width: 150px;
-  width: 235px;
+  margin-bottom: 10px;
   border-radius: 6px;
   opacity: 0;
   animation: fadein-out 5.2s linear 0s infinite alternate;
+}
+
+.UiMsg:last-child {
+    margin-bottom: 0;
 }
 
 @keyframes fadein-out {
