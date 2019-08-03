@@ -12,7 +12,7 @@ class SwitchThemeButton extends React.Component {
         Utils.addBodyClassName("Dark");
       }
       window._UPDATE_THEME();
-    }
+    };
 
     render(){
         return (

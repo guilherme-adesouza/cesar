@@ -1,5 +1,10 @@
 .LoginPage {
-  padding: 10vh 0;
+  margin: 10vh 0;
+  height: 80vh;
+}
+
+.LoginPage main {
+  padding: 8vh 0;
 }
 
 .Login.Title {
@@ -16,7 +21,6 @@
 
 body.Dark .App .Login.Form {
   background: #353b46;
-
 }
 
 .Login.Form {
@@ -34,4 +38,6 @@ body.Dark .App .Login.Form {
 .LoginPage .Footer {
   width: 100%;
   margin: 40px 0;
+  position: absolute;
+  bottom: 0;
 }
