@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "jest --ci --reporters=default --reporters=jest-junit",
-    "server": "nodemon src/server.js",
+    "server": "npm i && nodemon src/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "build": "tar -zcvf caesar-server-build.tar.gz migrations/ src/ package.json"
   },

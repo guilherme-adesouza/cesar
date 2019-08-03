@@ -9,12 +9,12 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.0.1",
     "storybook": "^1.0.0",
     "yup": "^0.26.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm i && react-scripts start",
     "build": "react-scripts build && tar -zcvf caesar-client-build.tar.gz build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
