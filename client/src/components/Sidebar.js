@@ -17,11 +17,11 @@ class Sidebar extends Component {
         {link: "/platforms", icon: "airplay_outline", name: "Plataformas"},
         {link: "/players", icon: "person", name: "Players", master: true},
       ]
-    }
+    };
 
     async componentDidMount() {
       const sessionInfo = await Utils.getSessionInfo();
-      this.setState({userMaster: sessionInfo.user.master})
+      this.setState({userMaster: !!sessionInfo.user && sessionInfo.user.master});
       if(Utils.isMobile()){
         this.props.toggleSidebar(false);
       }
@@ -29,7 +29,7 @@ class Sidebar extends Component {
 
     toggleSidebar = (event) => {
       this.props.toggleSidebar();
-    }
+    };
 
     render(){
       return (

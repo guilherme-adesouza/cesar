@@ -6,11 +6,11 @@ class AccountDetail extends React.Component {
 
   state = {
     selectedAccount: 0,
-  }
+  };
 
   changeSelectedAccount = (event, id) => {
 
-  }
+  };
 
   render () {
     const {platform, accounts} = this.props;
@@ -18,7 +18,7 @@ class AccountDetail extends React.Component {
     return (
       <div className="AccountDetail">
         <div className="AccountLogo">
-          <img className="PlatformLogo" src={platform.logo} width="80"/>
+          <img className="PlatformLogo" src={platform.logo} alt="Platform Logo" width="80"/>
           {!!account.level &&
             <span className="AccountLevel">{account.level}</span>
           }

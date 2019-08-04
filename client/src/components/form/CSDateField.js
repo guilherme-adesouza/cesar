@@ -14,6 +14,6 @@ const CSDateField = ({
   return (
     <input placeholder={holder} value={Utils.formatDate(value)} {...fieldProps} {...props}/>
   );
-}
+};
 
 export default CSDateField;

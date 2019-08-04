@@ -16,7 +16,7 @@ class UiMsgComponent extends React.Component {
   closeMessage = (event) => {
     event.preventDefault();
     ReactDOM.unmountComponentAtNode(UiMsg.getWrapper());
-  }
+  };
 
   componentDidMount(){
     setTimeout(function(){
@@ -25,7 +25,7 @@ class UiMsgComponent extends React.Component {
   }
 
   render () {
-    const {messageType, message} = this.props
+    const {messageType, message} = this.props;
     return (
       <div className={`UiMsg ${messageType}`}>
         <span className="Message">{message}</span>

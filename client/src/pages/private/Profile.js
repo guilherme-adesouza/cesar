@@ -25,7 +25,7 @@ class ProfilePage extends Component {
   state = {
     loading: true,
     initProfile: ProfileSchema.default()
-  }
+  };
 
   async componentDidMount(){
     const sessionInfo = await Utils.getSessionInfo();
@@ -44,7 +44,7 @@ class ProfilePage extends Component {
         const {path} = await Api.File.upload({file: avatar});
         profile.avatar = path;
       }
-      profile.avatar = profile.avatar || avatar
+      profile.avatar = profile.avatar || avatar;
       await Api.User.update(id, profile);
       Utils.setSessionInfo({user: {id, ...profile}});
       UiMsg.success('Perfil atualizado com sucesso!');
@@ -52,7 +52,7 @@ class ProfilePage extends Component {
     } catch(e) {
       UiMsg.error(`Ocorreu um erro ao tentar salvar o perfil. ${e}`);
     }
-  }
+  };
 
   render(){
     const {loading, initProfile} = this.state;

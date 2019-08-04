@@ -10,4 +10,4 @@ class PlayerController extends BasicController {
 module.exports = function(app){
   let controller = new PlayerController(app, 'user', new UserDAO());
   controller.initialize();
-}
+};

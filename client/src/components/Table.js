@@ -12,7 +12,7 @@ class Table extends React.Component {
 
   static defaultProps = {
     data: []
-  }
+  };
 
   render () {
     const {data, object} = this.props;
@@ -57,4 +57,4 @@ const EmptyTable = (props) => {
   return (
     <p>Não existe nenhum{isFeminineWord ? 'a' : ''} <span className="EmptyObject">{props.object}</span> criad{isFeminineWord ? 'a' : 'o'}</p>
   )
-}
+};

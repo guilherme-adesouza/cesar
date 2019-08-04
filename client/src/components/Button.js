@@ -12,6 +12,6 @@ const Button = ({
         {children}
     </div>
   );
-}
+};
 
 export default Button;

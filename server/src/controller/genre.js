@@ -10,4 +10,4 @@ class GenreController extends BasicController {
 module.exports = function(app){
   let controller = new GenreController(app, 'genre', new GenreDAO());
   controller.initialize();
-}
+};

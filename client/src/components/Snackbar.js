@@ -20,13 +20,13 @@ const SnackType = {
     name: 'Alert',
     icon: null
   }
-}
+};
 
 class Snackbar extends Component {
 
   state = {
     snackType: SnackType.NONE,
-  }
+  };
 
   render(){
     const {snackType} = this.state;
@@ -45,7 +45,7 @@ class Snackbar extends Component {
 
   state = {
     snackType: SnackType.NONE
-  }
+  };
 
   render(){
     const {snackType} = this.state;

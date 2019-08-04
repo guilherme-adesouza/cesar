@@ -1,13 +1,13 @@
 const Config = require('../utils/config');
 
-const Pool = require('pg').Pool
+const Pool = require('pg').Pool;
 const pool = new Pool({
   user: Config.DB_USER,
   host: Config.HOST,
   database: Config.DB_NAME,
   password: Config.DB_PASSWORD,
   port: Config.DB_PORT,
-})
+});
 
 const executeQuery = (query, cb) => {
   console.info('[QUERY]: ', JSON.stringify(query));
@@ -17,8 +17,8 @@ const executeQuery = (query, cb) => {
     }
     cb(results.rows);
   })
-}
+};
 
 module.exports = {
   executeQuery
-}
+};

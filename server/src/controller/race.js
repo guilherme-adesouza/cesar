@@ -7,9 +7,9 @@ class RaceController extends BasicController {
   }
 
   beforeSaveOrUpdate({req, res, ...props}){
-    const {game_id, account_id, ...bodyProps} = req.body
-    let body = {...bodyProps}
-    body.account_has_game_id = game_id
+    const {game_id, account_id, ...bodyProps} = req.body;
+    let body = {...bodyProps};
+    body.account_has_game_id = game_id;
     return body;
   }
 }
@@ -17,4 +17,4 @@ class RaceController extends BasicController {
 module.exports = function(app){
   let controller = new RaceController(app, 'race', new RaceDAO());
   controller.initialize();
-}
+};

@@ -38,7 +38,7 @@ class Home extends Component {
         ]
       }
     ],
-  }
+  };
 
   componentDidMount(){
     //carrega dados

@@ -11,7 +11,7 @@ class FileField extends Component {
       src: undefined,
       lineHeight: 0
     }
-  }
+  };
 
   componentDidMount(){
     const lineHeight = !!document.getElementById('PreviewUpload') ? document.getElementById('PreviewUpload').height : 0;
@@ -42,7 +42,7 @@ class FileField extends Component {
           this.setState({lineHeight})
       }.bind(this);
     }.bind(this);
-  }
+  };
 
   handleChange = (img) => {
     this.updatePreview(img);

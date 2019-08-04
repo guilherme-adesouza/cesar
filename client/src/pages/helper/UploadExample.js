@@ -22,7 +22,7 @@ class UploadExample extends Component {
     } catch(e) {
       console.error('error trying to upload', e);
     }
-  }
+  };
 
   render(){
     return(

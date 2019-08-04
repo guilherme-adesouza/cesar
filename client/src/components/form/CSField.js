@@ -18,6 +18,6 @@ const CSField = ({
   return (
     <input placeholder={holder} type={type} {...field} {...props}/>
   );
-}
+};
 
 export default CSField;

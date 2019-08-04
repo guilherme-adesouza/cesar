@@ -15,7 +15,7 @@ const COMPONENTS = {
   "select": CSSelectField,
   "date": CSDateField,
   "file": FileField
-}
+};
 
 const MyField = ({
                     className = '',
@@ -38,6 +38,6 @@ const MyField = ({
       <ErrorMessage component="span" className="Error" name={name}/>
     </div>
   )
-}
+};
 
 export default MyField;

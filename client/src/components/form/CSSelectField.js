@@ -7,7 +7,7 @@ function arrayToOptions(array, keys){
       value: option[keys.value],
       label: option[keys.label]
     };
-  })
+  });
   return Object.values(result);
 }
 
@@ -40,6 +40,6 @@ const CSSelectField = ({
         )}
     </select>
   );
-}
+};
 
 export default CSSelectField;

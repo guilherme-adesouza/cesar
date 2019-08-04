@@ -14,7 +14,8 @@ import UiMsg from '../../components/UiMsg';
 
 const PlatformSchema = csYup(yup => {
   return yup.object().shape({
-    platform: yup.string().required().default('')
+    platform: yup.string().required().default(''),
+    img: yup.string().required().default('')
   })
 });
 
@@ -25,10 +26,10 @@ class PlatformForm extends Component {
       await Api.Platform.create(values);
       this.props.onSubmit();
       UiMsg.success('Plataforma salva com sucesso!');
-    } catch(e) {
+    } catch (e) {
       UiMsg.error(`Ocorreu um erro ao tentar salvar a plataforma. ${e}`);
     }
-  }
+  };
 
   initPlatform = PlatformSchema.default();
 
@@ -41,6 +42,7 @@ class PlatformForm extends Component {
         <Form>
           <div className="Form">
             <Field title="Plataforma" type="text" name="platform" required={true}/>
+            <Field title="Imagem (Link Externo)" type="text" name="img" required={true}/>
             <CSButton type="submit">Salvar</CSButton>
           </div>
         </Form>
@@ -56,7 +58,7 @@ class PlatformsPage extends Component {
     onForm: false,
     clearForm: false,
     platforms: [],
-  }
+  };
 
   async componentDidMount(){
     await this.getPlataformList();
@@ -72,12 +74,12 @@ class PlatformsPage extends Component {
     } finally {
       this.setState({loading: false});
     }
-  }
+  };
 
   newPlataform = (event) => {
     event.preventDefault();
     this.setState({onForm: !this.state.onForm, clearForm: this.state.onForm});
-  }
+  };
 
   render(){
     const {loading, onForm, clearForm, platforms} = this.state;

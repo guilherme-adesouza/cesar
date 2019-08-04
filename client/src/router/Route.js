@@ -4,7 +4,6 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import BasicPage from '../pages/helper/BasicPage';
 import LoadingPage from '../pages/public/Loading';
 import Api from '../service/Api';
 
@@ -14,7 +13,7 @@ export class PrivateComponent extends React.Component {
     loading: true,
     isLogged: true,
     isAuthenticated: false,
-  }
+  };
 
   async componentDidMount() {
     await this.doAuthenticate();
@@ -44,9 +43,7 @@ export class PrivateComponent extends React.Component {
         <React.Fragment>
           {!this.state.isAuthenticated ?
             <Redirect to={{ pathname: redirectPath}} /> :
-            <BasicPage>
-              <Component {...props} />
-            </BasicPage>
+            <Component {...props} />
           }
         </React.Fragment>
       )

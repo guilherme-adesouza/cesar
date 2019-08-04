@@ -15,7 +15,7 @@ class Logo extends React.Component {
 
   state = {
     inDarkTheme: true,
-  }
+  };
 
   //MIAU
   updateTheme(){
@@ -31,7 +31,7 @@ class Logo extends React.Component {
   render () {
     const {size, ...props} = this.props;
 
-    const logoSrc = `caesar-logo${this.state.inDarkTheme ? '-white' : ''}.png`
+    const logoSrc = `caesar-logo${this.state.inDarkTheme ? '-white' : ''}.png`;
     return (
       <img className="CesarLogo" src={logoSrc} alt="Cesar Logo" width={size} height={size} {...props}/>
     )

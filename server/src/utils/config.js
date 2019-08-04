@@ -25,6 +25,6 @@ const Config = {
   'JWT_MAX_DAYS_ALIVE': JWT_MAX_DAYS_ALIVE || 7,
   'UPLOAD_DIR': path.join(os.homedir(), UPLOAD_DIR || '.cesar'),
   'UPLOAD_DIR_EXPOSE': UPLOAD_DIR_EXPOSE || '/uploads',
-}
+};
 
 module.exports = Config;

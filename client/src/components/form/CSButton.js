@@ -13,6 +13,6 @@ const CSButton = ({
         {children}
     </button>
   );
-}
+};
 
 export default CSButton;

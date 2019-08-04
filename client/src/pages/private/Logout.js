@@ -7,7 +7,7 @@ class Logout extends Component {
 
   state = {
     loading: true
-  }
+  };
 
   async componentDidMount(){
     await Api.User.logout();

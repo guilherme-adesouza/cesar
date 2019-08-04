@@ -29,4 +29,4 @@ class MailController {
 module.exports = function(app) {
   const mailController = new MailController(app);
   mailController.initialize();
-}
+};

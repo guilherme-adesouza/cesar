@@ -14,9 +14,15 @@ class AccountController extends BasicController {
     this.app.get(`/api/${this.url}-player/`, (req, res) => {
       const player = Validations.validateUser(req, res);
       try {
-        this.dao.getByPlayer(player, (list) => {
-          res.status(200).send(list);
-        })
+        if (player.master) {
+          this.dao.getAll((list) => {
+            res.status(200).send(list);
+          });
+        } else {
+          this.dao.getByPlayer(player, (list) => {
+            res.status(200).send(list);
+          });
+        }
       } catch(error){
         throw new Error(error);
       }
@@ -53,4 +59,4 @@ class AccountController extends BasicController {
 module.exports = function(app){
   let controller = new AccountController(app, 'account', new AccountDAO(), new AccountHasGameDAO());
   controller.initialize();
-}
+};

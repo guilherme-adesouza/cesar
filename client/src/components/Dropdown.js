@@ -16,6 +16,6 @@ const Dropdown = (props) => {
     </ul>,
     Utils.rootElement
   )
-}
+};
 
 export default Dropdown;

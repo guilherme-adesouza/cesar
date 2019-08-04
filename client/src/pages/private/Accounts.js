@@ -32,7 +32,7 @@ class AccountForm extends Component {
     } catch(e) {
       UiMsg.error(`Ocorreu um erro ao tentar salvar a conta. ${e}`);
     }
-  }
+  };
 
   initGame = GameSchema.default();
 
@@ -69,7 +69,7 @@ class AccountsPage extends Component {
     onForm: false,
     clearForm: false,
     accounts: [],
-  }
+  };
 
   async componentDidMount(){
     await this.getAccounts();
@@ -85,7 +85,7 @@ class AccountsPage extends Component {
     } finally {
       this.setState({loading: false});
     }
-  }
+  };
 
   newAccount = async (event) => {
     event.preventDefault();
@@ -98,7 +98,7 @@ class AccountsPage extends Component {
     } finally {
       this.setState({loading: false});
     }
-  }
+  };
 
   render(){
     const {loading, onForm, clearForm, accounts, platforms} = this.state;

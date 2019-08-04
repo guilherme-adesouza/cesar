@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
         if (err) return cb(err);
 
         const id = "_" +crypto.randomBytes(10).toString("hex");
-        const filename = file.originalname+ id + path.extname(file.originalname)
+        const filename = file.originalname+ id + path.extname(file.originalname);
         console.info('Uploading file ', filename, ' into \''+Config.UPLOAD_DIR+'\'...');
         cb(null, filename)
     })
@@ -32,4 +32,4 @@ module.exports = function(app){
         const filePath = path.join(Config.UPLOAD_DIR_EXPOSE, req.file.filename);
         res.status(200).send({message: 'Upload successfully!', path: filePath});
     });
-}
+};

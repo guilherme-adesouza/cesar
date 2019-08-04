@@ -13,7 +13,7 @@ const Breadcrumbs = (props) => (
             <Route path='/:path' component={BreadcrumbsItem} />
         </ul>
     </div>
-)
+);
 
 class BreadcrumbsItem extends Component {
     render(){

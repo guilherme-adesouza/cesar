@@ -12,7 +12,7 @@ class Avatar extends Component {
   state = {
     openDropdown: false,
     user: {},
-  }
+  };
 
   async componentDidMount(){
     const sessionInfo = await Utils.getSessionInfo();
@@ -24,7 +24,7 @@ class Avatar extends Component {
   toggleDropdown = (event) => {
     event.preventDefault();
     this.setState({openDropdown: !this.state.openDropdown});
-  }
+  };
 
   render(){
     const {user, openDropdown} = this.state;

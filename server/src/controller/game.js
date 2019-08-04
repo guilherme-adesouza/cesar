@@ -12,4 +12,4 @@ class GameController extends BasicController {
 module.exports = function(app){
   let controller = new GameController(app, 'game', new GameDAO());
   controller.initialize();
-}
+};

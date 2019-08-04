@@ -29,7 +29,7 @@ class GameForm extends Component {
     } catch(e) {
       UiMsg.error(`Ocorreu um erro ao tentar salvar o jogo. ${e}`);
     }
-  }
+  };
 
   initGame = GameSchema.default();
 
@@ -58,7 +58,7 @@ class GamesPage extends Component {
     onForm: false,
     clearForm: false,
     games: [],
-  }
+  };
 
   async componentDidMount(){
     await this.getGamesList();
@@ -74,12 +74,12 @@ class GamesPage extends Component {
     } finally {
       this.setState({loading: false});
     }
-  }
+  };
 
   newGame = (event) => {
     event.preventDefault();
     this.setState({onForm: !this.state.onForm, clearForm: this.state.onForm});
-  }
+  };
 
   render(){
     const {loading, onForm, clearForm, games} = this.state;

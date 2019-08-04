@@ -21,7 +21,7 @@ class Service {
       }
       return response;
     })
-  }
+  };
 
   static postJSON = async(url, data) => {
     const options = {
@@ -35,7 +35,7 @@ class Service {
     return await Service.fetch(url, options, async (response) => {
       return await response.json();
     })
-  }
+  };
 
   static postFormData = async(url, formData) => {
     const options = {
@@ -46,19 +46,19 @@ class Service {
     return await Service.fetch(url, options, async (response) => {
       return await response.json();
     });
-  }
+  };
 
   static getJSON = async(url) => {
     return await Service.fetch(url, null, async (response) => {
       return await response.json();
     });
-  }
+  };
 
   static get = async(url) => {
     return await Service.fetch(url, null, async (response) => {
       return await response;
     });
-  }
+  };
 
   static delete = async(url, data) => {
     const options = {
@@ -72,7 +72,7 @@ class Service {
     return await Service.fetch(url, options, async (response) => {
       return await response;
     });
-  }
+  };
 
   static put = async(url, data) => {
     const options = {

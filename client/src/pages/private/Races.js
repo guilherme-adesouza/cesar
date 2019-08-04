@@ -34,14 +34,14 @@ class RaceForm extends Component {
     } catch(e) {
       UiMsg.error(`Ocorreu um erro ao tentar salvar a corrida. ${e}`);
     }
-  }
+  };
 
   initRace = RaceSchema.default();
 
   loadAccountGames = async (event) => {
     event.persist();
     await this.props.loadAccountGames(event.currentTarget.value);
-  }
+  };
 
   render(){
     return (
@@ -95,7 +95,7 @@ class RacesPage extends Component {
     accounts: [],
     games: {},
     accountId: 0,
-  }
+  };
 
   async componentDidMount(){
     this.setState({onForm: false, loading: true});
@@ -113,19 +113,19 @@ class RacesPage extends Component {
 
   getRaceList = async () => {
     return await Api.Race.getAll();
-  }
+  };
 
   getRaceTypeList = async () => {
     return await Api.RaceType.getAll();
-  }
+  };
 
   getPlayerAccounts = async () => {
     return await Api.Account.getByPlayer();
-  }
+  };
 
   loadAccountGames = async (accountId) => {
     if(!!this.state.games[accountId]){
-      this.setState({accountId})
+      this.setState({accountId});
       return;
     }
     try {
@@ -136,12 +136,12 @@ class RacesPage extends Component {
     } catch(e) {
       console.error(e);
     }
-  }
+  };
 
   newRace = (event) => {
     event.preventDefault();
     this.setState({onForm: !this.state.onForm, clearForm: this.state.onForm});
-  }
+  };
 
   render(){
     const {loading, onForm, clearForm, races, accounts, games, raceTypes, accountId} = this.state;

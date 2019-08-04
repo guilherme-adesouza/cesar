@@ -9,14 +9,19 @@ class BasicPage extends Component {
 
   state = {
     openSidebar: false,
-  }
+  };
 
   toggleSidebar = (status) => {
     const openSidebar = !!status ? status : !this.state.openSidebar;
     this.setState({openSidebar});
-  }
+  };
 
-  render(){
+  render() {
+    if(window.location.pathname === '/login') {
+      return (
+          this.props.children
+      )
+    }
     return(
       <div className="Page" style={{heigth: '100%'}}>
         <Header />

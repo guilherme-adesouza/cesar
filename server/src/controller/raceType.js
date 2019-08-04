@@ -10,4 +10,4 @@ class RaceTypeController extends BasicController {
 module.exports = function(app){
   let controller = new RaceTypeController(app, 'race-type', new RaceTypeDAO());
   controller.initialize();
-}
+};

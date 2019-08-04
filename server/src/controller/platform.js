@@ -10,4 +10,4 @@ class PlatformController extends BasicController {
 module.exports = function(app){
   let controller = new PlatformController(app, 'platform', new PlatformDAO());
   controller.initialize();
-}
+};

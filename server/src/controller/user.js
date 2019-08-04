@@ -54,7 +54,7 @@ module.exports = function(app){
     jwt = checkJWT(jwt, res);
     console.log('asdad', jwt);
 
-    const user = jwt.user
+    const user = jwt.user;
     if(typeof user === 'object'){
       delete user.password;
       delete user.active;
@@ -75,4 +75,4 @@ module.exports = function(app){
     }
     res.send("API Token not valid").status(401);
   });
-}
+};

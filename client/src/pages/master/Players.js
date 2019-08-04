@@ -9,7 +9,7 @@ class Player extends Component {
   state = {
     loading: true,
     players: [],
-  }
+  };
 
   async componentDidMount(){
     await this.getPlayersList();
@@ -25,7 +25,7 @@ class Player extends Component {
     } finally {
       this.setState({loading: false});
     }
-  }
+  };
 
   render(){
     const {loading, players} = this.state;
