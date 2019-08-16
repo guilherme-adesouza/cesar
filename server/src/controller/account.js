@@ -29,6 +29,19 @@ class AccountController extends BasicController {
     });
   }
 
+  getAccountInfo(){
+      this.app.get(`/api/${this.url}-player/info`, (req, res) => {
+          const player = Validations.validateUser(req, res);
+          try {
+              this.dao.getPlayerInfo(player, (list) => {
+                  res.status(200).send(list);
+              });
+          } catch(error){
+              throw new Error(error);
+          }
+      });
+  }
+
   getGames(){
     this.app.get(`/api/${this.url}/:id/games`, (req, res) => {
       const accountId = req.params.id;
@@ -53,6 +66,7 @@ class AccountController extends BasicController {
     super.initialize();
     this.getByPlayer();
     this.getGames();
+    this.getAccountInfo();
   }
 }
 

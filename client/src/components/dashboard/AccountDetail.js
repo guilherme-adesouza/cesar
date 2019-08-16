@@ -1,6 +1,7 @@
 import './AccountDetail.css';
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from "react-router-dom";
 
 class AccountDetail extends React.Component {
 
@@ -9,7 +10,7 @@ class AccountDetail extends React.Component {
   };
 
   changeSelectedAccount = (event, id) => {
-
+      this.setState({selectedAccount: id});
   };
 
   render () {
@@ -24,7 +25,21 @@ class AccountDetail extends React.Component {
           }
         </div>
         <div className="AccountData">
-          TESTE
+            <div className="AccountDataDetail">
+                <Link to="#" className="HideLink DataDetailTitle">Jogos</Link>
+                <div className="DataDetailValue">120</div>
+            </div>
+            <div className="AccountDataDetail">
+                <Link to="#" className="HideLink DataDetailTitle">Conquistas</Link>
+                <div className="DataDetailValue">120</div>
+            </div>
+            <div className="AccountDataDetail">
+                <Link to="#" className="HideLink DataDetailTitle">Pontos</Link>
+                <div className="DataDetailValue">120</div>
+            </div>
+        </div>
+        <div className="AccountAction">
+            <Link to="#" className="HideLink ThemeBackground">AÇÃO</Link>
         </div>
       </div>
     );

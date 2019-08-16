@@ -10,6 +10,10 @@ class AccountService extends BasicService {
     return await Service.getJSON(`${this.url}-player`);
   };
 
+  getPlayerInfo = async () => {
+    return await Service.getJSON(`${this.url}-player/info`);
+  };
+
   getGames = async (accountId) => {
       return await Service.getJSON(`${this.url}/${accountId}/games`);
   }

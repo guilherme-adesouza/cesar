@@ -42,6 +42,14 @@ class DAO {
     };
     db.executeQuery(query, (result) => cb(result[0]));
   }
+
+  static custom({sql = '', values = []}, cb){
+    const query = {
+      text: sql,
+      values: values
+    };
+    db.executeQuery(query, (result) => cb(result));
+  }
 }
 
 /*FUNCTIONS*/
