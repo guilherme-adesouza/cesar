@@ -32,10 +32,10 @@ class AccountDAO extends BasicDAO {
         list.forEach(info => {
           let platform = {name: info.platform, logo: info.img};
           let account = {id: info.account_id, level: info.level, nickname: info.nickname};
-          if(!returnList[info.platform_id]){
-            returnList[info.platform_id] = {platform: platform, accounts: []};
+          if(!returnList[info.account_id]){
+            returnList[info.account_id] = {platform: platform, accounts: []};
           }
-          returnList[info.platform_id].accounts.push(account);
+          returnList[info.account_id].accounts.push(account);
         });
         cb(returnList);
     });
