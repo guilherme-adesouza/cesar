@@ -11,3 +11,7 @@
 .BreadcumbTitle .Separator {
   padding: 0 5px;
 }
+
+.BreadcumbTitle a {
+  text-transform: capitalize;
+}
