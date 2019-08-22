@@ -42,6 +42,13 @@ body.Dark .App .MainContent {
   background: #2f323b;
 }
 
+.MainContent {
+  background: linear-gradient(gray, gray), url("http://www.wannaplay.com.br/wp-content/uploads/2017/03/red-dead-redemption-2-rockstar-08.jpg");
+  background-size: cover;
+  background-blend-mode: saturation;
+  width: 100%;
+}
+
 .Content {
   padding: 0 5vw 5vh;
   overflow-y: auto;
