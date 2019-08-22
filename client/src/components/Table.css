@@ -21,7 +21,13 @@
 }
 
 .Table td {
-  border-bottom: 1px solid #48201d;
+  border-bottom: 1px solid #1b4c31;
+  background-color: black;
+  opacity: 0.9;
+}
+
+tbody tr:hover {
+  filter: invert(1);
 }
 
 .EmptyObject {
