@@ -70,13 +70,13 @@ p {
 }
 
 .ThemeBackground {
-  background-color: #401C19;
+  background-color: #1b4c31;
   color: #fff;
   transition: background-color color 0.2s ease-out;
 }
 
 .ThemeColor {
-  color: #401C19;
+  color: #1b4c31;
   transition: background-color color 0.2s ease-out;
 }
 
