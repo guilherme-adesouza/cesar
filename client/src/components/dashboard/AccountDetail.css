@@ -10,12 +10,21 @@
 }
 
 .AccountDetail {
+  background-color: black;
   color: #FFF;
+  filter: grayscale(1);
   margin: 10px 0;
   padding: 20px;
   display: flex;
   border-radius: 4px;
   box-shadow: 0 0 5px 1px #161616;
+  opacity: 0.8;
+}
+
+.AccountDetail:hover {
+  background-color: #252525;
+  filter: initial;
+  opacity: 1;
 }
 
 .AccountDetail {
@@ -32,7 +41,7 @@
 }
 
 .AccountLogo .AccountLevel {
-  border-radius: 100%;
+  border-radius: 15%;
   border: 1px solid #23262d;
 }
 
