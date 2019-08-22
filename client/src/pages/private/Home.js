@@ -41,11 +41,11 @@ class Home extends Component {
     if(this.state.loading) return null;
     return(
       <React.Fragment>
-        <h1 className="Title">Dashboard</h1>
+        <h1 className="Title"></h1>
         <Button onClick={this.toggleView} className="GridButton">
           <MaterialIcon name={`${this.state.gridMode ? 'view_module' : 'format_list_bulleted'}`}/>
         </Button>
-        <div className={`${this.state.gridMode ? 'GridMode' : ''} AccountDetailContainer`}>
+        <div className={`${this.state.gridMode ? '' : 'GridMode'} AccountDetailContainer`}>
           {Object.getOwnPropertyNames(this.state.playerAccounts).map((platformId, idx) => {
             return (<AccountDetail key={idx}
                            platform={this.state.playerAccounts[platformId].platform}
