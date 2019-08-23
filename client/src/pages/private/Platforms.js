@@ -88,7 +88,7 @@ class PlatformsPage extends Component {
     return (
       <div className="Plataform">
         <div className="ContentTitle">
-          <h2 className="Title">Plataformas</h2>
+          <h2 className="Title"></h2>
           <Button className="ThemeBackground" onClick={this.newPlataform}>{this.state.onForm ? "Voltar" : "Novo"}</Button>
         </div>
         {onForm ?
