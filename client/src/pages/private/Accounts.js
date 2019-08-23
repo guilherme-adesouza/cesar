@@ -107,7 +107,6 @@ class AccountsPage extends Component {
     return (
       <div className="Plataform">
         <div className="ContentTitle">
-          <h2 className="Title"></h2>
           <Button className="ThemeBackground" onClick={this.newAccount}>{this.state.onForm ? "Voltar" : "Novo"}</Button>
         </div>
         {onForm ?
