@@ -88,7 +88,7 @@ class GamesPage extends Component {
     return (
       <div className="Plataform">
         <div className="ContentTitle">
-          <h2 className="Title">Games</h2>
+          <h2 className="Title"></h2>
           <Button className="ThemeBackground" onClick={this.newGame}>{this.state.onForm ? "Voltar" : "Novo"}</Button>
         </div>
         {onForm ?
