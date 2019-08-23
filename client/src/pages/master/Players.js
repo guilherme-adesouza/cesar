@@ -34,7 +34,7 @@ class Player extends Component {
     return (
       <div className="Plataform">
         <div className="ContentTitle">
-          <h2 className="Title">Players</h2>
+          <h2 className="Title"></h2>
         </div>
         <Table data={players} object="usuário"/>
       </div>
