@@ -10,12 +10,12 @@ class Sidebar extends Component {
     state = {
       userMaster: false,
       navigationList: [
-        {link: "/dashboard", icon: "dashboard", name: "Dashboard"},
-        {link: "/races", icon: "timer_outline", name: "Corridas"},
-        {link: "/games", icon: "videogame_asset_outline", name: "Jogos"},
-        {link: "/accounts", icon: "account_balance_wallet_outline", name: "Contas"},
-        {link: "/platforms", icon: "airplay_outline", name: "Plataformas"},
         {link: "/players", icon: "person", name: "Players", master: true},
+        {link: "/platforms", icon: "airplay_outline", name: "Plataformas"},
+        {link: "/accounts", icon: "account_balance_wallet_outline", name: "Contas"},
+        {link: "/games", icon: "videogame_asset_outline", name: "Jogos"},        
+        {link: "/races", icon: "timer_outline", name: "Corridas"},
+        {link: "/dashboard", icon: "dashboard", name: "Dashboard"}
       ]
     };
 
