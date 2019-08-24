@@ -13,7 +13,7 @@ import UiMsg from '../../components/UiMsg';
 
 const ProfileSchema = csYup(yup => {
   return yup.object().shape({
-    name: yup.string().required().default(''),
+    username: yup.string().required().default(''),
     nickname: yup.string().required().default(''),
     email: yup.string().default(''),
     avatar: yup.mixed().default(undefined),
@@ -76,8 +76,8 @@ class ProfilePage extends Component {
                 <div className="ProfileData">
                   <div className="Form">
                     <div>
-                      <Field title="Nome" name="name" required={true}/>
-                      <Field title="Apelido" name="nickname"/>
+                      <Field title="Nome" name="nickname" required={true}/>
+                      <Field title="Apelido" name="username"/>
                       <Field title="E-mail" name="email"/>
                     </div>
                     <CSButton type="submit">Salvar</CSButton>
