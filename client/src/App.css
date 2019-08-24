@@ -3,12 +3,12 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  background-image: url('https://italiaparabrasileiros.com/wp-content/uploads/2017/03/2048px-Colosseo_notturna.jpg');
+  background-image: url('https://www.thoughtco.com/thmb/NtMOc3RrMNBzkCZllS4oTZybNHQ=/2548x1693/filters:fill(auto,1)/column-corinthean-157192255-crop-592f4e7b5f9b585950332bc6.jpg');
   background-size: cover;
 }
 
 body.Dark .App {
-  background-image: url('https://www.thoughtco.com/thmb/NtMOc3RrMNBzkCZllS4oTZybNHQ=/2548x1693/filters:fill(auto,1)/column-corinthean-157192255-crop-592f4e7b5f9b585950332bc6.jpg');
+  background-image: url('https://italiaparabrasileiros.com/wp-content/uploads/2017/03/2048px-Colosseo_notturna.jpg');
 }
 
 h1.Title {
