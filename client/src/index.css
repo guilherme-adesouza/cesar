@@ -70,7 +70,7 @@ p {
 }
 
 .ThemeBackground {
-  background-color: #1b4c31;
+  background-color: #1b4c31 !important;
   color: #fff;
   transition: background-color color 0.2s ease-out;
 }

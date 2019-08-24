@@ -55,7 +55,7 @@ class RaceForm extends Component {
               <Field title="Conta"
                      options={this.props.accounts}
                      customChange={this.loadAccountGames}
-                     keys={{value: "id", label: "account"}}
+                     keys={{value: "id", label: ["account", "platform"]}}
                      type="select"
                      name="account_id"
                      required={true}/>

@@ -5,11 +5,33 @@ class AccountDAO extends BasicDAO {
 
   constructor(props) {
     super('account')
+    this.fields = `${this.table}.id, ${this.table}.account, player.username, platform.platform, ${this.table}.nickname, ${this.table}.level, ${this.table}.points, ${this.table}.link`;
+    this.join = `LEFT JOIN player ON player.id = ${this.table}.player_id ` +
+           `LEFT JOIN platform ON platform.id = ${this.table}.platform_id `;
+  }
+
+  getAll(cb) {
+    return dao.selectMany(
+      {
+        fields: this.fields,
+        join: this.join,
+        table: this.table,
+      },
+      cb
+    );
   }
 
   getByPlayer(player, cb) {
     const player_id = player.id;
-    return dao.selectMany({table: this.table, params: {player_id}}, cb);
+    return dao.selectMany(
+      {
+        fields: this.fields,
+        join: this.join,
+        table: this.table,
+        params: {player_id},
+      },
+      cb
+    );
   }
 
   getPlayerInfo(player, cb){

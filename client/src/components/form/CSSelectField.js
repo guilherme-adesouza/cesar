@@ -1,11 +1,22 @@
 import React from 'react';
 
+function buildLabel({label, option, joiner = ' - '}){
+   if(typeof label === 'object') {
+     let concatLabel = [];
+     for(let itemLabel of label) {
+        concatLabel.push(option[itemLabel]);
+     }
+     return concatLabel.join(joiner);
+   }
+   return option[label];
+}
+
 function arrayToOptions(array, keys){
   const result = {};
   array.forEach((option, idx) => {
     result[idx] = {
       value: option[keys.value],
-      label: option[keys.label]
+      label: buildLabel({label: keys.label, option})
     };
   });
   return Object.values(result);

@@ -63,7 +63,7 @@ class Login extends Component {
               <div className="Login Form">
                 <Field title="Usuário/Email" type="text" name="username"/>
                 <Field title="Senha" type="password" name="password"/>
-                <CSButton type="submit">Login</CSButton>
+                <CSButton type="submit" theme={false}>Login</CSButton>
               </div>
             </Form>
           </Formik>

@@ -24,6 +24,13 @@ class UserDAO extends BasicDAO {
     return dao.selectOne({table: this.table, params}, cb);
   };
 
+  getAll(cb) {
+    return dao.selectMany({
+      table: this.table,
+      fields: 'id, username, nickname, email, achievements_control, public, master, active',
+    }, cb);
+  };
+
 }
 
 module.exports = UserDAO;

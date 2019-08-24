@@ -38,7 +38,11 @@ class Table extends React.Component {
             {data.map((row, idx) => (
                 <tr key={idx}>
                   {Object.values(row).map((value, idx) => (
-                      <td key={idx}>{value}</td>
+                      <td key={idx}>
+                        {typeof value === 'boolean' ?
+                          <input type="checkbox" checked={value}/>: value
+                        }
+                      </td>
                     )
                   )}
                 </tr>

@@ -6,10 +6,11 @@ const CSButton = ({
                           className = '',
                           name = '',
                           children,
+                          theme = true,
                           ...props
                         }) => {
   return (
-    <button className={`Button ${className}`} type={type} name={name} {...props}>
+    <button className={`Button ${theme ? 'ThemeBackground' : ''} ${className}`} type={type} name={name} {...props}>
         {children}
     </button>
   );

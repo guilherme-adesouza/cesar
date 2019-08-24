@@ -7,6 +7,10 @@ class GameDAO extends BasicDAO {
     super('game')
   }
 
+  getAll(cb) {
+    return dao.selectMany({table: this.table, additionalQuery: "ORDER BY name"}, cb);
+  }
+
 }
 
 module.exports = GameDAO;

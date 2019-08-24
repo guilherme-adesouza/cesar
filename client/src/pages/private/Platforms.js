@@ -67,7 +67,11 @@ class PlatformsPage extends Component {
   getPlataformList = async () => {
     this.setState({onForm: false, loading: true});
     try {
-      const platforms = await Api.Platform.getAll();
+      let platforms = await Api.Platform.getAll();
+      for(let i=0; i < platforms.length; i++) {
+         const hasImage = !!platforms[i].img;
+         platforms[i].img = hasImage;
+      }
       this.setState({platforms});
     } catch(e) {
       console.error(e);

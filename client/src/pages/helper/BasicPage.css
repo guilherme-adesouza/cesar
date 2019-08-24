@@ -62,3 +62,13 @@ body.Dark .App .MainContent {
 .ContentTitle .Title {
   width: 100%;
 }
+
+body:not(.Dark) .Form {
+  background-color: #fff;
+}
+
+.Form {
+  background-color: #282c34;
+  padding: 20px;
+  border-radius: 4px;
+}

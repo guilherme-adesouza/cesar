@@ -78,7 +78,11 @@ class AccountsPage extends Component {
   getAccounts = async () => {
     this.setState({onForm: false, loading: true});
     try {
-      const accounts = await Api.Account.getByPlayer();
+      let accounts = await Api.Account.getByPlayer();
+      for(let i=0; i < accounts.length; i++) {
+         const hasLink = !!accounts[i].link;
+         accounts[i].link = hasLink;
+      }
       this.setState({accounts});
     } catch(e) {
       console.error('error', e);
