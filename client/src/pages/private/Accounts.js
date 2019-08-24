@@ -44,16 +44,18 @@ class AccountForm extends Component {
         onSubmit={this.saveAccount}>
         <Form>
           <div className="Form">
-            <Field title="Nome da conta" name="account" required={true}/>
+          <div className="Row Half">
+            <Field title="Nível" name="level"/>
             <Field  title="Plataforma"
                     options={this.props.platforms}
                     keys={{value: "id", label:"platform"}}
                     type="select"
                     name="platform_id"
                     required={true}/>
-            <Field title="Nickname" name="nickname" required={true}/>
             <Field title="Link para perfil" name="link"/>
-            <Field title="Nível" name="level"/>
+          </div>
+            <Field title="Nome da conta" name="account" required={true}/>
+            <Field title="Nickname" name="nickname" required={true}/>
             <CSButton type="submit">Salvar</CSButton>
           </div>
         </Form>

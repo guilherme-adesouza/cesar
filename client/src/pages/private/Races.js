@@ -52,29 +52,31 @@ class RaceForm extends Component {
         <Form>
           <div className="Form">
             <div className="Row Half">
+              <Field title="Tipo de Corrida"
+                  options={this.props.raceTypes}
+                  keys={{value: "id", label: "description"}}
+                  type="select"
+                  name="race_type_id"
+                  required={true}/>
               <Field title="Conta"
-                     options={this.props.accounts}
-                     customChange={this.loadAccountGames}
-                     keys={{value: "id", label: ["account", "platform"]}}
-                     type="select"
-                     name="account_id"
-                     required={true}/>
-              <Field title="Jogo"
-                     options={this.props.games[this.props.accountId]}
-                     keys={{value: "id", label: "name"}}
-                     type="select"
-                     name="game_id"
-                     required={true}/>
+                  options={this.props.accounts}
+                  customChange={this.loadAccountGames}
+                  keys={{value: "id", label: ["account", "platform"]}}
+                  type="select"
+                  name="account_id"
+                  required={true}/>
             </div>
-            <Field title="Tipo de Corrida"
-                   options={this.props.raceTypes}
-                   keys={{value: "id", label: "description"}}
-                   type="select"
-                   name="race_type_id"
-                   required={true}/>
-            <Field title="Data de início" type="date" name="started_date" required={true}/>
-            <Field title="Data prevista de conclusão" type="date" name="date_prev_conclusion"/>
-            <Field title="Data de conclusão" type="date" name="date_conclusion"/>
+              <Field title="Jogo"
+                  options={this.props.games[this.props.accountId]}
+                  keys={{value: "id", label: "name"}}
+                  type="select"
+                  name="game_id"
+                  required={true}/>
+            <div className="Row Half">
+              <Field title="Data de início" type="date" name="started_date" required={true}/>
+              <Field title="Data prevista de conclusão" type="date" name="date_prev_conclusion"/>
+              <Field title="Data de conclusão" type="date" name="date_conclusion"/>
+            </div>
             <Field title="Observação" type="textarea" name="observation"/>
             <CSButton type="submit">Salvar</CSButton>
           </div>
