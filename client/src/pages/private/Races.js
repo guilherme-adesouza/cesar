@@ -150,7 +150,6 @@ class RacesPage extends Component {
     return (
       <div className="Race">
         <div className="ContentTitle">
-          <h2 className="Title"></h2>
           <Button className="ThemeBackground" onClick={this.newRace}>{this.state.onForm ? "Voltar" : "Novo"}</Button>
         </div>
         {onForm ?
