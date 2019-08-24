@@ -34,7 +34,7 @@ module.exports = function(app){
         validateLogin(credentials, user, res);
       });
     } else {
-      userDAO.getByName(credentials.username, (user) => {
+      userDAO.getByUsername(credentials.username, (user) => {
         validateLogin(credentials, user, res);
       });
     }

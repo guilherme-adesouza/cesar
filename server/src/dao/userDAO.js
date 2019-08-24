@@ -14,8 +14,8 @@ class UserDAO extends BasicDAO {
     return dao.insert({table: this.table, values}, cb);
   }
 
-  getByName(name, cb) {
-    const params = {name};
+  getByUsername(username, cb) {
+    const params = {username};
     return dao.selectOne({table: this.table, params}, cb);
   };
 
