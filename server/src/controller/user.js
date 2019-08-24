@@ -17,10 +17,8 @@ function checkJWT(jwt, res){
   if(!jwt){ //check jwt
     res.clearCookie('cesar_session');
     res.send({auth: false});
+    return false;
   }
-  // else if (Date.now() > jwt.expires) {
-  //    jwt = Security.generateJWT(jwt.user, jwt.expires);
-  // }
   return jwt;
 }
 
@@ -51,17 +49,18 @@ module.exports = function(app){
     let jwt = Security.decodeRequestToken(req);
     jwt = checkJWT(jwt, res);
 
-    const user = jwt.user;
-    if(typeof user === 'object'){
-      delete user.password;
-      delete user.active;
-    }
+    if(!!jwt){
+      const user = jwt.user;
+      if(typeof user === 'object'){
+        delete user.password;
+        delete user.active;
+      }
 
-    if(req.query.checkMaster) {
-      console.log(jwt);
-      res.send({auth: jwt.user.master, user});
-    } else {
-      res.send({auth: true, user});
+      if(req.query.checkMaster) {
+        res.send({auth: jwt.user.master, user});
+      } else {
+        res.send({auth: true, user});
+      }
     }
   });
 
