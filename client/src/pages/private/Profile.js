@@ -61,7 +61,6 @@ class ProfilePage extends Component {
     return (
       <div className="Profile">
         <div className="ContentTitle">
-          <h2 className="Title"></h2>
         </div>
         <div>
           <Formik
