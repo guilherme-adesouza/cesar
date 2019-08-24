@@ -41,7 +41,6 @@ class Home extends Component {
     if(this.state.loading) return null;
     return(
       <React.Fragment>
-        <h1 className="Title"></h1>
         <Button onClick={this.toggleView} className="GridButton">
           <MaterialIcon name={`${this.state.gridMode ? 'view_module' : 'format_list_bulleted'}`}/>
         </Button>
