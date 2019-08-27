@@ -38,14 +38,9 @@ body.Mobile .PageWrapper.OpenSidebar .MainContent {
   width: calc(100% - 64px);
 }
 
-body.Dark .App{
-  background: #2f323b;
-}
-
 .MainContent {
   /* background: linear-gradient(gray, gray), url("http://www.wannaplay.com.br/wp-content/uploads/2017/03/red-dead-redemption-2-rockstar-08.jpg"); */
   background: linear-gradient(gray, gray), url("https://i5.walmartimages.com/asr/f237ed84-a554-4833-950f-58985155b47f_1.ded9913c525b19548a54fc732412706f.jpeg");
-  /* background: url("https://i5.walmartimages.com/asr/f237ed84-a554-4833-950f-58985155b47f_1.ded9913c525b19548a54fc732412706f.jpeg"); */
   background-size: cover;
   background-blend-mode: saturation;
   width: 100%;
