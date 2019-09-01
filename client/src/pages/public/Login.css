@@ -1,6 +1,8 @@
 .LoginPage {
   margin: 10vh 0;
   height: 80vh;
+  min-height: 580px;
+  position: relative;
 }
 
 .LoginPage main {
@@ -37,7 +39,10 @@ body.Dark .App .Login.Form {
 
 .LoginPage .Footer {
   width: 100%;
-  margin: 40px 0;
   position: absolute;
   bottom: 0;
+}
+
+.LoginPage .SwitchTheme {
+  top: -50px;
 }
