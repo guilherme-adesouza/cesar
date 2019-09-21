@@ -19,9 +19,11 @@ class AccountDetail extends React.Component {
     return (
       <div className="AccountDetail">
         <div className="AccountLogo">
-          <img className="PlatformLogo" src={platform.logo} alt="Platform Logo" width="80"/>
+          <a href={account.link}>
+              <img className="PlatformLogo" src={platform.logo} alt="Platform Logo" width="80"/>
+          </a>
           {!!account.level &&
-            <span className="AccountLevel">{account.level}</span>
+            <span className="AccountLevel" title={`Level: ${account.level}`}>{account.level}</span>
           }
         </div>
         <div className="AccountData">
