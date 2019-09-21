@@ -38,9 +38,9 @@ class AccountDetail extends React.Component {
                 <div className="DataDetailValue">120</div>
             </div>
         </div>
-        <div className="AccountAction">
+        {/* <div className="AccountAction">
             <Link to="#" className="HideLink ThemeBackground">AÇÃO</Link>
-        </div>
+        </div> */}
       </div>
     );
   }

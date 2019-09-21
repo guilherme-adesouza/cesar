@@ -1,96 +1,96 @@
 .AccountDetailContainer.GridMode {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 20px;
-}
-
-.GridButton {
-  width: 56px;
-  margin-left: auto;
-  margin-top: 15px;
-}
-
-.AccountDetail {
-  background-color: black;
-  color: #FFF;
-  filter: grayscale(1);
-  margin: 10px 0;
-  padding: 20px;
-  display: flex;
-  border-radius: 4px;
-  box-shadow: 0 0 5px 1px #161616;
-  opacity: 0.8;
-}
-
-.AccountDetail:hover {
-  background-color: #252525;
-  filter: initial;
-  opacity: 1;
-}
-
-.AccountDetail {
-  background-color: #23262d;
-}
-
-.AccountLogo {
-  margin-right: 15px;
-  position: relative;
-}
-
-.AccountLogo .PlatformLogo {
-  border-radius: 100%;
-}
-
-.AccountLogo .AccountLevel {
-  border-radius: 15%;
-  border: 1px solid #23262d;
-}
-
-.AccountLogo .AccountLevel {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 5px;
-  background-color: #fff;
-  color: #000;
-  width: 45px;
-  height: 33px;
-  line-height: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.AccountData {
-  padding: 10px;
-  width: 100%;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-div:not(.GridMode) > .AccountDetail .AccountData .AccountDataDetail {
-  width: 20%;
-  min-width: 110px;
-}
-
-.AccountData .DataDetailTitle {
-  display: block;
-  margin: 5px;
-  padding: 5px;
-  border-bottom: 1px solid #6e6e6e;
-  text-transform: uppercase;
-}
-
-.AccountAction {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-}
-
-.AccountAction a {
-  padding: 10px 15px;
-  border: 1px solid #333;
-}
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+  }
+  
+  .GridButton {
+    width: 56px;
+    margin-left: auto;
+    margin-top: 15px;
+  }
+  
+  .AccountDetail {
+    background-color: black;
+    color: #FFF;
+    filter: grayscale(1);
+    margin: 10px 0;
+    padding: 20px;
+    display: flex;
+    border-radius: 4px;
+    box-shadow: 0 0 5px 1px #161616;
+    opacity: 0.8;
+  }
+  
+  .AccountDetail:hover {
+    background-color: #252525;
+    filter: initial;
+    opacity: 1;
+  }
+  
+  .AccountDetail {
+    background-color: #23262d;
+  }
+  
+  .AccountLogo {
+    margin-right: 15px;
+    position: relative;
+  }
+  
+  .AccountLogo .PlatformLogo {
+    border-radius: 100%;
+  }
+  
+  .AccountLogo .AccountLevel {
+    border-radius: 15%;
+    border: 1px solid #23262d;
+  }
+  
+  .AccountLogo .AccountLevel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    background-color: #fff;
+    color: #000;
+    width: 45px;
+    height: 33px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .AccountData {
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  div:not(.GridMode) > .AccountDetail .AccountData .AccountDataDetail {
+    width: 20%;
+    min-width: 110px;
+  }
+  
+  .AccountData .DataDetailTitle {
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border-bottom: 1px solid #6e6e6e;
+    text-transform: uppercase;
+  }
+  
+  .AccountAction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+  }
+  
+  .AccountAction a {
+    padding: 10px 15px;
+    border: 1px solid #333;
+  }
