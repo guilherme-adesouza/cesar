@@ -41,13 +41,13 @@ class BasicController {
   insert(){
     this.app.post(`/api/${this.url}`, (req, res) => {
       const object = this.beforeSaveOrUpdate({req, res});
-      try {
+      //try {
         this.dao.insert(object, (response) => {
           res.status(201).send({message: "Create successfully"});
         })
-      } catch(error){
-        throw new Error(error);
-      }
+      //} catch(error){
+      //  throw new Error(error);
+      //}
     });
   }
 

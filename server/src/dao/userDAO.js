@@ -1,5 +1,5 @@
 const dao = require('./dao');
-const security = require('../utils/security');
+const Security = require('../utils/security');
 const BasicDAO = require('./basicDAO');
 
 class UserDAO extends BasicDAO {
@@ -9,9 +9,10 @@ class UserDAO extends BasicDAO {
   }
 
   insert(values, cb) {
-    const {password, ...otherValues} = values;
+    let {password, ...otherValues} = values;
+    password = !!password ? password : '123';
     const player = {password: Security.encrypt(password), ...otherValues};
-    return dao.insert({table: this.table, values}, cb);
+    return dao.insert({table: this.table, values: player}, cb);
   }
 
   getByUsername(username, cb) {

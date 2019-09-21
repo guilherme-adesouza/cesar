@@ -68,9 +68,7 @@ class PlatformsPage extends Component {
   state = {
     loading: true,
     onForm: false,
-    clearForm: false,
     platforms: [],
-    viewPlatforms: [],
   };
 
   async componentDidMount(){
