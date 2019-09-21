@@ -23,7 +23,11 @@ class PlatformForm extends Component {
 
   savePlatform = async (values, actions) => {
     try {
-      await Api.Platform.create(values);
+      if (!!this.props.platformEdit) {
+        await Api.Platform.update(this.props.platformEdit.id, values);
+      } else {
+        await Api.Platform.create(values);
+      }
       this.props.onSubmit();
       UiMsg.success('Plataforma salva com sucesso!');
     } catch (e) {
@@ -32,6 +36,14 @@ class PlatformForm extends Component {
   };
 
   initPlatform = PlatformSchema.default();
+
+  constructor(props) {
+    super(props);
+    if (!!props.platformEdit) {
+      this.initPlatform.platform = props.platformEdit.platform;
+      this.initPlatform.img = props.platformEdit.img;
+    }
+  }
 
   render(){
     return (
@@ -58,6 +70,7 @@ class PlatformsPage extends Component {
     onForm: false,
     clearForm: false,
     platforms: [],
+    viewPlatforms: [],
   };
 
   async componentDidMount(){
@@ -65,12 +78,12 @@ class PlatformsPage extends Component {
   }
 
   getPlataformList = async () => {
-    this.setState({onForm: false, loading: true});
+    this.setState({onForm: false, loading: true, platformEdit: {}});
     try {
       let platforms = await Api.Platform.getAll();
-      for(let i=0; i < platforms.length; i++) {
+      for (let i=0; i < platforms.length; i++) {
          const hasImage = !!platforms[i].img;
-         platforms[i].img = hasImage;
+         platforms[i].hasImage = hasImage;
       }
       this.setState({platforms});
     } catch(e) {
@@ -82,13 +95,19 @@ class PlatformsPage extends Component {
 
   newPlataform = (event) => {
     event.preventDefault();
-    this.setState({onForm: !this.state.onForm, clearForm: this.state.onForm});
+    this.setState({onForm: !this.state.onForm});
   };
 
-  render(){
-    const {loading, onForm, clearForm, platforms} = this.state;
+  updatePlatform = (event, platform) => {
+    event.preventDefault();
+    let platformEdit = this.state.platforms.find(p => { return p.id === platform.id});
+    this.setState({onForm: !this.state.onForm, platformEdit: platformEdit});
+  }
 
-    if(loading) return null;
+  render(){
+    const {loading, onForm, platforms, platformEdit} = this.state;
+
+    if (loading) return null;
     return (
       <div className="Plataform">
         <div className="ContentTitle">
@@ -96,10 +115,10 @@ class PlatformsPage extends Component {
         </div>
         {onForm ?
           <PlatformForm
-            clearForm={clearForm}
+            platformEdit={platformEdit}
             onSubmit={this.getPlataformList}
           />
-        : <Table data={platforms} object="plataforma"/>
+        : <Table data={platforms} onClickItem={this.updatePlatform} itemTitle="Clique para editar" object="plataforma"/>
         }
       </div>
     )

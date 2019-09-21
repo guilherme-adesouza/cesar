@@ -7,7 +7,8 @@ class Table extends React.Component {
 
   static propTypes = {
     data: PropTypes.array,
-    header: PropTypes.array
+    header: PropTypes.array,
+    onClickItem: PropTypes.func
   };
 
   static defaultProps = {
@@ -15,7 +16,7 @@ class Table extends React.Component {
   };
 
   render () {
-    const {data, object} = this.props;
+    const {data, object, onClickItem} = this.props;
 
     if(!data || data.length === 0) {
       return <EmptyTable object={object} />;
@@ -36,7 +37,10 @@ class Table extends React.Component {
           </thead>
           <tbody>
             {data.map((row, idx) => (
-                <tr key={idx}>
+                <tr key={idx} 
+                    onClick={(e) => !!onClickItem && onClickItem(e, row)} 
+                    style={!!onClickItem ? {cursor: 'pointer'} : {}}
+                    title={this.props.itemTitle}>
                   {Object.values(row).map((value, idx) => (
                       <td key={idx}>
                         {typeof value === 'boolean' ?
