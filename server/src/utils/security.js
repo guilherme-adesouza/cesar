@@ -1,5 +1,5 @@
 const Config = require('./config');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const secretKey = 'esquizofrenia_acrombatica';
